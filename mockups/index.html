@@ -1,0 +1,364 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HK Vlog Guide · Mockups</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&family=Source+Sans+3:wght@400;600;700&family=Noto+Sans+TC:wght@500;700&family=Noto+Serif+TC:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --page:#eceee9; --ink:#1b1f1c; --muted:#4f5a53; --rule:#cfd5cf;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--page);color:var(--ink);font:16px/1.5 "Barlow",system-ui,sans-serif;padding:32px 16px 80px}
+::selection{background:#0f5a3a;color:#fff}
+.intro{max-width:1180px;margin:0 auto 40px}
+.intro h1{font:700 2rem/1.1 "Barlow Condensed",sans-serif;letter-spacing:.005em}
+.intro p{color:var(--muted);max-width:62ch;margin-top:8px}
+.dir{max-width:1180px;margin:0 auto 64px}
+.dir-head{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:baseline;border-top:1px solid var(--rule);padding-top:20px;margin-bottom:20px}
+.dir-head h2{font:700 1.6rem/1.15 "Barlow Condensed",sans-serif}
+.tag{font:600 .8rem/1 "Barlow",sans-serif;padding:6px 10px;border-radius:99px;background:#fff;border:1px solid var(--rule)}
+.dir-head p{flex-basis:100%;color:var(--muted);max-width:75ch}
+.phones{display:flex;gap:28px;overflow-x:auto;padding:4px 4px 16px;scroll-snap-type:x mandatory}
+.cap{font:600 .85rem/1.3 "Barlow",sans-serif;color:var(--muted);margin:10px 4px 0}
+.phone-wrap{scroll-snap-align:start;flex:0 0 auto}
+.phone{width:360px;height:760px;border-radius:44px;background:#111;padding:10px;box-shadow:0 18px 40px -18px rgba(20,30,25,.45)}
+.screen{width:100%;height:100%;border-radius:35px;overflow:hidden;position:relative;display:flex;flex-direction:column}
+.zh{font-family:"Noto Sans TC",sans-serif}
+svg.i{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.scroll{flex:1;overflow:hidden}
+
+/* ============ A · DING DING ROLLSIGN ============ */
+.a{--g:#0f5a3a;--g2:#e3efe8;--bg:#f6f8f6;--ink:#17201b;--mut:#4b5a51;--sign:#141414;--amber:#f2b632;background:var(--bg);color:var(--ink);font-family:"Barlow",sans-serif}
+.a .top{background:var(--g);color:#fff;padding:18px 18px 0}
+.a .clock{display:flex;justify-content:space-between;font:600 .85rem/1 "Barlow",sans-serif;color:#cfe6d8}
+.a .days{display:flex;gap:6px;margin:14px -18px 0;padding:0 18px 14px;overflow:hidden}
+.a .day{flex:1;min-width:0;height:56px;border-radius:10px;display:grid;place-items:center;text-align:center;font:600 .78rem/1.1 "Barlow",sans-serif;color:#cfe6d8;background:rgba(255,255,255,.08)}
+.a .day b{display:block;font:700 1.35rem/1 "Barlow Condensed",sans-serif;color:#fff}
+.a .day.on{background:#fff;color:var(--g)}.a .day.on b{color:var(--g)}
+.a .sign{background:var(--sign);color:#fff;margin:0 -18px;padding:14px 18px 16px;border-top:4px solid #0b4029}
+.a .sign small{display:flex;justify-content:space-between;font:600 .72rem/1 "Barlow",sans-serif;letter-spacing:.06em;color:var(--amber);text-transform:uppercase}
+.a .sign .en{font:700 1.9rem/1.02 "Barlow Condensed",sans-serif;margin-top:8px}
+.a .sign .zhn{font:700 1.25rem/1.2 "Noto Sans TC",sans-serif;color:#e8e8e8;margin-top:2px}
+.a .body{padding:14px 14px 0}
+.a .dayintro{background:#fff;border:1px solid #d6e2da;border-radius:14px;padding:12px 14px;display:flex;gap:12px;align-items:center}
+.a .dayintro p{font-size:.92rem;line-height:1.35;color:var(--mut)}.a .dayintro p b{color:var(--ink);display:block;font-size:.95rem}
+.a .btn-round{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;background:var(--g);color:#fff;flex:none}
+.a .stop{background:#fff;border:1px solid #d6e2da;border-radius:14px;padding:12px 14px;margin-top:10px;display:grid;grid-template-columns:52px 1fr auto;gap:2px 10px;align-items:center}
+.a .stop .t{font:700 1.15rem/1 "Barlow Condensed",sans-serif;color:var(--g)}
+.a .stop .n{font:600 1rem/1.2 "Barlow",sans-serif}
+.a .stop .z{grid-column:2;font:500 .85rem/1.2 "Noto Sans TC",sans-serif;color:var(--mut)}
+.a .stop .chk{grid-row:1/3;grid-column:3;width:44px;height:44px;border-radius:50%;border:2px solid #c3d4c9;display:grid;place-items:center;color:transparent}
+.a .stop.done{background:transparent}.a .stop.done .n{color:var(--mut);text-decoration:line-through;text-decoration-thickness:1.5px}
+.a .stop.done .chk{background:var(--g);border-color:var(--g);color:#fff}
+.a .stop.now{border:2px solid var(--g);box-shadow:0 6px 16px -10px rgba(15,90,58,.6)}
+.a .stop.now .t::after{content:"NEXT";display:block;margin-top:4px;font:700 .62rem/1 "Barlow",sans-serif;letter-spacing:.08em;color:#fff;background:var(--g);padding:3px 4px;border-radius:4px;width:max-content}
+.a .leg{display:flex;align-items:center;gap:10px;margin:6px 0 0 22px;padding:8px 0 8px 18px;border-left:3px dotted #9db8a8;font-size:.85rem;color:var(--mut)}
+.a .leg .mode{font:700 .72rem/1 "Barlow",sans-serif;background:#d93a2b;color:#fff;padding:4px 6px;border-radius:4px}
+.a .nav{display:flex;border-top:1px solid #d6e2da;background:#fff}
+.a .nav a{flex:1;min-height:64px;display:grid;place-items:center;align-content:center;gap:2px;font:600 .75rem/1 "Barlow",sans-serif;color:var(--mut);text-decoration:none}
+.a .nav a.on{color:var(--g)}
+/* A detail */
+.a .dtop{background:var(--sign);color:#fff;padding:18px}
+.a .dtop .back{display:flex;justify-content:space-between;align-items:center;color:var(--amber);font:600 .85rem/1 "Barlow",sans-serif}
+.a .dtop .en{font:700 2.1rem/1 "Barlow Condensed",sans-serif;margin-top:16px}
+.a .dtop .zhn{font:700 1.3rem/1.2 "Noto Sans TC",sans-serif;color:#ddd;margin-top:4px}
+.a .dtop .meta{display:flex;gap:8px;margin-top:12px;font:600 .8rem/1 "Barlow",sans-serif}
+.a .dtop .meta span{background:#2a2a2a;padding:6px 8px;border-radius:6px}
+.a .say{background:var(--g2);border-radius:14px;padding:14px;margin:14px 14px 0}
+.a .say h3,.a .sec h3{font:700 .8rem/1 "Barlow",sans-serif;letter-spacing:.06em;text-transform:uppercase;color:var(--g);display:flex;justify-content:space-between;align-items:center}
+.a .say p{font:500 1.08rem/1.4 "Barlow",sans-serif;margin-top:8px}
+.a .sec{padding:14px 14px 0}
+.a .sec ul{list-style:none;margin-top:8px}
+.a .sec li{padding:8px 0;border-bottom:1px solid #dde6df;font-size:.93rem;line-height:1.35}
+.a .order{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.a .order span{background:#fff;border:1px solid #cfdcd3;border-radius:8px;padding:7px 10px;font-size:.88rem}
+.a .order span i{font-style:normal;font-family:"Noto Sans TC";color:var(--mut);margin-left:4px}
+.a .dbar{display:flex;gap:8px;padding:12px 14px 16px;background:#fff;border-top:1px solid #d6e2da}
+.a .dbar a{flex:1;min-height:52px;border-radius:12px;display:flex;align-items:center;justify-content:center;gap:6px;font:600 .9rem/1 "Barlow",sans-serif;text-decoration:none;color:var(--ink);border:1.5px solid #c3d4c9}
+.a .dbar a.p{background:var(--g);color:#fff;border-color:var(--g);flex:1.4}
+/* A prompter */
+.a.pr{background:var(--sign);color:#fff}
+.a .pr-text{padding:30px 22px 0;font:600 2rem/1.25 "Barlow",sans-serif}
+.a .pr-text .lens{display:block;width:60px;height:4px;border-radius:2px;background:var(--amber);margin:0 auto 22px}
+.a .pr-text em{font-style:normal;color:var(--amber)}
+.a .pr-foot{margin-top:auto;padding:16px 18px 22px;border-top:4px solid var(--g)}
+.a .pr-foot .where{font:700 1.1rem/1.1 "Barlow Condensed",sans-serif;color:#cfe6d8}
+.a .pr-foot .where span{font:500 .9rem "Noto Sans TC";color:#9fb5a8;margin-left:6px}
+.a .pr-ctl{display:flex;gap:10px;margin-top:14px}
+.a .pr-ctl a{flex:1;min-height:60px;border-radius:14px;background:#262626;display:flex;align-items:center;justify-content:center;gap:6px;color:#fff;text-decoration:none;font:600 1rem/1 "Barlow",sans-serif}
+.a .pr-ctl a.next{background:var(--g);flex:1.6}
+
+/* ============ B · MTR LINE DIAGRAM ============ */
+.b{--line:#e2231a;--bg:#ffffff;--ink:#121417;--mut:#545b63;--rule:#e3e6ea;background:var(--bg);color:var(--ink);font-family:"Source Sans 3",sans-serif}
+.b .top{padding:18px 18px 12px;border-bottom:1px solid var(--rule)}
+.b .clock{display:flex;justify-content:space-between;font:600 .85rem/1 "Source Sans 3";color:var(--mut)}
+.b .days{display:flex;gap:6px;margin-top:14px}
+.b .day{flex:1;height:58px;border-radius:12px;border:1.5px solid var(--rule);display:grid;place-items:center;align-content:center;font:600 .72rem/1.1 "Source Sans 3";color:var(--mut);position:relative;overflow:hidden}
+.b .day b{font:700 1.2rem/1 "Source Sans 3";color:var(--ink)}
+.b .day::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--c);margin-bottom:3px}
+.b .day.on{border-color:var(--c);background:color-mix(in srgb,var(--c) 9%,#fff)}
+.b .dtitle{padding:14px 18px 4px}
+.b .dtitle h3{font:700 1.35rem/1.15 "Source Sans 3"}
+.b .dtitle p{font-size:.9rem;color:var(--mut)}
+.b .intro-btn{margin:10px 18px 0;min-height:52px;border-radius:12px;background:#f4f5f7;display:flex;align-items:center;gap:10px;padding:0 14px;font:600 .95rem/1.2 "Source Sans 3"}
+.b .intro-btn .pl{width:34px;height:34px;border-radius:50%;background:var(--line);color:#fff;display:grid;place-items:center}
+.b .lineview{position:relative;padding:12px 18px 0 18px}
+.b .lineview::before{content:"";position:absolute;left:47px;top:10px;bottom:-40px;width:8px;background:var(--line);border-radius:4px}
+.b .st{position:relative;display:grid;grid-template-columns:58px 1fr 44px;align-items:center;gap:0 6px;padding:8px 0;min-height:64px}
+.b .st .dot{width:26px;height:26px;border-radius:50%;background:#fff;border:5px solid var(--line);margin-left:16px;position:relative;z-index:1}
+.b .st .tx{line-height:1.2}
+.b .st .tm{font:700 .82rem/1 "Source Sans 3";color:var(--mut)}
+.b .st .n{font:700 1.05rem/1.2 "Source Sans 3";display:block;margin-top:3px}
+.b .st .z{font:600 .9rem/1.2 "Noto Serif TC",serif;color:var(--mut)}
+.b .st .ck{width:40px;height:40px;border-radius:50%;border:2px solid var(--rule);display:grid;place-items:center;color:transparent}
+.b .st.done .dot{background:var(--line)}.b .st.done .n{color:var(--mut)}.b .st.done .ck{background:#121417;border-color:#121417;color:#fff}
+.b .st.now{background:color-mix(in srgb,var(--line) 8%,#fff);margin:0 -18px;padding:10px 18px;border-top:1px solid color-mix(in srgb,var(--line) 30%,#fff);border-bottom:1px solid color-mix(in srgb,var(--line) 30%,#fff)}
+.b .st.now .dot{width:32px;height:32px;margin-left:13px;border-width:6px;box-shadow:0 0 0 4px #fff}
+.b .st.now .tm{color:#b3150e}
+.b .seg{position:relative;padding:2px 0 2px 74px;font:600 .82rem/1.3 "Source Sans 3";color:var(--mut);display:flex;gap:8px;align-items:center}
+.b .seg .m{background:#121417;color:#fff;border-radius:4px;padding:3px 6px;font-size:.7rem;letter-spacing:.03em}
+.b .nav{display:flex;border-top:1px solid var(--rule);background:#fff;margin-top:auto}
+.b .nav a{flex:1;min-height:64px;display:grid;place-items:center;align-content:center;gap:2px;font:600 .75rem/1 "Source Sans 3";color:var(--mut);text-decoration:none}
+.b .nav a.on{color:var(--ink)}.b .nav a.on svg{color:var(--line)}
+/* B detail */
+.b .tile{background:#d9c94f;padding:18px 18px 16px;position:relative}
+.b .tile .back{display:flex;justify-content:space-between;align-items:center;font:600 .9rem/1 "Source Sans 3"}
+.b .tile .plate{background:#fff;border-radius:10px;padding:12px 14px;margin-top:14px;box-shadow:0 6px 14px -10px rgba(0,0,0,.5)}
+.b .tile .plate .z{font:700 1.6rem/1.1 "Noto Serif TC",serif}
+.b .tile .plate .en{font:700 1.25rem/1.15 "Source Sans 3";margin-top:4px}
+.b .tile .plate .meta{display:flex;gap:10px;margin-top:8px;font:600 .82rem/1 "Source Sans 3";color:var(--mut)}
+.b .sec{padding:14px 18px 0}
+.b .sec h3{font:700 .95rem/1 "Source Sans 3";display:flex;align-items:center;gap:8px}
+.b .sec h3::before{content:"";width:12px;height:12px;border-radius:50%;border:3px solid var(--line)}
+.b .say{background:#f4f5f7;border-radius:12px;padding:12px 14px;margin-top:8px;font:600 1.05rem/1.4 "Source Sans 3"}
+.b .sec ul{margin:6px 0 0 18px;font-size:.93rem;line-height:1.4;color:#2a2f35}
+.b .sec li{padding:3px 0}
+.b .sec .row{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--rule);font-size:.93rem}
+.b .sec .row span:last-child{font-family:"Noto Sans TC";color:var(--mut)}
+.b .dbar{display:flex;gap:8px;padding:12px 18px 16px;border-top:1px solid var(--rule);margin-top:auto}
+.b .dbar a{flex:1;min-height:52px;border-radius:26px;display:flex;align-items:center;justify-content:center;gap:6px;font:700 .92rem/1 "Source Sans 3";text-decoration:none;color:var(--ink);border:1.5px solid #cfd4da}
+.b .dbar a.p{background:var(--ink);color:#fff;border-color:var(--ink);flex:1.4}
+/* B prompter */
+.b.pr{background:#fff}
+.b .pr-strip{height:10px;background:var(--line)}
+.b .pr-text{padding:26px 22px 0;font:700 2.05rem/1.22 "Source Sans 3"}
+.b .pr-text .lens{display:flex;justify-content:center;margin-bottom:18px;color:var(--line)}
+.b .pr-foot{margin-top:auto;padding:14px 18px 22px;background:#f4f5f7}
+.b .pr-foot .prog{display:flex;gap:4px;margin-bottom:12px}
+.b .pr-foot .prog i{flex:1;height:6px;border-radius:3px;background:#d7dbe0}
+.b .pr-foot .prog i.on{background:var(--line)}
+.b .pr-foot .where{font:700 1rem "Source Sans 3"}.b .pr-foot .where span{font:600 .9rem "Noto Serif TC";color:var(--mut);margin-left:6px}
+.b .pr-ctl{display:flex;gap:10px;margin-top:12px}
+.b .pr-ctl a{flex:1;min-height:60px;border-radius:30px;border:1.5px solid #cfd4da;background:#fff;display:flex;align-items:center;justify-content:center;gap:6px;color:var(--ink);text-decoration:none;font:700 1rem "Source Sans 3"}
+.b .pr-ctl a.next{background:var(--line);border-color:var(--line);color:#fff;flex:1.6}
+
+/* ============ C · STANDARD TRAVEL APP ============ */
+.c{--acc:#2563eb;--bg:#f5f6f8;--ink:#111827;--mut:#5b6472;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+.c .top{background:#fff;padding:18px 16px 12px;border-bottom:1px solid #e5e7eb}
+.c .clock{font-size:.82rem;color:var(--mut);display:flex;justify-content:space-between}
+.c h3{font-size:1.45rem;font-weight:700;margin-top:6px}
+.c .seg{display:flex;background:#eef0f3;border-radius:10px;padding:3px;margin-top:12px}
+.c .seg span{flex:1;text-align:center;font-size:.8rem;font-weight:600;padding:9px 0;border-radius:8px;color:var(--mut)}
+.c .seg span.on{background:#fff;color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.12)}
+.c .body{padding:12px 16px 0}
+.c .card{background:#fff;border-radius:14px;padding:12px 14px;margin-bottom:8px;display:flex;gap:12px;align-items:center;box-shadow:0 1px 2px rgba(0,0,0,.06)}
+.c .card .t{font-weight:700;font-size:.9rem;width:46px;color:var(--mut)}
+.c .card .n{font-weight:600;font-size:.98rem;line-height:1.25}.c .card .z{font-size:.82rem;color:var(--mut)}
+.c .card .ck{margin-left:auto;width:40px;height:40px;border-radius:50%;border:2px solid #d1d5db;display:grid;place-items:center;color:transparent}
+.c .card.done .ck{background:#16a34a;border-color:#16a34a;color:#fff}.c .card.done .n{color:var(--mut)}
+.c .card.now{outline:2px solid var(--acc)}
+.c .card.now .t{color:var(--acc)}
+.c .leg{font-size:.8rem;color:var(--mut);padding:0 0 8px 58px;display:flex;gap:6px;align-items:center}
+.c .nav{display:flex;border-top:1px solid #e5e7eb;background:#fff;margin-top:auto}
+.c .nav a{flex:1;min-height:62px;display:grid;place-items:center;align-content:center;gap:2px;font-size:.72rem;color:var(--mut);text-decoration:none}
+.c .nav a.on{color:var(--acc)}
+.c .hero{height:150px;background:linear-gradient(#dbe4f3,#c7d4ea);display:flex;align-items:flex-end;padding:14px 16px;font-size:.8rem;color:#334155}
+.c .dt{background:#fff;padding:14px 16px}
+.c .dt h3{margin:0}.c .dt .z{color:var(--mut)}
+.c .box{background:#fff;margin:8px 16px 0;border-radius:14px;padding:12px 14px;font-size:.92rem;line-height:1.4}
+.c .box h3{font-size:.8rem;color:var(--mut);margin-bottom:4px}
+.c .dbar{display:flex;gap:8px;padding:12px 16px 16px;margin-top:auto;background:#fff;border-top:1px solid #e5e7eb}
+.c .dbar a{flex:1;min-height:50px;border-radius:12px;display:grid;place-items:center;font-weight:600;font-size:.9rem;text-decoration:none;color:var(--acc);background:#eef3fe}
+.c .dbar a.p{background:var(--acc);color:#fff}
+.c.pr{background:#fff}
+.c .pr-text{padding:40px 22px 0;font-size:2rem;line-height:1.3;font-weight:700}
+.c .pr-ctl{margin-top:auto;display:flex;gap:10px;padding:18px}
+.c .pr-ctl a{flex:1;min-height:58px;border-radius:14px;display:grid;place-items:center;background:#eef0f3;color:var(--ink);text-decoration:none;font-weight:600}
+.c .pr-ctl a.next{background:var(--acc);color:#fff}
+
+@media (max-width:420px){ .phone{width:330px;height:700px} }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute">
+  <symbol id="chk" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+  <symbol id="play" viewBox="0 0 24 24"><path d="M8 5.5v13l10.5-6.5z" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="pin" viewBox="0 0 24 24"><path d="M12 21s-6.5-6.1-6.5-11a6.5 6.5 0 0 1 13 0c0 4.9-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.4"/></symbol>
+  <symbol id="left" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></symbol>
+  <symbol id="right" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></symbol>
+  <symbol id="cal" viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M9 3v4M15 3v4"/></symbol>
+  <symbol id="chat" viewBox="0 0 24 24"><path d="M5 5h14v10H10l-5 4z"/></symbol>
+  <symbol id="cam" viewBox="0 0 24 24"><rect x="3" y="7" width="13" height="10" rx="2"/><path d="M16 11l5-3v8l-5-3z"/></symbol>
+  <symbol id="x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+  <symbol id="lens" viewBox="0 0 24 24"><path d="M12 4v10M7 9l5 5 5-5"/></symbol>
+</svg>
+
+<header class="intro">
+  <h1>HK &amp; Macau vlog guide: three looks</h1>
+  <p>Light mode, all three showing the same Sunday at 08:12 (a sample time). Each row is three phone screens: the day's stops, one stop opened, and the prompter. Tell me which look you want, or what to swap between them. Swipe sideways on a phone to see all three screens.</p>
+</header>
+
+<!-- ================= A ================= -->
+<section class="dir">
+  <div class="dir-head">
+    <h2>A · Tram rollsign</h2><span class="tag">Assigned direction</span>
+    <p>Built from the Ding Ding trams: deep tram green for the app's frame, and the black bilingual destination sign at the top always showing your next stop. Tapping Next flips the sign over like a tram blind. Stops are white tickets with big check buttons; travel legs are dotted lines between them.</p>
+  </div>
+  <div class="phones">
+    <div class="phone-wrap"><div class="phone"><div class="screen a">
+      <div class="top">
+        <div class="clock"><span>HK 08:12</span><span>Sun 29 Nov</span></div>
+        <div class="days">
+          <div class="day">Sat<b>28</b></div><div class="day on">Sun<b>29</b></div><div class="day">Mon<b>30</b></div><div class="day">Tue<b>1</b></div><div class="day">Wed<b>2</b></div><div class="day">Thu<b>3</b></div>
+        </div>
+        <div class="sign">
+          <small><span>Next stop · 08:30</span><span>Sham Shui Po</span></small>
+          <div class="en">Hop Yik Tai &amp; Kung Wo</div>
+          <div class="zhn">合益泰小食 · 公和荳品廠</div>
+        </div>
+      </div>
+      <div class="scroll"><div class="body">
+        <div class="dayintro"><span class="btn-round"><svg class="i"><use href="#play"/></svg></span><p><b>Day intro: Kowloon eating day</b>Sham Shui Po down to the harbour, 13 stops</p></div>
+        <div class="stop done"><span class="t">07:30</span><span class="n">Australia Dairy Company</span><span class="z">澳洲牛奶公司</span><span class="chk"><svg class="i"><use href="#chk"/></svg></span></div>
+        <div class="leg"><span class="mode">MTR</span>Jordan → Sham Shui Po · Tsuen Wan line</div>
+        <div class="stop now"><span class="t">08:30</span><span class="n">Hop Yik Tai &amp; Kung Wo</span><span class="z">合益泰小食 · 公和荳品廠</span><span class="chk"><svg class="i"><use href="#chk"/></svg></span></div>
+        <div class="leg"><span class="mode" style="background:#4b5a51">WALK</span>About 5 min</div>
+        <div class="stop"><span class="t">10:00</span><span class="n">Tim Ho Wan dim sum</span><span class="z">添好運點心專門店</span><span class="chk"><svg class="i"><use href="#chk"/></svg></span></div>
+        <div class="stop"><span class="t">11:00</span><span class="n">Cart noodles</span><span class="z">車仔麵</span><span class="chk"><svg class="i"><use href="#chk"/></svg></span></div>
+      </div></div>
+      <nav class="nav"><a class="on" href="#"><svg class="i"><use href="#cal"/></svg>Days</a><a href="#"><svg class="i"><use href="#cam"/></svg>Prompter</a><a href="#"><svg class="i"><use href="#chat"/></svg>Phrases</a></nav>
+    </div></div><p class="cap">1 · Day view</p></div>
+
+    <div class="phone-wrap"><div class="phone"><div class="screen a">
+      <div class="dtop">
+        <div class="back"><span style="display:flex;align-items:center;gap:4px"><svg class="i"><use href="#left"/></svg>Sunday</span><span>Stop 2 of 13</span></div>
+        <div class="en">Hop Yik Tai &amp; Kung Wo</div>
+        <div class="zhn">合益泰小食 · 公和荳品廠</div>
+        <div class="meta"><span>08:30</span><span>Food</span><span>Sham Shui Po</span></div>
+      </div>
+      <div class="scroll">
+        <div class="say"><h3>Say on camera <svg class="i" style="color:#0f5a3a"><use href="#cam"/></svg></h3><p>"Second breakfast already. Silky rice rolls at Hop Yik Tai, then tofu pudding over the road at Kung Wo."</p></div>
+        <div class="sec"><h3>Order</h3><div class="order"><span>Cheung fun, all sauces<i>腸粉</i></span><span>Tofu pudding<i>豆腐花</i></span><span>Soy milk<i>豆漿</i></span></div></div>
+        <div class="sec"><h3>Fun facts</h3><ul><li>Cheung fun means "intestine noodle", named for the rolled shape.</li><li>Hop Yik Tai is listed in the Michelin Guide Hong Kong.</li></ul></div>
+      </div>
+      <div class="dbar"><a href="#"><svg class="i"><use href="#pin"/></svg>Map</a><a href="#"><svg class="i"><use href="#chk"/></svg>Visited</a><a class="p" href="#">Next stop<svg class="i"><use href="#right"/></svg></a></div>
+    </div></div><p class="cap">2 · Stop opened</p></div>
+
+    <div class="phone-wrap"><div class="phone"><div class="screen a pr">
+      <div class="pr-text"><span class="lens"></span>Second breakfast already. Silky rice rolls at <em>Hop Yik Tai</em>, then tofu pudding over the road at <em>Kung Wo</em>.</div>
+      <div class="pr-foot">
+        <div class="where">Stop 2 of 13 · Hop Yik Tai<span>合益泰</span></div>
+        <div class="pr-ctl"><a href="#"><svg class="i"><use href="#left"/></svg>Back</a><a href="#"><svg class="i"><use href="#x"/></svg></a><a class="next" href="#">Next<svg class="i"><use href="#right"/></svg></a></div>
+      </div>
+    </div></div><p class="cap">3 · Prompter: text sits up by the lens</p></div>
+  </div>
+</section>
+
+<!-- ================= B ================= -->
+<section class="dir">
+  <div class="dir-head">
+    <h2>B · MTR line map</h2><span class="tag">Impeccable's pick</span>
+    <p>Each day is drawn as an MTR line in its own line colour (Sunday is Tsuen Wan red), with stops as stations and travel legs as labelled stretches of track. An opened stop gets an MTR-style station-colour panel with a white name plate, Chinese name on top. Risk: this is the obvious Hong Kong reference, so it's the most familiar of the three.</p>
+  </div>
+  <div class="phones">
+    <div class="phone-wrap"><div class="phone"><div class="screen b">
+      <div class="top">
+        <div class="clock"><span>HK 08:12</span><span>Sun 29 Nov</span></div>
+        <div class="days">
+          <div class="day" style="--c:#00888a">Sat<b>28</b></div><div class="day on" style="--c:#e2231a">Sun<b>29</b></div><div class="day" style="--c:#0075c2">Mon<b>30</b></div><div class="day" style="--c:#f7943e">Tue<b>1</b></div><div class="day" style="--c:#7d499d">Wed<b>2</b></div><div class="day" style="--c:#923011">Thu<b>3</b></div>
+        </div>
+      </div>
+      <div class="dtitle"><h3>Kowloon eating day</h3><p>Sham Shui Po → Mong Kok → harbour → Jordan</p></div>
+      <div class="intro-btn"><span class="pl"><svg class="i" style="width:16px;height:16px"><use href="#play"/></svg></span>Read the day intro</div>
+      <div class="scroll"><div class="lineview">
+        <div class="st done"><span class="dot"></span><span class="tx"><span class="tm">07:30</span><span class="n">Australia Dairy Co.</span><span class="z">澳洲牛奶公司</span></span><span class="ck"><svg class="i"><use href="#chk"/></svg></span></div>
+        <div class="seg"><span class="m">MTR</span>Jordan → Sham Shui Po, 4 stops</div>
+        <div class="st now"><span class="dot"></span><span class="tx"><span class="tm">08:30 · NEXT</span><span class="n">Hop Yik Tai &amp; Kung Wo</span><span class="z">合益泰小食 · 公和荳品廠</span></span><span class="ck"><svg class="i"><use href="#chk"/></svg></span></div>
+        <div class="seg"><span class="m">WALK</span>About 5 min</div>
+        <div class="st"><span class="dot"></span><span class="tx"><span class="tm">10:00</span><span class="n">Tim Ho Wan dim sum</span><span class="z">添好運點心專門店</span></span><span class="ck"><svg class="i"><use href="#chk"/></svg></span></div>
+      </div></div>
+      <nav class="nav"><a class="on" href="#"><svg class="i"><use href="#cal"/></svg>Days</a><a href="#"><svg class="i"><use href="#cam"/></svg>Prompter</a><a href="#"><svg class="i"><use href="#chat"/></svg>Phrases</a></nav>
+    </div></div><p class="cap">1 · Day view</p></div>
+
+    <div class="phone-wrap"><div class="phone"><div class="screen b">
+      <div class="tile">
+        <div class="back"><span style="display:flex;align-items:center;gap:4px"><svg class="i"><use href="#left"/></svg>Sunday</span><span>2 / 13</span></div>
+        <div class="plate"><div class="z">合益泰 · 公和</div><div class="en">Hop Yik Tai &amp; Kung Wo</div><div class="meta"><span>08:30</span><span>Food</span><span>Sham Shui Po</span></div></div>
+      </div>
+      <div class="scroll">
+        <div class="sec"><h3>Say on camera</h3><div class="say">"Second breakfast already. Silky rice rolls at Hop Yik Tai, then tofu pudding over the road at Kung Wo."</div></div>
+        <div class="sec"><h3>Order</h3><div class="row"><span>Cheung fun, all sauces</span><span>腸粉</span></div><div class="row"><span>Tofu pudding</span><span>豆腐花</span></div></div>
+        <div class="sec"><h3>Fun facts</h3><ul><li>Cheung fun means "intestine noodle", named for its rolled shape.</li><li>Hop Yik Tai is listed in the Michelin Guide Hong Kong.</li></ul></div>
+      </div>
+      <div class="dbar"><a href="#"><svg class="i"><use href="#pin"/></svg>Map</a><a href="#"><svg class="i"><use href="#chk"/></svg>Visited</a><a class="p" href="#">Next<svg class="i"><use href="#right"/></svg></a></div>
+    </div></div><p class="cap">2 · Stop opened</p></div>
+
+    <div class="phone-wrap"><div class="phone"><div class="screen b pr">
+      <div class="pr-strip"></div>
+      <div class="pr-text"><span class="lens"><svg class="i" style="width:28px;height:28px"><use href="#lens"/></svg></span>Second breakfast already. Silky rice rolls at Hop Yik Tai, then tofu pudding over the road at Kung Wo.</div>
+      <div class="pr-foot">
+        <div class="prog"><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="where">Hop Yik Tai &amp; Kung Wo<span>合益泰</span></div>
+        <div class="pr-ctl"><a href="#"><svg class="i"><use href="#left"/></svg>Back</a><a href="#"><svg class="i"><use href="#x"/></svg></a><a class="next" href="#">Next<svg class="i"><use href="#right"/></svg></a></div>
+      </div>
+    </div></div><p class="cap">3 · Prompter</p></div>
+  </div>
+</section>
+
+<!-- ================= C ================= -->
+<section class="dir">
+  <div class="dir-head">
+    <h2>C · Standard travel app</h2><span class="tag">The safe option</span>
+    <p>What a typical itinerary app looks like: white cards, system font, one blue accent, a segmented day picker. Familiar and clean, but nothing about it says Hong Kong. It's here so you can compare.</p>
+  </div>
+  <div class="phones">
+    <div class="phone-wrap"><div class="phone"><div class="screen c">
+      <div class="top"><div class="clock"><span>08:12 HKT</span><span>Sun 29 Nov</span></div><h3>Kowloon eating day</h3>
+        <div class="seg"><span>Sat</span><span class="on">Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span></div></div>
+      <div class="scroll"><div class="body">
+        <div class="card done"><span class="t">07:30</span><div><div class="n">Australia Dairy Company</div><div class="z">澳洲牛奶公司</div></div><span class="ck"><svg class="i"><use href="#chk"/></svg></span></div>
+        <div class="leg">MTR · Jordan → Sham Shui Po</div>
+        <div class="card now"><span class="t">08:30</span><div><div class="n">Hop Yik Tai &amp; Kung Wo</div><div class="z">合益泰小食 · 公和荳品廠</div></div><span class="ck"><svg class="i"><use href="#chk"/></svg></span></div>
+        <div class="leg">Walk · 5 min</div>
+        <div class="card"><span class="t">10:00</span><div><div class="n">Tim Ho Wan dim sum</div><div class="z">添好運點心專門店</div></div><span class="ck"><svg class="i"><use href="#chk"/></svg></span></div>
+        <div class="card"><span class="t">11:00</span><div><div class="n">Cart noodles</div><div class="z">車仔麵</div></div><span class="ck"><svg class="i"><use href="#chk"/></svg></span></div>
+      </div></div>
+      <nav class="nav"><a class="on" href="#"><svg class="i"><use href="#cal"/></svg>Days</a><a href="#"><svg class="i"><use href="#cam"/></svg>Prompter</a><a href="#"><svg class="i"><use href="#chat"/></svg>Phrases</a></nav>
+    </div></div><p class="cap">1 · Day view</p></div>
+
+    <div class="phone-wrap"><div class="phone"><div class="screen c">
+      <div class="hero">Photo area</div>
+      <div class="dt"><h3>Hop Yik Tai &amp; Kung Wo</h3><div class="z">合益泰小食 · 公和荳品廠 · 08:30</div></div>
+      <div class="scroll">
+        <div class="box"><h3>Say on camera</h3>"Second breakfast already. Silky rice rolls at Hop Yik Tai, then tofu pudding over the road at Kung Wo."</div>
+        <div class="box"><h3>Order</h3>Cheung fun 腸粉 · Tofu pudding 豆腐花</div>
+        <div class="box"><h3>Fun fact</h3>Cheung fun means "intestine noodle", named for its rolled shape.</div>
+      </div>
+      <div class="dbar"><a href="#">Map</a><a href="#">Visited</a><a class="p" href="#">Next</a></div>
+    </div></div><p class="cap">2 · Stop opened</p></div>
+
+    <div class="phone-wrap"><div class="phone"><div class="screen c pr">
+      <div class="pr-text">Second breakfast already. Silky rice rolls at Hop Yik Tai, then tofu pudding over the road at Kung Wo.</div>
+      <div class="pr-ctl"><a href="#">Back</a><a class="next" href="#">Next</a></div>
+    </div></div><p class="cap">3 · Prompter</p></div>
+  </div>
+</section>
+
+</body>
+</html>
