@@ -1,5 +1,6 @@
 // Trip data. Times are Hong Kong time (UTC+8). Pins are approximate; Maps links search by name and address.
-// Stop: { t, en, zh, area, kind, say, about, facts[], order[[en, zh]], tip, go, q, ll }
+// Stop: { t, en, wiki[], zh, area, kind, say, about, facts[], order[[en, zh]], tip, go, q, ll }
+// t is only the planned order; the app does not show times. wiki = Wikipedia articles tried in order for the photo.
 // Leg:  { leg, t, mode, text }
 window.TRIP = {
   home: {
@@ -14,7 +15,7 @@ window.TRIP = {
     route: "Airport → Kowloon → Jordan",
     intro: "Kia ora from Hong Kong! I've just landed, it's Saturday night, and the plan is simple: get into Jordan, get a haircut, and find my first snack on Temple Street.",
     items: [
-      { t: "18:45", en: "Hong Kong International Airport", zh: "香港國際機場", area: "Chek Lap Kok", kind: "hub",
+      { t: "18:45", en: "Hong Kong International Airport", wiki: ["Hong Kong International Airport", "Chek Lap Kok", "Airport Express (MTR)"], zh: "香港國際機場", area: "Chek Lap Kok", kind: "hub",
         say: "Touched down in Hong Kong! First jobs: cash from the ATM, eSIM on, and then straight into town.",
         about: "Hong Kong's airport sits on Chek Lap Kok, an island off Lantau that was flattened and greatly enlarged with reclaimed land to build it. It opened in 1998 and replaced the old Kai Tak airport in Kowloon City.",
         facts: [
@@ -27,7 +28,7 @@ window.TRIP = {
         q: "Hong Kong International Airport Terminal 1", ll: [22.3135, 113.9145] },
       { leg: 1, t: "19:40", mode: "Airport Express", text: "Airport → Kowloon Station, about 22 min. Tap Octopus or a contactless card." },
       { leg: 1, t: "20:05", mode: "Taxi", text: "Kowloon Station → Airbnb on Nathan Road. Taxi rank at the station; show the driver the address on the Home card." },
-      { t: "20:30", en: "Airbnb, Jordan", zh: "佐敦 · 彌敦道", area: "Jordan", kind: "rest",
+      { t: "20:30", en: "Airbnb, Jordan", wiki: ["Nathan Road"], zh: "佐敦 · 彌敦道", area: "Jordan", kind: "rest",
         say: "Home base for the week, right on Nathan Road in Jordan. Bags down, quick freshen up, and back out.",
         about: "Jordan sits between Tsim Sha Tsui and Yau Ma Tei, right in the middle of Kowloon. Nathan Road, the main road outside, runs north from the harbour through Tsim Sha Tsui, Jordan, Yau Ma Tei and Mong Kok.",
         facts: [
@@ -37,7 +38,7 @@ window.TRIP = {
         go: "Kim Tak Building, 328–342A Nathan Road. Jordan MTR station is a short walk away.",
         q: "328 Nathan Road Jordan Hong Kong", ll: [22.3058, 114.1714] },
       { leg: 1, t: "21:10", mode: "Walk", text: "To Battery Street, about 5 min." },
-      { t: "21:15", en: "AK Barbers", zh: "炮台街21號", area: "Jordan", kind: "sight",
+      { t: "21:15", en: "AK Barbers", wiki: ["Jordan, Hong Kong"], zh: "炮台街21號", area: "Jordan", kind: "sight",
         say: "Haircut before the camera really starts rolling. Scissors only, no fade. Let's see how this goes.",
         about: "A barber shop on Battery Street, a couple of blocks west of Nathan Road in Jordan. It's open until 23:00, so a late cut after landing works.",
         facts: [],
@@ -45,7 +46,7 @@ window.TRIP = {
         go: "21 Battery Street, Jordan. About 5 min walk from the Airbnb.",
         q: "AK Barbers 21 Battery Street Jordan Hong Kong", ll: [22.3054, 114.1693] },
       { leg: 1, t: "22:10", mode: "Walk", text: "To Temple Street, about 3 min." },
-      { t: "22:15", en: "Temple Street Night Market", zh: "廟街夜市", area: "Jordan / Yau Ma Tei", kind: "food",
+      { t: "22:15", en: "Temple Street Night Market", wiki: ["Temple Street, Hong Kong"], zh: "廟街夜市", area: "Jordan / Yau Ma Tei", kind: "food",
         say: "First night, first snack. This is Temple Street Night Market, and I want to see what's still sizzling.",
         about: "Temple Street runs north from Jordan into Yau Ma Tei. At night it fills with stalls selling clothes, gadgets and souvenirs, with open-air restaurants serving seafood and clay-pot rice. Near the temple end you'll find fortune tellers and, some nights, Cantonese opera singers.",
         facts: [
@@ -64,7 +65,7 @@ window.TRIP = {
     route: "Sham Shui Po → Prince Edward → Mong Kok → harbour → Jordan",
     intro: "Morning from Jordan! Today is a proper eating day. I'm working my way from Sham Shui Po all the way down to the harbour, and I'm not stopping until the light show.",
     items: [
-      { t: "07:30", en: "Australia Dairy Company", zh: "澳洲牛奶公司", area: "Jordan", kind: "food",
+      { t: "07:30", en: "Australia Dairy Company", wiki: ["Australia Dairy Company"], zh: "澳洲牛奶公司", area: "Jordan", kind: "food",
         say: "Breakfast at Australia Dairy Company. It's famous for scrambled eggs and very fast, very no-nonsense service. Wish me luck.",
         about: "A busy cha chaan teng (Hong Kong-style café) on Parkes Street, known for quick turnover, shared tables and staff who expect you to order fast. The set breakfasts and steamed milk puddings are the draw.",
         facts: [
@@ -77,7 +78,7 @@ window.TRIP = {
         go: "47–49 Parkes Street, Jordan. About 5 min walk from the Airbnb.",
         q: "Australia Dairy Company 47 Parkes Street Jordan", ll: [22.3046, 114.1707] },
       { leg: 1, t: "08:15", mode: "MTR", text: "Jordan → Sham Shui Po, Tsuen Wan line towards Tsuen Wan, 4 stops, about 8 min." },
-      { t: "08:30", en: "Hop Yik Tai & Kung Wo", zh: "合益泰小食 · 公和荳品廠", area: "Sham Shui Po", kind: "food",
+      { t: "08:30", en: "Hop Yik Tai & Kung Wo", wiki: ["Cheung fun"], zh: "合益泰小食 · 公和荳品廠", area: "Sham Shui Po", kind: "food",
         say: "Second breakfast already. Silky rice rolls at Hop Yik Tai, then tofu pudding a street over at Kung Wo.",
         about: "Sham Shui Po is one of Hong Kong's oldest working-class districts: fabric wholesalers, electronics stalls on Apliu Street, and some of the cheapest good food in the city. Hop Yik Tai is a tiny takeaway counter best known for cheung fun, steamed rice-noodle rolls drowned in sweet, peanut and sesame sauces. A street over, Kung Wo is an old-style beancurd shop that makes its own tofu, soy milk and tofu pudding.",
         facts: [
@@ -90,7 +91,7 @@ window.TRIP = {
         go: "Hop Yik Tai: 121 Kweilin Street. Kung Wo: 118 Pei Ho Street. Both a few minutes from Sham Shui Po station.",
         q: "Hop Yik Tai 121 Kweilin Street Sham Shui Po", ll: [22.3301, 114.1606] },
       { leg: 1, t: "09:50", mode: "Walk", text: "To Fuk Wing Street, about 5 min." },
-      { t: "10:00", en: "Tim Ho Wan", zh: "添好運點心專門店", area: "Sham Shui Po", kind: "food",
+      { t: "10:00", en: "Tim Ho Wan", wiki: ["Tim Ho Wan"], zh: "添好運點心專門店", area: "Sham Shui Po", kind: "food",
         say: "Tim Ho Wan, famous for being one of the cheapest Michelin-starred meals in the world. I'm here for the baked pork buns.",
         about: "Tim Ho Wan is a no-frills dim sum shop that became famous worldwide for Michelin-level dim sum at street prices. It now has branches in many countries, but it started here in Kowloon.",
         facts: [
@@ -101,7 +102,7 @@ window.TRIP = {
         order: [["Baked BBQ pork buns", "酥皮焗叉燒包"], ["Shrimp dumplings", "晶瑩鮮蝦餃"], ["Steamed sponge cake", "馬拉糕"]],
         go: "9–11 Fuk Wing Street, Sham Shui Po.",
         q: "Tim Ho Wan 9 Fuk Wing Street Sham Shui Po", ll: [22.3309, 114.1640] },
-      { t: "11:00", en: "Cart noodles", zh: "車仔麵", area: "Sham Shui Po", kind: "food",
+      { t: "11:00", en: "Cart noodles", wiki: ["Cart noodle"], zh: "車仔麵", area: "Sham Shui Po", kind: "food",
         say: "Cart noodles: you pick the noodles, the toppings and the sauce. Very dangerous for someone like me.",
         about: "Cart noodles started as cheap street food sold from push-carts in Hong Kong's poorer neighbourhoods. Today they're sold from small shops, where you build your own bowl by ticking noodles and toppings on a menu.",
         facts: [
@@ -112,7 +113,7 @@ window.TRIP = {
         tip: "Only if there's room. There are several cart noodle shops around Sham Shui Po station.",
         go: "Any cart noodle shop near Sham Shui Po station.",
         q: "cart noodles Sham Shui Po", ll: [22.3305, 114.1625] },
-      { t: "12:00", en: "Lau Sum Kee", zh: "劉森記麵家", area: "Sham Shui Po", kind: "food",
+      { t: "12:00", en: "Lau Sum Kee", wiki: ["Lau Sum Kee", "Wonton noodles"], zh: "劉森記麵家", area: "Sham Shui Po", kind: "food",
         say: "Lau Sum Kee still makes its noodles the old way, pressed with a bamboo pole. Wonton noodles, and then I'm finding roast meat.",
         about: "A family-run noodle shop known for bamboo-pole noodles (竹昇麵): the dough is pressed by a cook bouncing on a long bamboo pole, which gives the noodles their springy bite. Few shops still make them this way.",
         facts: [
@@ -123,7 +124,7 @@ window.TRIP = {
         order: [["Shrimp wonton noodles", "鮮蝦雲吞麵"], ["Dry noodles with shrimp roe", "蝦子撈麵"], ["Then: roast pork or char siu at a roast-meat shop", "燒肉 · 叉燒"]],
         go: "48 Kweilin Street, Sham Shui Po.",
         q: "Lau Sum Kee Noodle 48 Kweilin Street Sham Shui Po", ll: [22.3290, 114.1612] },
-      { t: "12:45", en: "Apliu Street market", zh: "鴨寮街", area: "Sham Shui Po", kind: "sight",
+      { t: "12:45", en: "Apliu Street market", wiki: ["Apliu Street"], zh: "鴨寮街", area: "Sham Shui Po", kind: "sight",
         say: "Apliu Street: if you need a cable, a battery, an old camera or a phone from 2009, it's here.",
         about: "A street-long flea market of electronics: second-hand phones, cables, batteries, camera gear, tools and vintage odds and ends, with shops behind the stalls. The stalls are set up by around midday.",
         facts: [
@@ -134,7 +135,7 @@ window.TRIP = {
         go: "Runs between Kweilin Street and Nam Cheong Street.",
         q: "Apliu Street Sham Shui Po", ll: [22.3299, 114.1638] },
       { leg: 1, t: "13:15", mode: "Walk", text: "South to Prince Edward, about 15 min." },
-      { t: "13:30", en: "Kam Wah Café", zh: "金華冰廳", area: "Prince Edward", kind: "food",
+      { t: "13:30", en: "Kam Wah Café", wiki: ["Kam Wah Cafe", "Pineapple bun"], zh: "金華冰廳", area: "Prince Edward", kind: "food",
         say: "Kam Wah is one of the most famous spots for bolo yau: a hot pineapple bun with a thick slab of cold butter.",
         about: "A busy old-school bing sutt (ice café) on Bute Street, known across Hong Kong for its pineapple buns, egg tarts and milk tea.",
         facts: [
@@ -145,7 +146,7 @@ window.TRIP = {
         order: [["Pineapple bun with butter", "菠蘿油"], ["Egg tart", "蛋撻"], ["Iced milk tea", "凍奶茶"]],
         go: "47 Bute Street, Prince Edward.",
         q: "Kam Wah Cafe 47 Bute Street Prince Edward", ll: [22.3240, 114.1712] },
-      { t: "14:00", en: "Flower Market & Goldfish Street", zh: "花墟 · 金魚街", area: "Prince Edward / Mong Kok", kind: "sight",
+      { t: "14:00", en: "Flower Market & Goldfish Street", wiki: ["Yuen Po Street Bird Garden", "Prince Edward, Hong Kong"], zh: "花墟 · 金魚街", area: "Prince Edward / Mong Kok", kind: "sight",
         say: "Two minutes from the pineapple buns: a whole street of flowers, and then a whole street of goldfish in bags.",
         about: "Flower Market Road is lined with florists and plant shops. A short walk south, the top end of Tung Choi Street is nicknamed Goldfish Street, with shops selling fish in hanging plastic bags, plus aquariums and pet supplies.",
         facts: [
@@ -155,7 +156,7 @@ window.TRIP = {
         ],
         go: "Flower Market Road, then walk south down Tung Choi Street.",
         q: "Flower Market Road Prince Edward", ll: [22.3253, 114.1722] },
-      { t: "14:45", en: "Mong Kok: Ladies' Market & Sneaker Street", zh: "女人街 · 波鞋街", area: "Mong Kok", kind: "food",
+      { t: "14:45", en: "Mong Kok: Ladies' Market & Sneaker Street", wiki: ["Ladies' Market", "Tung Choi Street"], zh: "女人街 · 波鞋街", area: "Mong Kok", kind: "food",
         say: "Mong Kok! Ladies' Market, Sneaker Street, and the snacks I've been waiting for: egg waffles and curry fish balls.",
         about: "Mong Kok is one of the busiest shopping districts in the city. The Ladies' Market fills Tung Choi Street with stalls selling clothes and souvenirs. One street east, Fa Yuen Street is nicknamed Sneaker Street for its run of sports shoe shops.",
         facts: [
@@ -167,13 +168,13 @@ window.TRIP = {
         go: "Tung Choi Street (Ladies' Market) and Fa Yuen Street.",
         q: "Ladies Market Tung Choi Street Mong Kok", ll: [22.3185, 114.1709] },
       { leg: 1, t: "15:45", mode: "MTR", text: "Mong Kok → Jordan, Tsuen Wan line towards Central, 2 stops." },
-      { t: "16:00", en: "Rest at the Airbnb", zh: "休息", area: "Jordan", kind: "rest",
+      { t: "16:00", en: "Rest at the Airbnb", wiki: ["Nathan Road"], zh: "休息", area: "Jordan", kind: "rest",
         say: "Quick break to charge the batteries: mine and the cameras'.",
         facts: [],
         go: "Back to Nathan Road.",
         q: "328 Nathan Road Jordan Hong Kong", ll: [22.3058, 114.1714] },
       { leg: 1, t: "16:40", mode: "Walk", text: "West to the Art Park, about 20–25 min, or a short taxi." },
-      { t: "17:00", en: "West Kowloon Art Park", zh: "西九藝術公園", area: "West Kowloon", kind: "sight",
+      { t: "17:00", en: "West Kowloon Art Park", wiki: ["West Kowloon Cultural District", "M+"], zh: "西九藝術公園", area: "West Kowloon", kind: "sight",
         say: "Sunset at West Kowloon, looking straight across the harbour at Hong Kong Island.",
         about: "A big waterfront lawn in the West Kowloon Cultural District, looking across Victoria Harbour to Central. The M+ museum and the Hong Kong Palace Museum are right next to it. Sunset is around 17:40.",
         facts: [
@@ -184,7 +185,7 @@ window.TRIP = {
         go: "Enter from Austin Road West or from Kowloon Station.",
         q: "Art Park West Kowloon Cultural District", ll: [22.3015, 114.1575] },
       { leg: 1, t: "17:50", mode: "Walk", text: "Down Canton Road to the Star Ferry pier, 30–35 min." },
-      { t: "18:30", en: "Star Ferry", zh: "天星小輪", area: "Tsim Sha Tsui ⇄ Central", kind: "sight",
+      { t: "18:30", en: "Star Ferry", wiki: ["Star Ferry"], zh: "天星小輪", area: "Tsim Sha Tsui ⇄ Central", kind: "sight",
         say: "The Star Ferry: one of the best-value rides in the world. Over to Central and straight back for the skyline.",
         about: "The Star Ferry has been crossing Victoria Harbour between Kowloon and Hong Kong Island since the late 1800s. The ride takes about 10 minutes, and the upper deck gives the classic skyline view.",
         facts: [
@@ -195,7 +196,7 @@ window.TRIP = {
         go: "Tsim Sha Tsui Star Ferry Pier, by the Clock Tower.",
         q: "Star Ferry Pier Tsim Sha Tsui", ll: [22.2938, 114.1686] },
       { leg: 1, t: "19:40", mode: "Walk", text: "Back at the Tsim Sha Tsui pier: the light show is right next door at the Cultural Centre." },
-      { t: "20:00", en: "WinterFest light show & Avenue of Stars", zh: "香港繽紛冬日節 · 星光大道", area: "Tsim Sha Tsui", kind: "sight",
+      { t: "20:00", en: "WinterFest light show & Avenue of Stars", wiki: ["Hong Kong Cultural Centre", "Avenue of Stars, Hong Kong"], zh: "香港繽紛冬日節 · 星光大道", area: "Tsim Sha Tsui", kind: "sight",
         say: "Harbour at night. The old Symphony of Lights show finished just last week, so tonight it's the new winter light show here in Tsim Sha Tsui.",
         about: "For WinterFest (18 Nov 2026 – 5 Jan 2027) the Clock Tower, Cultural Centre, Museum of Art and Space Museum on the Tsim Sha Tsui waterfront are lit with free nightly projection shows. Then walk east along the Avenue of Stars, the promenade that celebrates Hong Kong film, for the skyline across the water.",
         facts: [
@@ -207,7 +208,7 @@ window.TRIP = {
         go: "Tsim Sha Tsui waterfront, by the Clock Tower and Cultural Centre.",
         q: "Hong Kong Cultural Centre Tsim Sha Tsui", ll: [22.2937, 114.1702] },
       { leg: 1, t: "20:25", mode: "MTR", text: "Tsim Sha Tsui → Jordan, 1 stop, or walk 15 min up Nathan Road." },
-      { t: "20:45", en: "Four Seasons Pot Rice, Yee Shun & Temple Street", zh: "四季煲仔飯 · 義順牛奶公司", area: "Yau Ma Tei / Jordan", kind: "food",
+      { t: "20:45", en: "Four Seasons Pot Rice, Yee Shun & Temple Street", wiki: ["Claypot rice", "Double skin milk"], zh: "四季煲仔飯 · 義順牛奶公司", area: "Yau Ma Tei / Jordan", kind: "food",
         say: "Dinner is clay-pot rice. There's always a queue, but the crispy rice at the bottom is the whole point.",
         about: "Four Seasons on Arthur Street is one of the best-known spots for bo zai fan, rice cooked to order in a clay pot with toppings like Chinese sausage or chicken. After, walk to Yee Shun for steamed milk pudding, then back through Temple Street.",
         facts: [
@@ -227,7 +228,7 @@ window.TRIP = {
     route: "Dragon's Back → North Point → Central → the Peak",
     intro: "Early start! Today I'm crossing to Hong Kong Island: a ridge hike down to a surf beach, trams across the island, a food crawl through Central, and sunset from the Peak.",
     items: [
-      { t: "07:15", en: "Congee with youtiao", zh: "粥 · 油炸鬼", area: "Jordan", kind: "food",
+      { t: "07:15", en: "Congee with youtiao", wiki: ["Congee", "Youtiao"], zh: "粥 · 油炸鬼", area: "Jordan", kind: "food",
         say: "Proper Hong Kong breakfast: a big bowl of hot congee and a fried dough stick to dunk in it.",
         about: "Congee is rice simmered in lots of water until it breaks down into a smooth porridge, a classic Cantonese breakfast. There are several congee shops within a few minutes of the Airbnb.",
         facts: [
@@ -239,7 +240,7 @@ window.TRIP = {
         q: "congee Jordan Hong Kong", ll: [22.3050, 114.1713] },
       { leg: 1, t: "07:45", mode: "MTR", text: "Jordan → Admiralty (Tsuen Wan line), change to Island line → Shau Kei Wan, exit A3." },
       { leg: 1, t: "08:20", mode: "Bus", text: "Bus 9 from Shau Kei Wan bus terminus to To Tei Wan, about 20 min. The driver will stop if you press the bell." },
-      { t: "08:45", en: "Dragon's Back hike", zh: "龍脊", area: "Shek O", kind: "sight",
+      { t: "08:45", en: "Dragon's Back hike", wiki: ["Dragon's Back"], zh: "龍脊", area: "Shek O", kind: "sight",
         say: "This is Dragon's Back, one of Hong Kong's best-known hikes, and it ends at a beach. Not a bad Monday.",
         about: "A ridge walk along the Shek O peninsula with views over the South China Sea, then a descent through woods to Big Wave Bay. Allow 2–3 hours. Bring water and sunscreen: there's little shade on the ridge.",
         facts: [
@@ -252,7 +253,7 @@ window.TRIP = {
         q: "Dragon's Back To Tei Wan trailhead", ll: [22.2437, 114.2366] },
       { leg: 1, t: "11:30", mode: "Minibus", text: "Red minibus Big Wave Bay → Shau Kei Wan, about 20 min. Leaves when full; take a taxi if the wait is long." },
       { leg: 1, t: "12:00", mode: "Tram", text: "Ding Ding tram west from Shau Kei Wan to Quarry Bay, about 20 min. Board at the back, tap out at the front." },
-      { t: "12:20", en: "Monster Building", zh: "怪獸大廈", area: "Quarry Bay", kind: "sight",
+      { t: "12:20", en: "Monster Building", wiki: ["Monster Building"], zh: "怪獸大廈", area: "Quarry Bay", kind: "sight",
         say: "This is the Monster Building in Quarry Bay. Thousands of homes stacked in one wall, and it's even more intense in person.",
         about: "A cluster of five connected residential blocks around a courtyard, famous for its wall-to-wall windows, air conditioners and laundry. It's people's homes, so keep it quiet and respect any signs about filming.",
         facts: [
@@ -264,7 +265,7 @@ window.TRIP = {
         go: "King's Road, Quarry Bay. Short walk from the tram stop or Tai Koo station.",
         q: "Monster Building Yick Cheong Building Quarry Bay", ll: [22.2857, 114.2128] },
       { leg: 1, t: "12:45", mode: "Tram", text: "Tram west to North Point, about 10 min. The tram turns into Chun Yeung Street." },
-      { t: "12:45", en: "Chun Yeung Street market", zh: "春秧街", area: "North Point", kind: "sight",
+      { t: "12:45", en: "Chun Yeung Street market", wiki: ["Chun Yeung Street", "North Point"], zh: "春秧街", area: "North Point", kind: "sight",
         say: "This is Chun Yeung Street: a wet market where the tram drives right through the middle of the stalls.",
         about: "A busy street market of fruit, vegetables, meat and seafood stalls with trams running down the middle. Shoppers step aside as the tram rings through.",
         facts: [
@@ -275,7 +276,7 @@ window.TRIP = {
         go: "Off King's Road, North Point.",
         q: "Chun Yeung Street North Point", ll: [22.2916, 114.1988] },
       { leg: 1, t: "13:15", mode: "MTR", text: "North Point → Central, Island line, about 12 min." },
-      { t: "13:40", en: "Kau Kee", zh: "九記牛腩", area: "Central", kind: "food",
+      { t: "13:40", en: "Kau Kee", wiki: ["Kau Kee Restaurant"], zh: "九記牛腩", area: "Central", kind: "food",
         say: "First stop on the Central food loop: Kau Kee beef brisket. There's a queue, and there's a reason for the queue.",
         about: "A small, very popular beef brisket noodle shop on Gough Street. Queue first and order fast.",
         facts: [
@@ -286,7 +287,7 @@ window.TRIP = {
         order: [["Beef brisket noodles, clear broth", "上湯牛腩麵"], ["Curry beef brisket with e-fu noodles", "咖喱牛筋腩伊麵"]],
         go: "21 Gough Street, Central.",
         q: "Kau Kee Restaurant 21 Gough Street Central", ll: [22.2841, 114.1523] },
-      { t: "14:10", en: "Yat Lok", zh: "一樂燒鵝", area: "Central", kind: "food",
+      { t: "14:10", en: "Yat Lok", wiki: ["Yat Lok", "Siu mei"], zh: "一樂燒鵝", area: "Central", kind: "food",
         say: "Roast goose at Yat Lok. Look at that skin.",
         about: "A small roast-meat shop on Stanley Street known for its roast goose. Share a table and order the goose leg if they have it.",
         facts: [
@@ -296,7 +297,7 @@ window.TRIP = {
         order: [["Roast goose leg with rice noodles", "燒鵝髀瀨粉"], ["Roast goose on rice", "燒鵝飯"]],
         go: "34–38 Stanley Street, Central.",
         q: "Yat Lok Restaurant 34 Stanley Street Central", ll: [22.2817, 114.1558] },
-      { t: "14:30", en: "Ser Wong Fun", zh: "蛇王芬", area: "Central", kind: "food",
+      { t: "14:30", en: "Ser Wong Fun", wiki: ["Ser Wong Fun", "Snake soup"], zh: "蛇王芬", area: "Central", kind: "food",
         say: "Okay, I'm doing it: snake soup at Ser Wong Fun, one of the oldest snake soup shops in Hong Kong.",
         about: "A long-running Cantonese restaurant on Cochrane Street famous for snake soup, a thick soup of shredded snake meat, mushrooms and herbs. It's traditionally eaten in the colder months.",
         facts: [
@@ -307,7 +308,7 @@ window.TRIP = {
         order: [["Snake soup", "蛇羹"], ["Chinese sausage clay-pot rice (if still hungry)", "臘味飯"]],
         go: "30 Cochrane Street, Central.",
         q: "Ser Wong Fun 30 Cochrane Street Central", ll: [22.2826, 114.1546] },
-      { t: "14:50", en: "Lan Fong Yuen", zh: "蘭芳園", area: "Central", kind: "food",
+      { t: "14:50", en: "Lan Fong Yuen", wiki: ["Lan Fong Yuen", "Hong Kong–style milk tea"], zh: "蘭芳園", area: "Central", kind: "food",
         say: "Milk tea at Lan Fong Yuen, the place that says it invented silk-stocking milk tea.",
         about: "A dai pai dong-style stall and café on Gage Street, open since the early 1950s and known for its strong, smooth milk tea and pork chop buns.",
         facts: [
@@ -317,7 +318,7 @@ window.TRIP = {
         order: [["Milk tea", "奶茶"], ["Pork chop bun", "豬扒包"]],
         go: "2 Gage Street, Central.",
         q: "Lan Fong Yuen 2 Gage Street Central", ll: [22.2830, 114.1543] },
-      { t: "15:05", en: "Tai Cheong Bakery", zh: "泰昌餅家", area: "Central", kind: "food",
+      { t: "15:05", en: "Tai Cheong Bakery", wiki: ["Tai Cheong Bakery", "Egg tart"], zh: "泰昌餅家", area: "Central", kind: "food",
         say: "Last stop on the loop: Tai Cheong egg tarts, the favourite of Hong Kong's last British governor.",
         about: "A bakery on Lyndhurst Terrace famous for its buttery Hong Kong-style egg tarts.",
         facts: [
@@ -328,7 +329,7 @@ window.TRIP = {
         order: [["Egg tart", "蛋撻"]],
         go: "35 Lyndhurst Terrace, Central.",
         q: "Tai Cheong Bakery 35 Lyndhurst Terrace Central", ll: [22.2823, 114.1535] },
-      { t: "15:15", en: "Mid-Levels Escalator & Man Mo Temple", zh: "中環至半山自動扶梯 · 文武廟", area: "Central / Sheung Wan", kind: "sight",
+      { t: "15:15", en: "Mid-Levels Escalator & Man Mo Temple", wiki: ["Man Mo Temple (Hong Kong)", "Central–Mid-Levels escalator"], zh: "中環至半山自動扶梯 · 文武廟", area: "Central / Sheung Wan", kind: "sight",
         say: "Riding one of the world's longest outdoor escalators, then a temple full of hanging incense coils.",
         about: "The Central–Mid-Levels escalator carries commuters up the hillside through SoHo. Man Mo Temple on Hollywood Road is dedicated to the god of literature (Man) and the god of war (Mo), and its ceiling is hung with giant incense coils.",
         facts: [
@@ -339,7 +340,7 @@ window.TRIP = {
         go: "Escalator starts at Queen's Road Central. Man Mo Temple: 124–126 Hollywood Road.",
         q: "Man Mo Temple 124 Hollywood Road", ll: [22.2840, 114.1502] },
       { leg: 1, t: "16:00", mode: "Walk", text: "To the Peak Tram lower terminus on Garden Road, about 15 min, or a short taxi." },
-      { t: "16:15", en: "Peak Tram", zh: "山頂纜車", area: "Central → The Peak", kind: "sight",
+      { t: "16:15", en: "Peak Tram", wiki: ["Peak Tram"], zh: "山頂纜車", area: "Central → The Peak", kind: "sight",
         say: "The Peak Tram, going up one of the steepest tracks I've ever seen. Watch the buildings look like they're leaning.",
         about: "A funicular railway running from Garden Road up to Victoria Peak. On the way up, the steep angle makes the towers outside look like they're tilting.",
         facts: [
@@ -349,7 +350,7 @@ window.TRIP = {
         tip: "Pre-booked. Sit on the right side going up for the best view.",
         go: "Peak Tram Garden Road Terminus.",
         q: "Peak Tram Garden Road Terminus", ll: [22.2780, 114.1594] },
-      { t: "16:45", en: "Lugard Road lookout", zh: "盧吉道", area: "The Peak", kind: "sight",
+      { t: "16:45", en: "Lugard Road lookout", wiki: ["Lugard Road", "Victoria Peak"], zh: "盧吉道", area: "The Peak", kind: "sight",
         say: "This is it: the view from Lugard Road. Sunset over the harbour, and then the city lights come on.",
         about: "A flat, mostly shaded path that circles Victoria Peak, with one of the best views of the skyline and harbour. Sunset is around 17:40, and the city lights come on soon after.",
         facts: [
@@ -359,7 +360,7 @@ window.TRIP = {
         go: "Starts behind the Peak Tower; the lookout is about 15 min along the path.",
         q: "Lugard Road Lookout The Peak", ll: [22.2783, 114.1450] },
       { leg: 1, t: "18:30", mode: "Bus", text: "Bus 15 from The Peak towards Wan Chai, skipping the tram queue. Upper deck front for the view." },
-      { t: "19:30", en: "Under Bridge Spicy Crab", zh: "橋底辣蟹", area: "Wan Chai / Causeway Bay", kind: "food",
+      { t: "19:30", en: "Under Bridge Spicy Crab", wiki: ["Under Bridge Spicy Crab", "Causeway Bay Typhoon Shelter"], zh: "橋底辣蟹", area: "Wan Chai / Causeway Bay", kind: "food",
         say: "Typhoon shelter crab: a whole crab buried in fried garlic and chilli. This is going to be messy.",
         about: "A restaurant on Lockhart Road known for typhoon shelter-style crab, fried with a mountain of crispy garlic, chilli and black beans. You pick your spice level.",
         facts: [
@@ -378,7 +379,7 @@ window.TRIP = {
     route: "Tung Chung → Ngong Ping → Tai O → Lei Yue Mun",
     intro: "Today I'm heading out west to Lantau, Hong Kong's biggest island. Cable car up to the Big Buddha, a fishing village on stilts, and a seafood dinner tonight.",
     items: [
-      { t: "08:00", en: "Slow breakfast in Jordan", zh: "佐敦早餐", area: "Jordan", kind: "food",
+      { t: "08:00", en: "Slow breakfast in Jordan", wiki: ["Hong Kong-style French toast", "Cha chaan teng"], zh: "佐敦早餐", area: "Jordan", kind: "food",
         say: "Slow start today. Breakfast in Jordan before a long day on Lantau.",
         facts: [],
         tip: "Any cha chaan teng nearby: try a satay beef noodle (沙爹牛肉麵) or French toast (西多士).",
@@ -387,7 +388,7 @@ window.TRIP = {
         q: "cha chaan teng Jordan Hong Kong", ll: [22.3049, 114.1712] },
       { leg: 1, t: "09:00", mode: "Walk", text: "To Kowloon Station, about 15 min." },
       { leg: 1, t: "09:15", mode: "MTR", text: "Kowloon → Tung Chung, Tung Chung line, about 25 min. Exit B to the cable car." },
-      { t: "10:00", en: "Ngong Ping 360", zh: "昂坪360", area: "Tung Chung → Ngong Ping", kind: "sight",
+      { t: "10:00", en: "Ngong Ping 360", wiki: ["Ngong Ping 360"], zh: "昂坪360", area: "Tung Chung → Ngong Ping", kind: "sight",
         say: "First cable car of the day, up over the mountains of Lantau. And the Big Buddha should appear any minute.",
         about: "A cable car from Tung Chung up to Ngong Ping, crossing the bay and the mountains with views back over the airport. Opens at 10:00 on weekdays.",
         facts: [
@@ -397,7 +398,7 @@ window.TRIP = {
         tip: "Pre-booked. Get in the queue before 10:00.",
         go: "Tung Chung cable car terminal, next to Tung Chung station exit B.",
         q: "Ngong Ping 360 Tung Chung Cable Car Terminal", ll: [22.2894, 113.9425] },
-      { t: "10:30", en: "Big Buddha, Po Lin & Wisdom Path", zh: "天壇大佛 · 寶蓮禪寺 · 心經簡林", area: "Ngong Ping", kind: "sight",
+      { t: "10:30", en: "Big Buddha, Po Lin & Wisdom Path", wiki: ["Tian Tan Buddha", "The Big Buddha (Hong Kong)"], zh: "天壇大佛 · 寶蓮禪寺 · 心經簡林", area: "Ngong Ping", kind: "sight",
         say: "This is the Big Buddha. 268 steps up, so if I'm out of breath, that's why.",
         about: "The Tian Tan Buddha is a huge bronze seated Buddha on the hilltop at Ngong Ping, facing Po Lin Monastery. A short walk away, the Wisdom Path is a row of tall wooden pillars carved with the Heart Sutra.",
         facts: [
@@ -408,7 +409,7 @@ window.TRIP = {
         tip: "The Wisdom Path has been under refurbishment, due to finish in late 2026. If it's still closed, there's a viewing platform on the Lantau Trail nearby.",
         go: "Short walk from the Ngong Ping cable car station.",
         q: "Tian Tan Buddha Ngong Ping", ll: [22.2540, 113.9050] },
-      { t: "12:15", en: "Vegetarian lunch at Po Lin", zh: "寶蓮禪寺齋堂", area: "Ngong Ping", kind: "food",
+      { t: "12:15", en: "Vegetarian lunch at Po Lin", wiki: ["Po Lin Monastery"], zh: "寶蓮禪寺齋堂", area: "Ngong Ping", kind: "food",
         say: "Lunch at the monastery. It's all vegetarian, and I'm curious what they do with tofu up here.",
         about: "Po Lin Monastery's dining hall serves vegetarian set meals. Po Lin is one of Hong Kong's most important Buddhist monasteries.",
         facts: [
@@ -419,7 +420,7 @@ window.TRIP = {
         go: "Inside Po Lin Monastery grounds.",
         q: "Po Lin Monastery vegetarian restaurant", ll: [22.2557, 113.9077] },
       { leg: 1, t: "13:15", mode: "Bus", text: "Bus 21 Ngong Ping → Tai O, about 20 min. Runs infrequently: check the timetable at the stop." },
-      { t: "13:45", en: "Tai O fishing village", zh: "大澳", area: "Lantau", kind: "food",
+      { t: "13:45", en: "Tai O fishing village", wiki: ["Tai O"], zh: "大澳", area: "Lantau", kind: "food",
         say: "Tai O: houses on stilts over the water, and the whole village smells of grilled squid and shrimp paste.",
         about: "A fishing village on the west side of Lantau, known for its stilt houses built over the tidal creek, dried seafood stalls, and shrimp paste.",
         facts: [
@@ -433,7 +434,7 @@ window.TRIP = {
       { leg: 1, t: "16:15", mode: "Bus", text: "Bus 11 Tai O → Tung Chung, about 45 min." },
       { leg: 1, t: "17:05", mode: "MTR", text: "Tung Chung → Kowloon, Tung Chung line. Back to the Airbnb to rest." },
       { leg: 1, t: "18:30", mode: "MTR", text: "Jordan → Yau Ma Tei, change to Kwun Tong line → Yau Tong. Walk about 15 min to the village." },
-      { t: "19:00", en: "Lei Yue Mun seafood village", zh: "鯉魚門", area: "Yau Tong", kind: "food",
+      { t: "19:00", en: "Lei Yue Mun seafood village", wiki: ["Lei Yue Mun"], zh: "鯉魚門", area: "Yau Tong", kind: "food",
         say: "Lei Yue Mun: pick your seafood live from the tanks, and a restaurant cooks it for you. First, we negotiate.",
         about: "An old fishing village at the eastern entrance to Victoria Harbour, lined with seafood tanks and restaurants. You choose live seafood at a fishmonger, then a restaurant cooks it for a fee.",
         facts: [
@@ -444,7 +445,7 @@ window.TRIP = {
         tip: "Agree the price per catty and the cooking charge before anything is weighed or cooked.",
         go: "Yau Tong station, then about 15 min walk.",
         q: "Lei Yue Mun Seafood Village", ll: [22.2849, 114.2391] },
-      { t: "19:00", en: "Plan B: Mak Man Kee & Kai Kai", zh: "麥文記 · 佳佳甜品", area: "Jordan", kind: "backup",
+      { t: "19:00", en: "Plan B: Mak Man Kee & Kai Kai", wiki: ["Wonton noodles", "Tong sui"], zh: "麥文記 · 佳佳甜品", area: "Jordan", kind: "backup",
         say: "Too tired for Lei Yue Mun, so dinner close to home: wonton noodles at Mak Man Kee, then dessert at Kai Kai.",
         about: "If the day runs long: Mak Man Kee is a classic wonton noodle shop on Parkes Street, and Kai Kai is a traditional Cantonese dessert shop on Ning Po Street. Hot pot near Jordan is the other option.",
         facts: [
@@ -463,7 +464,7 @@ window.TRIP = {
     intro: "Passport day! I'm getting the ferry to Macau: Portuguese-Chinese old town, minchi and African chicken for lunch, the original Lord Stow's egg tart, and the Cotai lights tonight.",
     items: [
       { leg: 1, t: "06:25", mode: "MTR", text: "Jordan → Admiralty (Tsuen Wan line), change to Island line → Kennedy Town, about 25 min." },
-      { t: "07:00", en: "Sun Hing", zh: "新興食家", area: "Kennedy Town", kind: "food",
+      { t: "07:00", en: "Sun Hing", wiki: ["Custard bun", "Dim sum"], zh: "新興食家", area: "Kennedy Town", kind: "food",
         say: "It's 7am and this dim sum place has been open since 3. Here for the custard buns that ooze.",
         about: "An old-school dim sum shop in Kennedy Town that opens before dawn, popular with early workers and night owls. Known for its molten salted-egg custard buns.",
         facts: [
@@ -476,7 +477,7 @@ window.TRIP = {
         q: "Sun Hing Restaurant 8 Smithfield Road Kennedy Town", ll: [22.2843, 114.1290] },
       { leg: 1, t: "07:40", mode: "MTR", text: "Kennedy Town → Sheung Wan, Island line. Hong Kong–Macau Ferry Terminal (Shun Tak Centre) by 08:00." },
       { leg: 1, t: "08:30", mode: "Ferry", text: "Hong Kong–Macau Ferry Terminal → Macau Outer Harbour, about 1 hour. Passport through immigration on both sides." },
-      { t: "10:00", en: "Ruins of St. Paul's & Senado Square", zh: "大三巴牌坊 · 議事亭前地", area: "Macau", kind: "sight",
+      { t: "10:00", en: "Ruins of St. Paul's & Senado Square", wiki: ["Ruins of Saint Paul's", "Senado Square"], zh: "大三巴牌坊 · 議事亭前地", area: "Macau", kind: "sight",
         say: "Welcome to Macau! This is the Ruins of St. Paul's: just a front wall left standing, and it's one of the most famous sights in Asia.",
         about: "The Ruins of St. Paul's are the stone facade of a 17th-century church, all that survived a fire. Downhill, Senado Square is paved in wavy black-and-white Portuguese tiles and lined with pastel colonial buildings.",
         facts: [
@@ -489,7 +490,7 @@ window.TRIP = {
         go: "Taxi or bus from the Outer Harbour Ferry Terminal, about 15 min.",
         q: "Ruins of St. Paul's Macau", ll: [22.1975, 113.5409] },
       { leg: 1, t: "12:30", mode: "Bus", text: "Bus or taxi to Taipa Village, about 20–30 min." },
-      { t: "13:00", en: "Taipa Village", zh: "氹仔舊城區", area: "Taipa, Macau", kind: "food",
+      { t: "13:00", en: "Taipa Village", wiki: ["Taipa Village", "Galinha à africana"], zh: "氹仔舊城區", area: "Taipa, Macau", kind: "food",
         say: "Sit-down Macanese lunch in Taipa: minchi and African chicken. Then a pork chop bun, because obviously.",
         about: "Taipa's old village is a few lanes of colonial houses, churches and food shops, with Rua do Cunha as the main food street. Macanese cooking mixes Portuguese and Cantonese food with spices from Portugal's old trading routes.",
         facts: [
@@ -502,7 +503,7 @@ window.TRIP = {
         go: "Rua do Cunha, Taipa.",
         q: "Rua do Cunha Taipa Macau", ll: [22.1535, 113.5566] },
       { leg: 1, t: "15:00", mode: "Bus", text: "Bus to Coloane Village, about 20 min." },
-      { t: "15:20", en: "Lord Stow's Bakery", zh: "安德魯餅店", area: "Coloane, Macau", kind: "food",
+      { t: "15:20", en: "Lord Stow's Bakery", wiki: ["Lord Stow's Bakery", "Pastel de nata"], zh: "安德魯餅店", area: "Coloane, Macau", kind: "food",
         say: "The original Lord Stow's in Coloane, home of the Macau egg tart. Burnt top, flaky pastry. Let's go.",
         about: "A small bakery in Coloane Village that made the Portuguese-style egg tart famous in Macau. Coloane is the quiet, southern end of Macau, with a waterfront village and a small chapel square.",
         facts: [
@@ -514,7 +515,7 @@ window.TRIP = {
         go: "1 Rua do Tassara, Coloane Village.",
         q: "Lord Stow's Bakery Coloane", ll: [22.1173, 113.5587] },
       { leg: 1, t: "16:30", mode: "Bus", text: "Bus or taxi to the Cotai Strip, about 15 min." },
-      { t: "17:00", en: "Cotai Strip", zh: "路氹金光大道", area: "Cotai, Macau", kind: "sight",
+      { t: "17:00", en: "Cotai Strip", wiki: ["Cotai Strip", "The Venetian Macao"], zh: "路氹金光大道", area: "Cotai, Macau", kind: "sight",
         say: "Cotai at night: giant resorts, fake Venice, and more lights than anywhere I've been this week.",
         about: "A strip of giant casino resorts built on reclaimed land between Taipa and Coloane. The lights come on after sunset.",
         facts: [
@@ -532,7 +533,7 @@ window.TRIP = {
     route: "Kowloon Station → Kowloon City → Wong Tai Sin → Diamond Hill → airport",
     intro: "Last morning in Hong Kong! Bags are checked in already, so it's a hands-free morning: Kowloon Walled City, two temples, one last dim sum, and then Manila.",
     items: [
-      { t: "06:45", en: "In-town check-in, Kowloon Station", zh: "九龍站市區預辦登機", area: "West Kowloon", kind: "hub",
+      { t: "06:45", en: "In-town check-in, Kowloon Station", wiki: ["Kowloon station (MTR)", "Airport Express (MTR)"], zh: "九龍站市區預辦登機", area: "West Kowloon", kind: "hub",
         say: "Checking my bags in at Kowloon Station, hours before the flight, so I can spend the morning exploring with nothing to carry.",
         about: "Airport Express stations offer in-town check-in, so you can drop bags in the city and ride to the airport later. Cathay's counter here is open 06:00–15:00.",
         facts: [
@@ -542,7 +543,7 @@ window.TRIP = {
         go: "Check out, walk to Kowloon Station, about 15 min.",
         q: "Kowloon Station In-Town Check-in", ll: [22.3049, 114.1615] },
       { leg: 1, t: "07:15", mode: "MTR", text: "Walk to Austin station, Tuen Ma line → Sung Wong Toi, about 12 min." },
-      { t: "07:30", en: "Kowloon Walled City Park", zh: "九龍寨城公園", area: "Kowloon City", kind: "sight",
+      { t: "07:30", en: "Kowloon Walled City Park", wiki: ["Kowloon Walled City Park", "Kowloon Walled City"], zh: "九龍寨城公園", area: "Kowloon City", kind: "sight",
         say: "This peaceful park used to be the Kowloon Walled City, once the most densely populated place on Earth.",
         about: "A Chinese garden built on the site of the Kowloon Walled City, a lawless, extremely crowded enclave that was demolished in the 1990s. Parts of the old South Gate and the former yamen (government office) remain. Then breakfast in Kowloon City, known for its Thai food.",
         facts: [
@@ -554,7 +555,7 @@ window.TRIP = {
         go: "Short walk from Sung Wong Toi station.",
         q: "Kowloon Walled City Park", ll: [22.3318, 114.1904] },
       { leg: 1, t: "08:50", mode: "Taxi", text: "Kowloon City → Wong Tai Sin Temple, about 10 min." },
-      { t: "09:00", en: "Wong Tai Sin Temple", zh: "黃大仙祠", area: "Wong Tai Sin", kind: "sight",
+      { t: "09:00", en: "Wong Tai Sin Temple", wiki: ["Wong Tai Sin Temple (Hong Kong)"], zh: "黃大仙祠", area: "Wong Tai Sin", kind: "sight",
         say: "Wong Tai Sin Temple, where people come to ask about their future. Let's see what the sticks say about mine.",
         about: "One of Hong Kong's busiest temples, dedicated to the Taoist deity Wong Tai Sin. People shake a cylinder of numbered bamboo sticks until one falls out, then have it interpreted.",
         facts: [
@@ -564,7 +565,7 @@ window.TRIP = {
         go: "Next to Wong Tai Sin MTR station.",
         q: "Wong Tai Sin Temple", ll: [22.3423, 114.1935] },
       { leg: 1, t: "09:50", mode: "MTR", text: "Wong Tai Sin → Diamond Hill, Kwun Tong line, 1 stop." },
-      { t: "10:00", en: "Chi Lin Nunnery & Nan Lian Garden", zh: "志蓮淨苑 · 南蓮園池", area: "Diamond Hill", kind: "sight",
+      { t: "10:00", en: "Chi Lin Nunnery & Nan Lian Garden", wiki: ["Chi Lin Nunnery", "Nan Lian Garden"], zh: "志蓮淨苑 · 南蓮園池", area: "Diamond Hill", kind: "sight",
         say: "Chi Lin Nunnery: a wooden temple built without a single nail. And the garden next door is beautiful.",
         about: "A Buddhist nunnery rebuilt in the 1990s in Tang dynasty style, with a classical Chinese garden, Nan Lian, next to it, complete with a golden pavilion and ponds.",
         facts: [
@@ -573,7 +574,7 @@ window.TRIP = {
         ],
         go: "Short walk from Diamond Hill station.",
         q: "Chi Lin Nunnery Diamond Hill", ll: [22.3403, 114.2048] },
-      { t: "11:15", en: "Last dim sum, Diamond Hill", zh: "鑽石山點心", area: "Diamond Hill", kind: "food",
+      { t: "11:15", en: "Last dim sum, Diamond Hill", wiki: ["Dim sum"], zh: "鑽石山點心", area: "Diamond Hill", kind: "food",
         say: "Last meal in Hong Kong. It has to be dim sum.",
         facts: [],
         order: [["Shrimp dumplings", "蝦餃"], ["Siu mai", "燒賣"], ["Char siu buns", "叉燒包"], ["Rice rolls", "腸粉"]],
@@ -581,7 +582,7 @@ window.TRIP = {
         q: "dim sum Diamond Hill", ll: [22.3400, 114.2015] },
       { leg: 1, t: "12:15", mode: "MTR", text: "Diamond Hill → Austin, Tuen Ma line, then walk to Kowloon Station." },
       { leg: 1, t: "12:50", mode: "Airport Express", text: "Kowloon → Airport with the same card, at the airport about 13:20." },
-      { t: "16:05", en: "CX903 to Manila", zh: "國泰航空 CX903", area: "Hong Kong International Airport", kind: "hub",
+      { t: "16:05", en: "CX903 to Manila", wiki: ["Cathay Pacific", "Hong Kong International Airport"], zh: "國泰航空 CX903", area: "Hong Kong International Airport", kind: "hub",
         say: "That's Hong Kong done. Next stop, Manila.",
         facts: [],
         go: "Bags already checked; go straight to security.",
