@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Photo Mockups</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700;800&family=Noto+Sans+TC:wght@500;700&family=Noto+Serif+TC:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{--page:#eceee9;--ink:#121417;--mut:#525a63;--rule:#e1e4e8;--brand:#0d6b41;--line:#e2231a;--bg:#fff;--bg2:#f3f4f6}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--page);color:var(--ink);font:16px/1.45 "Source Sans 3",system-ui,sans-serif;padding:28px 16px 64px}
+.intro{max-width:1240px;margin:0 auto 28px}
+.intro h1{font-size:1.9rem;font-weight:800;line-height:1.1}
+.intro p{color:var(--mut);max-width:66ch;margin-top:8px}
+.phones{max-width:1240px;margin:0 auto;display:flex;gap:26px;overflow-x:auto;padding:4px 4px 16px;scroll-snap-type:x mandatory;align-items:flex-start}
+.pw{flex:0 0 auto;scroll-snap-align:start;width:360px}
+.pw h2{font-size:1.15rem;font-weight:800;margin-bottom:2px}
+.pw p.d{color:var(--mut);font-size:.92rem;min-height:4.2em;margin-bottom:10px}
+.phone{width:360px;height:760px;border-radius:44px;background:#111;padding:10px;box-shadow:0 18px 40px -18px rgba(20,30,25,.45)}
+.screen{width:100%;height:100%;border-radius:35px;overflow:hidden;background:var(--bg);display:flex;flex-direction:column;position:relative}
+.scroll{flex:1;overflow-y:auto;scrollbar-width:none}.scroll::-webkit-scrollbar{display:none}
+.zh{font-family:"Noto Sans TC",sans-serif}
+.top{background:var(--brand);color:#fff;padding:16px 14px 12px}
+.top .row{display:flex;justify-content:space-between;font-weight:700;font-size:.85rem}
+.top .row span:last-child{opacity:.8}
+.days{display:grid;grid-template-columns:repeat(6,1fr);gap:5px;margin-top:10px}
+.day{height:54px;border-radius:10px;background:rgba(255,255,255,.12);display:grid;place-items:center;align-content:center;font-weight:700;font-size:.68rem;color:rgba(255,255,255,.85)}
+.day b{font-size:1.15rem;line-height:1;color:#fff}
+.day.on{background:#fff;color:var(--brand)}.day.on b{color:var(--brand)}
+.dh{padding:14px 14px 6px}
+.dh h3{font-size:1.3rem;font-weight:800;line-height:1.15}
+.dh p{color:var(--mut);font-size:.85rem}
+.ph{background:#d9dde2 center/cover no-repeat;position:relative;overflow:hidden}
+.ph.none{display:grid;place-items:center;color:#fff;font-weight:800;font-family:"Noto Serif TC",serif}
+.ck{width:40px;height:40px;border-radius:50%;border:2px solid var(--rule);flex:none;display:grid;place-items:center;color:transparent}
+.ck.on{background:var(--ink);border-color:var(--ink);color:#fff}
+svg.i{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.kind{font-size:.72rem;font-weight:700;color:var(--mut)}
+.n{font-weight:700;font-size:1rem;line-height:1.2}
+.z{font-family:"Noto Serif TC",serif;font-weight:600;font-size:.85rem;color:var(--mut)}
+.leg{font-size:.8rem;color:var(--mut);display:flex;gap:6px;align-items:center}
+.leg .m{font-size:.6rem;font-weight:800;letter-spacing:.05em;background:var(--ink);color:#fff;padding:2px 5px;border-radius:3px}
+
+/* A: thumbnail beside the line */
+.A .line{position:relative;padding:8px 14px}
+.A .line::before{content:"";position:absolute;left:20px;top:24px;bottom:24px;width:6px;border-radius:3px;background:var(--line)}
+.A .st{display:grid;grid-template-columns:24px 64px 1fr 40px;gap:0 10px;align-items:center;padding:7px 0;position:relative}
+.A .dot{width:18px;height:18px;border-radius:50%;background:#fff;border:4px solid var(--line);position:relative;z-index:1}
+.A .st.done .dot{background:var(--line)}
+.A .ph{width:64px;height:64px;border-radius:12px}
+.A .st.now{background:color-mix(in srgb,var(--line) 8%,#fff);margin:0 -14px;padding:9px 14px}
+.A .leg{padding:2px 0 2px 34px}
+
+/* B: photo as the station */
+.B .line{position:relative;padding:8px 14px}
+.B .line::before{content:"";position:absolute;left:43px;top:30px;bottom:30px;width:8px;border-radius:4px;background:var(--line)}
+.B .st{display:grid;grid-template-columns:60px 1fr 40px;gap:0 12px;align-items:center;padding:8px 0}
+.B .ph{width:60px;height:60px;border-radius:50%;border:5px solid var(--line);box-shadow:0 0 0 3px #fff;position:relative;z-index:1}
+.B .st.now .ph{width:60px;height:60px;border-width:6px;box-shadow:0 0 0 3px #fff,0 0 0 7px color-mix(in srgb,var(--line) 35%,#fff)}
+.B .st.done .ph::after{content:"";position:absolute;inset:0;background:rgba(18,20,23,.45)}
+.B .leg{padding:2px 0 2px 72px}
+
+/* C: photo cards in the list */
+.C .list{padding:6px 14px 14px;display:grid;gap:10px}
+.C .card{border-radius:16px;overflow:hidden;background:#fff;border:1px solid var(--rule);box-shadow:0 6px 14px -12px rgba(0,0,0,.5)}
+.C .ph{height:112px}
+.C .ph .chip{position:absolute;left:10px;top:10px;background:var(--line);color:#fff;font-size:.66rem;font-weight:800;letter-spacing:.05em;padding:3px 7px;border-radius:5px}
+.C .cb{display:flex;align-items:center;gap:10px;padding:10px 12px}
+.C .cb>div{flex:1;min-width:0}
+.C .card.done{opacity:.6}
+.C .leg{padding:0 4px}
+
+/* D: detail with photo header */
+.D .hero{height:250px;position:relative}
+.D .hero .ph{position:absolute;inset:0}
+.D .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.35),rgba(0,0,0,0) 40%)}
+.D .back{position:absolute;left:12px;top:14px;z-index:2;width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.92);display:grid;place-items:center}
+.D .credit{position:absolute;right:10px;bottom:46px;z-index:2;font-size:.62rem;color:#fff;background:rgba(0,0,0,.45);padding:2px 6px;border-radius:4px}
+.D .plate{position:relative;z-index:2;margin:-38px 14px 0;background:#fff;border-radius:14px;padding:12px 14px;box-shadow:0 10px 22px -14px rgba(0,0,0,.6)}
+.D .plate .zz{font-family:"Noto Serif TC",serif;font-weight:700;font-size:1.4rem;line-height:1.2}
+.D .plate .en{font-weight:800;font-size:1.2rem;line-height:1.15}
+.D .plate .meta{font-size:.8rem;color:var(--mut);font-weight:600;margin-top:4px}
+.D .sec{padding:14px 14px 0}
+.D .sec h4{font-size:.92rem;font-weight:800;margin-bottom:6px;display:flex;gap:8px;align-items:center}
+.D .sec h4::before{content:"";width:11px;height:11px;border-radius:50%;border:3px solid var(--line)}
+.D .say{background:var(--bg2);border-radius:12px;padding:12px 14px;font-weight:600;font-size:1.02rem}
+.D .sec p{font-size:.95rem}
+</style>
+</head>
+<body>
+<header class="intro">
+  <h1>Photos in the list: four looks</h1>
+  <p>Same Sunday, now without times, just places in order. Photos load live from Wikipedia and Wikimedia Commons, so give them a second. Where a place has no article (like Hop Yik Tai), it shows the dish instead. Swipe sideways on a phone.</p>
+</header>
+<div class="phones" id="phones"></div>
+
+<svg width="0" height="0" style="position:absolute">
+  <symbol id="chk" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+  <symbol id="left" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></symbol>
+</svg>
+
+<script>
+const STOPS = [
+  { en:"Australia Dairy Company", zh:"澳洲牛奶公司", kind:"Food · Jordan", wiki:["Australia Dairy Company"], done:true },
+  { leg:"MTR", text:"Jordan → Sham Shui Po, 4 stops" },
+  { en:"Hop Yik Tai & Kung Wo", zh:"合益泰小食 · 公和荳品廠", kind:"Food · Sham Shui Po", wiki:["Cheung fun"], now:true },
+  { en:"Tim Ho Wan", zh:"添好運點心專門店", kind:"Food · Sham Shui Po", wiki:["Tim Ho Wan"] },
+  { en:"Cart noodles", zh:"車仔麵", kind:"Food · Sham Shui Po", wiki:["Cart noodle"] },
+  { en:"Lau Sum Kee", zh:"劉森記麵家", kind:"Food · Sham Shui Po", wiki:["Wonton noodles"] },
+  { en:"Apliu Street market", zh:"鴨寮街", kind:"Market · Sham Shui Po", wiki:["Apliu Street"] },
+  { leg:"WALK", text:"South to Prince Edward, about 15 min" },
+  { en:"Kam Wah Café", zh:"金華冰廳", kind:"Food · Prince Edward", wiki:["Pineapple bun"] },
+  { en:"Flower Market & Goldfish Street", zh:"花墟 · 金魚街", kind:"Sight · Prince Edward", wiki:["Flower Market Road","Tung Choi Street"] },
+  { en:"Ladies' Market & Sneaker Street", zh:"女人街 · 波鞋街", kind:"Market · Mong Kok", wiki:["Ladies' Market","Tung Choi Street"] },
+  { en:"West Kowloon Art Park", zh:"西九藝術公園", kind:"Sight · West Kowloon", wiki:["West Kowloon Cultural District"] },
+  { en:"Star Ferry", zh:"天星小輪", kind:"Sight · Tsim Sha Tsui", wiki:["Star Ferry"] }
+];
+const COLORS = ["#e6d34f","#7fbf6a","#5fa2d8","#e07a5f","#a78bd0","#f0a64a","#63b5ad"];
+const img = {}, credit = {};
+const ph = (s, i, extra="") => {
+  const u = img[s.en];
+  return u ? `<div class="ph" style="background-image:url('${u}')">${extra}</div>`
+           : `<div class="ph none" style="background:${COLORS[i % COLORS.length]}">${s.zh[0]}${extra}</div>`;
+};
+const ck = s => `<span class="ck${s.done ? " on" : ""}"><svg class="i"><use href="#chk"/></svg></span>`;
+const leg = s => `<div class="leg"><span class="m">${s.leg}</span>${s.text}</div>`;
+const head = `<div class="top"><div class="row"><span>HK 08:12</span><span>Sun 29 Nov</span></div><div class="days">
+  <div class="day">Sat<b>28</b></div><div class="day on">Sun<b>29</b></div><div class="day">Mon<b>30</b></div><div class="day">Tue<b>1</b></div><div class="day">Wed<b>2</b></div><div class="day">Thu<b>3</b></div></div></div>
+  <div class="dh"><h3>Kowloon eating day</h3><p>Sham Shui Po → Mong Kok → harbour → Jordan</p></div>`;
+const tx = s => `<div><div class="kind">${s.now ? '<span style="color:var(--line)">YOU ARE HERE · </span>' : ""}${s.kind}</div><div class="n">${s.en}</div><div class="z">${s.zh}</div></div>`;
+
+function render(){
+  let i = 0;
+  const A = STOPS.map(s => s.leg ? leg(s) : `<div class="st${s.done?" done":""}${s.now?" now":""}"><span class="dot"></span>${ph(s, i++)}${tx(s)}${ck(s)}</div>`).join("");
+  i = 0;
+  const B = STOPS.map(s => s.leg ? leg(s) : `<div class="st${s.done?" done":""}${s.now?" now":""}">${ph(s, i++)}${tx(s)}${ck(s)}</div>`).join("");
+  i = 0;
+  const C = STOPS.map(s => s.leg ? leg(s) : `<div class="card${s.done?" done":""}">${ph(s, i++, s.now ? '<span class="chip">YOU ARE HERE</span>' : "")}<div class="cb">${tx(s)}${ck(s)}</div></div>`).join("");
+  const s = STOPS[2];
+  const D = `<div class="hero">${ph(s, 1)}<span class="back"><svg class="i"><use href="#left"/></svg></span>${credit[s.en] ? `<span class="credit">Photo: Wikimedia Commons</span>` : ""}</div>
+    <div class="plate"><div class="zz">${s.zh}</div><div class="en">${s.en}</div><div class="meta">Food · Sham Shui Po · stop 2 of 14</div></div>
+    <div class="sec"><h4>Say on camera</h4><div class="say">“Second breakfast already. Silky rice rolls at Hop Yik Tai, then tofu pudding a street over at Kung Wo.”</div></div>
+    <div class="sec"><h4>About this place</h4><p>Sham Shui Po is one of Hong Kong's oldest working-class districts. Hop Yik Tai is a tiny takeaway counter best known for cheung fun…</p></div>`;
+  document.getElementById("phones").innerHTML = [
+    ["1 · Thumbnail by the line", "A small square photo next to each station on the red line. Keeps the MTR look; easiest to scan.", "A", `<div class="line">${A}</div>`],
+    ["2 · Photo is the station", "The photo sits inside the station circle on the line. Most distinctive; photos are smaller and round.", "B", `<div class="line">${B}</div>`],
+    ["3 · Photo cards", "Each place is a card with a wide photo. Most visual, but you scroll more and lose the line.", "C", `<div class="list">${C}</div>`],
+    ["4 · Opened place", "Works with any of the three: a big photo at the top of each place, with the name plate over it.", "D", D]
+  ].map(([t, d, cls, body]) => `<div class="pw"><h2>${t}</h2><p class="d">${d}</p><div class="phone"><div class="screen ${cls}">${cls === "D" ? "" : head}<div class="scroll">${body}</div></div></div></div>`).join("");
+}
+render();
+
+// Load lead images from Wikipedia (CORS-enabled API, runs on the viewer's phone).
+const titles = [...new Set(STOPS.filter(s => s.wiki).flatMap(s => s.wiki))];
+fetch("https://en.wikipedia.org/w/api.php?" + new URLSearchParams({
+  action: "query", prop: "pageimages", piprop: "thumbnail", pithumbsize: "480",
+  redirects: "1", format: "json", origin: "*", titles: titles.join("|")
+})).then(r => r.json()).then(j => {
+  const map = {}, norm = {};
+  (j.query.normalized || []).forEach(n => norm[n.from] = n.to);
+  (j.query.redirects || []).forEach(n => norm[n.from] = n.to);
+  Object.values(j.query.pages).forEach(p => { if (p.thumbnail) map[p.title] = p.thumbnail.source; });
+  const resolve = t => { let k = t; for (let n = 0; n < 3 && norm[k]; n++) k = norm[k]; return map[k]; };
+  STOPS.forEach(s => { if (!s.wiki) return; for (const t of s.wiki){ const u = resolve(t); if (u){ img[s.en] = u; credit[s.en] = t; break; } } });
+  render();
+}).catch(() => {});
+</script>
+</body>
+</html>
