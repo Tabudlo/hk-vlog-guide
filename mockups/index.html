@@ -195,6 +195,9 @@ svg.i{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2;stroke
 .b .about p{margin-top:8px;font-size:.93rem;line-height:1.45;color:#2a2f35}
 .b .sec .about,.b .about{}
 .scroll{overflow-y:auto;scrollbar-width:none}.scroll::-webkit-scrollbar{display:none}
+.phones{align-items:flex-start}
+.phone.tall{height:auto;min-height:760px}.phone.tall .screen{min-height:740px}.phone.tall .scroll{overflow:visible;flex:1 0 auto;padding-bottom:16px}
+.a .sec li+li{margin-top:0}
 @media (max-width:420px){ .phone{width:330px;height:700px} }
 </style>
 </head>
@@ -249,7 +252,7 @@ svg.i{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2;stroke
       <nav class="nav"><a class="on" href="#"><svg class="i"><use href="#cal"/></svg>Days</a><a href="#"><svg class="i"><use href="#cam"/></svg>Prompter</a><a href="#"><svg class="i"><use href="#chat"/></svg>Phrases</a></nav>
     </div></div><p class="cap">1 · Day view</p></div>
 
-    <div class="phone-wrap"><div class="phone"><div class="screen a">
+    <div class="phone-wrap"><div class="phone tall"><div class="screen a">
       <div class="dtop">
         <div class="back"><span style="display:flex;align-items:center;gap:4px"><svg class="i"><use href="#left"/></svg>Sunday</span><span>Stop 2 of 13</span></div>
         <div class="en">Hop Yik Tai &amp; Kung Wo</div>
@@ -260,10 +263,10 @@ svg.i{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2;stroke
         <div class="say"><h3>Say on camera <svg class="i" style="color:#0f5a3a"><use href="#cam"/></svg></h3><p>"Second breakfast already. Silky rice rolls at Hop Yik Tai, then tofu pudding over the road at Kung Wo."</p></div>
         <div class="sec about"><h3>About this place</h3><p>Sham Shui Po is one of Hong Kong's oldest working-class districts: fabric wholesalers, electronics stalls on Apliu Street, and some of the cheapest good food in the city. Hop Yik Tai is a tiny takeaway counter best known for cheung fun, steamed rice-noodle rolls drowned in sweet, peanut and sesame sauces. Across the road, Kung Wo is an old-style beancurd shop that makes its own tofu, soy milk and tofu pudding.</p></div>
         <div class="sec"><h3>Order</h3><div class="order"><span>Cheung fun, all sauces<i>腸粉</i></span><span>Tofu pudding<i>豆腐花</i></span><span>Soy milk<i>豆漿</i></span></div></div>
-        <div class="sec"><h3>Fun facts</h3><ul><li>Cheung fun means "intestine noodle", named for the rolled shape.</li><li>Hop Yik Tai is listed in the Michelin Guide Hong Kong.</li></ul></div>
+        <div class="sec"><h3>Fun facts</h3><ul><li>Cheung fun means "intestine noodle", named for the rolled shape.</li><li>Hop Yik Tai is listed in the Michelin Guide Hong Kong.</li><li>Tofu pudding (豆腐花, dau fu fa) is a classic Cantonese dessert, eaten warm or cold with sugar or syrup.</li></ul></div>
       </div>
       <div class="dbar"><a href="#"><svg class="i"><use href="#pin"/></svg>Map</a><a href="#"><svg class="i"><use href="#chk"/></svg>Visited</a><a class="p" href="#">Next stop<svg class="i"><use href="#right"/></svg></a></div>
-    </div></div><p class="cap">2 · Stop opened</p></div>
+    </div></div><p class="cap">2 · Stop opened, full scroll</p></div>
 
     <div class="phone-wrap"><div class="phone"><div class="screen a pr">
       <div class="pr-text"><span class="lens"></span>Second breakfast already. Silky rice rolls at <em>Hop Yik Tai</em>, then tofu pudding over the road at <em>Kung Wo</em>.</div>
@@ -301,7 +304,7 @@ svg.i{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2;stroke
       <nav class="nav"><a class="on" href="#"><svg class="i"><use href="#cal"/></svg>Days</a><a href="#"><svg class="i"><use href="#cam"/></svg>Prompter</a><a href="#"><svg class="i"><use href="#chat"/></svg>Phrases</a></nav>
     </div></div><p class="cap">1 · Day view</p></div>
 
-    <div class="phone-wrap"><div class="phone"><div class="screen b">
+    <div class="phone-wrap"><div class="phone tall"><div class="screen b">
       <div class="tile">
         <div class="back"><span style="display:flex;align-items:center;gap:4px"><svg class="i"><use href="#left"/></svg>Sunday</span><span>2 / 13</span></div>
         <div class="plate"><div class="z">合益泰 · 公和</div><div class="en">Hop Yik Tai &amp; Kung Wo</div><div class="meta"><span>08:30</span><span>Food</span><span>Sham Shui Po</span></div></div>
@@ -310,10 +313,10 @@ svg.i{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2;stroke
         <div class="sec"><h3>Say on camera</h3><div class="say">"Second breakfast already. Silky rice rolls at Hop Yik Tai, then tofu pudding over the road at Kung Wo."</div></div>
         <div class="sec about"><h3>About this place</h3><p>Sham Shui Po is one of Hong Kong's oldest working-class districts: fabric wholesalers, electronics stalls on Apliu Street, and some of the cheapest good food in the city. Hop Yik Tai is a tiny takeaway counter best known for cheung fun, steamed rice-noodle rolls drowned in sweet, peanut and sesame sauces. Across the road, Kung Wo is an old-style beancurd shop that makes its own tofu, soy milk and tofu pudding.</p></div>
         <div class="sec"><h3>Order</h3><div class="row"><span>Cheung fun, all sauces</span><span>腸粉</span></div><div class="row"><span>Tofu pudding</span><span>豆腐花</span></div></div>
-        <div class="sec"><h3>Fun facts</h3><ul><li>Cheung fun means "intestine noodle", named for its rolled shape.</li><li>Hop Yik Tai is listed in the Michelin Guide Hong Kong.</li></ul></div>
+        <div class="sec"><h3>Fun facts</h3><ul><li>Cheung fun means "intestine noodle", named for its rolled shape.</li><li>Hop Yik Tai is listed in the Michelin Guide Hong Kong.</li><li>Tofu pudding (豆腐花, dau fu fa) is a classic Cantonese dessert, eaten warm or cold with sugar or syrup.</li></ul></div>
       </div>
       <div class="dbar"><a href="#"><svg class="i"><use href="#pin"/></svg>Map</a><a href="#"><svg class="i"><use href="#chk"/></svg>Visited</a><a class="p" href="#">Next<svg class="i"><use href="#right"/></svg></a></div>
-    </div></div><p class="cap">2 · Stop opened</p></div>
+    </div></div><p class="cap">2 · Stop opened, full scroll</p></div>
 
     <div class="phone-wrap"><div class="phone"><div class="screen b pr">
       <div class="pr-strip"></div>
@@ -348,17 +351,17 @@ svg.i{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2;stroke
       <nav class="nav"><a class="on" href="#"><svg class="i"><use href="#cal"/></svg>Days</a><a href="#"><svg class="i"><use href="#cam"/></svg>Prompter</a><a href="#"><svg class="i"><use href="#chat"/></svg>Phrases</a></nav>
     </div></div><p class="cap">1 · Day view</p></div>
 
-    <div class="phone-wrap"><div class="phone"><div class="screen c">
+    <div class="phone-wrap"><div class="phone tall"><div class="screen c">
       <div class="hero">Photo area</div>
       <div class="dt"><h3>Hop Yik Tai &amp; Kung Wo</h3><div class="z">合益泰小食 · 公和荳品廠 · 08:30</div></div>
       <div class="scroll">
         <div class="box"><h3>Say on camera</h3>"Second breakfast already. Silky rice rolls at Hop Yik Tai, then tofu pudding over the road at Kung Wo."</div>
         <div class="box"><h3>About this place</h3>Sham Shui Po is one of Hong Kong's oldest working-class districts: fabric wholesalers, electronics stalls on Apliu Street, and some of the cheapest good food in the city. Hop Yik Tai is a tiny takeaway counter best known for cheung fun, steamed rice-noodle rolls drowned in sweet, peanut and sesame sauces. Across the road, Kung Wo is an old-style beancurd shop that makes its own tofu, soy milk and tofu pudding.</div>
         <div class="box"><h3>Order</h3>Cheung fun 腸粉 · Tofu pudding 豆腐花</div>
-        <div class="box"><h3>Fun fact</h3>Cheung fun means "intestine noodle", named for its rolled shape.</div>
+        <div class="box"><h3>Fun facts</h3><ul style="margin-left:18px"><li>Cheung fun means "intestine noodle", named for its rolled shape.</li><li>Hop Yik Tai is listed in the Michelin Guide Hong Kong.</li><li>Tofu pudding (豆腐花, dau fu fa) is a classic Cantonese dessert, eaten warm or cold with sugar or syrup.</li></ul></div>
       </div>
       <div class="dbar"><a href="#">Map</a><a href="#">Visited</a><a class="p" href="#">Next</a></div>
-    </div></div><p class="cap">2 · Stop opened</p></div>
+    </div></div><p class="cap">2 · Stop opened, full scroll</p></div>
 
     <div class="phone-wrap"><div class="phone"><div class="screen c pr">
       <div class="pr-text">Second breakfast already. Silky rice rolls at Hop Yik Tai, then tofu pudding over the road at Kung Wo.</div>
