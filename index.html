@@ -771,6 +771,7 @@ svg.i{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2;stroke
 .st .z{display:block;font-family:"Noto Serif TC",serif;font-weight:600;font-size:.92rem;color:var(--mut);line-height:1.3}
 .badge{font-size:.66rem;font-weight:800;letter-spacing:.05em;padding:2px 6px;border-radius:4px;background:var(--line);color:#fff}
 .badge.soft{background:var(--bg3);color:var(--ink)}
+.badge.appt{background:#f2b632;color:#121417}
 .ck{width:46px;height:46px;border-radius:50%;border:2px solid var(--rule);display:grid;place-items:center;color:transparent;justify-self:end;position:relative;z-index:2}
 .ck[aria-pressed="true"]{background:var(--done);border-color:var(--done);color:var(--bg)}
 .st.done .dot{background:var(--line)}
@@ -1063,7 +1064,19 @@ window.TRIP = {
         order: [["Baked BBQ pork buns", "酥皮焗叉燒包"], ["Shrimp dumplings", "晶瑩鮮蝦餃"], ["Steamed sponge cake", "馬拉糕"]],
         go: "9–11 Fuk Wing Street, Sham Shui Po.",
         q: "Tim Ho Wan 9 Fuk Wing Street Sham Shui Po", ll: [22.3309, 114.1640] },
-      { t: "11:00", en: "Cart noodles", wiki: ["Cart noodle"], zh: "車仔麵", area: "Sham Shui Po", kind: "food",
+      { leg: 1, t: "10:45", mode: "Walk", text: "Tim Ho Wan → Tai Nan Street, about 10 min. Leave by 10:45." },
+      { t: "11:00", appt: "11:00", en: "Haircut at The Old Soul Barbershop", wiki: [], zh: "太子大南街148號地下A2", area: "Prince Edward / Sham Shui Po", kind: "sight",
+        say: "Haircut time, squeezed between dim sum and noodles. The Old Soul Barbershop on Tai Nan Street, and I'm asking for a medium-long scissor cut.",
+        about: "A small men's barbershop on Tai Nan Street, on the edge of Sham Shui Po and Prince Edward. It's rated 5.0 on Fresha from over 800 reviews and about 4.9 on other review sites, where people describe it as friendly. Open 11:00–20:00, seven days a week.",
+        facts: [
+          "Tai Nan Street is nicknamed 'Leather Street'. In Hong Kong's post-war manufacturing boom it was full of factories making leather, fabrics and accessories.",
+          "Luen Cheong Leather, a few doors up at 173 Tai Nan Street, has been there since 1948."
+        ],
+        tip: "Booked for 11:00. If you're running late, call +852 9888 0597. A few reviewers found it hard to explain what they wanted, so bring a photo. Ask for: medium-long, scissors only, keep the length, light layers and texture on top, no fade, no clippers on the sides.",
+        go: "Shop A2, G/F, 148 Tai Nan Street, Prince Edward. About 10 min walk from Tim Ho Wan.",
+        q: "The Old Soul Barbershop 148 Tai Nan Street Prince Edward", ll: [22.3262, 114.1660] },
+      { leg: 1, t: "12:00", mode: "Walk", text: "Back towards Kweilin Street for cart noodles and Lau Sum Kee, about 10 min." },
+      { t: "12:00", en: "Cart noodles", wiki: ["Cart noodle"], zh: "車仔麵", area: "Sham Shui Po", kind: "food",
         say: "Cart noodles: you pick the noodles, the toppings and the sauce. Very dangerous for someone like me.",
         about: "Cart noodles started as cheap street food sold from push-carts in Hong Kong's poorer neighbourhoods. Today they're sold from small shops, where you build your own bowl by ticking noodles and toppings on a menu.",
         facts: [
@@ -1095,18 +1108,7 @@ window.TRIP = {
         tip: "Good spot to grab a spare camera battery or SD card.",
         go: "Runs between Kweilin Street and Nam Cheong Street.",
         q: "Apliu Street Sham Shui Po", ll: [22.3299, 114.1638] },
-      { leg: 1, t: "13:05", mode: "Walk", text: "To Tai Nan Street, about 5–10 min." },
-      { t: "13:15", en: "Haircut at The Old Soul Barbershop", wiki: [], zh: "太子大南街148號地下A2", area: "Prince Edward / Sham Shui Po", kind: "sight",
-        say: "Haircut time, right in the middle of the eating day. The Old Soul Barbershop on Tai Nan Street, and I'm asking for a medium-long scissor cut.",
-        about: "A small men's barbershop on Tai Nan Street, on the edge of Sham Shui Po and Prince Edward. It's rated 5.0 on Fresha from over 800 reviews and about 4.9 on other review sites, where people describe it as friendly. Open 11:00–20:00, seven days a week.",
-        facts: [
-          "Tai Nan Street is nicknamed 'Leather Street'. In Hong Kong's post-war manufacturing boom it was full of factories making leather, fabrics and accessories.",
-          "Luen Cheong Leather, a few doors up at 173 Tai Nan Street, has been there since 1948."
-        ],
-        tip: "Book on Fresha (search 'The Old Soul Barbershop') or call +852 9888 0597. A few reviewers found it hard to explain what they wanted, so bring a photo. Ask for: medium-long, scissors only, keep the length, light layers and texture on top, no fade, no clippers on the sides.",
-        go: "Shop A2, G/F, 148 Tai Nan Street, Prince Edward. About 5–10 min walk from Apliu Street, and on the way to Kam Wah Café.",
-        q: "The Old Soul Barbershop 148 Tai Nan Street Prince Edward", ll: [22.3262, 114.1660] },
-      { leg: 1, t: "14:15", mode: "Walk", text: "To Kam Wah Café on Bute Street, about 10 min." },
+      { leg: 1, t: "13:15", mode: "Walk", text: "South to Kam Wah Café on Bute Street, Prince Edward, about 15 min." },
       { t: "13:30", en: "Kam Wah Café", wiki: ["Kam Wah Cafe", "Pineapple bun"], zh: "金華冰廳", area: "Prince Edward", kind: "food",
         say: "Kam Wah is one of the most famous spots for bolo yau: a hot pineapple bun with a thick slab of cold butter.",
         about: "A busy old-school bing sutt (ice café) on Bute Street, known across Hong Kong for its pineapple buns, egg tarts and milk tea.",
@@ -2036,7 +2038,7 @@ function render(){
     if (it.leg){ html += `<div class="leg"><span class="m">${esc(it.mode)}</span><span>${esc(it.text)}</span></div>`; return; }
     const done = visited.has(it.id), isNow = it === now, isNext = it === next && !now;
     const tag = it === next ? '<span class="badge">UP NEXT</span>' : "";
-    const bk = "";
+    const bk = it.appt ? `<span class="badge appt">BOOKED ${it.appt}</span>` : "";
     const ph = P[it.en];
     html += `<div class="st${done ? " done" : ""}${isNow || isNext ? " now" : ""}${it.kind === "backup" ? " backup" : ""}" id="st-${it.id}">
       <button class="hit" data-open="${it.id}" aria-label="Open ${esc(it.en)}"></button>
@@ -2114,7 +2116,7 @@ function openStop(id, replace){
       <div class="bar"><button class="iconbtn" id="dBack" aria-label="Back to ${d.dow}"><svg class="i"><use href="#left"/></svg></button><span class="count">${s.n + 1} / ${d.stops.length}</span></div>
     </div>
     <div class="plate"><div class="z">${esc(s.zh)}</div><div class="en" id="dName">${esc(s.en)}</div>
-      <div class="meta"><span>${esc(kindLabel(s))}</span><span>${d.dow} ${d.dom}</span></div></div>
+      <div class="meta">${s.appt ? `<span class="badge appt">BOOKED ${s.appt}</span>` : ""}<span>${esc(kindLabel(s))}</span><span>${d.dow} ${d.dom}</span></div></div>
     <div class="inner">
       ${sec("Say on camera", `<div class="say">“${esc(s.say)}”<br><button id="dPrompt"><svg class="i"><use href="#cam"/></svg>Open in prompter</button></div>`)}
       ${sec("About this place", s.about ? `<p class="about">${esc(s.about)}</p>` : "")}

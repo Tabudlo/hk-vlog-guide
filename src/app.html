@@ -110,6 +110,7 @@ svg.i{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2;stroke
 .st .z{display:block;font-family:"Noto Serif TC",serif;font-weight:600;font-size:.92rem;color:var(--mut);line-height:1.3}
 .badge{font-size:.66rem;font-weight:800;letter-spacing:.05em;padding:2px 6px;border-radius:4px;background:var(--line);color:#fff}
 .badge.soft{background:var(--bg3);color:var(--ink)}
+.badge.appt{background:#f2b632;color:#121417}
 .ck{width:46px;height:46px;border-radius:50%;border:2px solid var(--rule);display:grid;place-items:center;color:transparent;justify-self:end;position:relative;z-index:2}
 .ck[aria-pressed="true"]{background:var(--done);border-color:var(--done);color:var(--bg)}
 .st.done .dot{background:var(--line)}
@@ -373,7 +374,7 @@ function render(){
     if (it.leg){ html += `<div class="leg"><span class="m">${esc(it.mode)}</span><span>${esc(it.text)}</span></div>`; return; }
     const done = visited.has(it.id), isNow = it === now, isNext = it === next && !now;
     const tag = it === next ? '<span class="badge">UP NEXT</span>' : "";
-    const bk = "";
+    const bk = it.appt ? `<span class="badge appt">BOOKED ${it.appt}</span>` : "";
     const ph = P[it.en];
     html += `<div class="st${done ? " done" : ""}${isNow || isNext ? " now" : ""}${it.kind === "backup" ? " backup" : ""}" id="st-${it.id}">
       <button class="hit" data-open="${it.id}" aria-label="Open ${esc(it.en)}"></button>
@@ -451,7 +452,7 @@ function openStop(id, replace){
       <div class="bar"><button class="iconbtn" id="dBack" aria-label="Back to ${d.dow}"><svg class="i"><use href="#left"/></svg></button><span class="count">${s.n + 1} / ${d.stops.length}</span></div>
     </div>
     <div class="plate"><div class="z">${esc(s.zh)}</div><div class="en" id="dName">${esc(s.en)}</div>
-      <div class="meta"><span>${esc(kindLabel(s))}</span><span>${d.dow} ${d.dom}</span></div></div>
+      <div class="meta">${s.appt ? `<span class="badge appt">BOOKED ${s.appt}</span>` : ""}<span>${esc(kindLabel(s))}</span><span>${d.dow} ${d.dom}</span></div></div>
     <div class="inner">
       ${sec("Say on camera", `<div class="say">“${esc(s.say)}”<br><button id="dPrompt"><svg class="i"><use href="#cam"/></svg>Open in prompter</button></div>`)}
       ${sec("About this place", s.about ? `<p class="about">${esc(s.about)}</p>` : "")}
