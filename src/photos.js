@@ -16,14 +16,6 @@ window.PHOTOS = {
   "src": "https://commons.wikimedia.org/wiki/File:Nathan_Road_Jordan_Section_201301.jpg",
   "article": "Nathan Road"
  },
- "AK Barbers": {
-  "t": "img/ak-barbers-t.webp",
-  "h": "img/ak-barbers-h.webp",
-  "by": "Wpcpey",
-  "lic": "CC BY-SA 4.0",
-  "src": "https://commons.wikimedia.org/wiki/File:Jordan_View_from_ICC_201607.jpg",
-  "article": "Jordan, Hong Kong"
- },
  "Temple Street Night Market": {
   "t": "img/temple-street-night-market-t.webp",
   "h": "img/temple-street-night-market-h.webp",

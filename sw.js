@@ -2,13 +2,11 @@
 // again and work offline) and keeps a copy of the app for offline use.
 // The page itself is always fetched fresh when there's signal, so updates
 // show up straight away.
-const APP = "hkvg-app-f9cbf990e8";
+const APP = "hkvg-app-b453aaf019";
 const IMG = "hkvg-img-v1";
 const PHOTOS = [
 "./img/airbnb-jordan-h.webp",
 "./img/airbnb-jordan-t.webp",
-"./img/ak-barbers-h.webp",
-"./img/ak-barbers-t.webp",
 "./img/apliu-street-market-h.webp",
 "./img/apliu-street-market-t.webp",
 "./img/australia-dairy-company-h.webp",
