@@ -21,7 +21,7 @@ A pocket run-sheet for the vlog: what's next, how to get there, what to order, a
 ## Operating Context
 
 - Day picker (Sat 28 – Thu 3) → stops for that day as tappable cards → next/previous between stops.
-- Per stop: time, English + Chinese name, a 1–2 sentence casual first-person vlog intro, 2–4 accurate fun facts, what to order (food stops), how to get there, Google Maps link.
+- Per stop: time, English + Chinese name, a 1–2 sentence casual first-person vlog intro, an "About this place" background block (a few sentences to talk over on camera), 2–4 accurate fun facts, what to order (food stops), how to get there, Google Maps link.
 - Travel legs (MTR, bus, minibus, tram, ferry, cable car) are smaller, simpler cards between stops.
 - A spoken day intro at the start of each day.
 - Full-screen prompter with big text for reading intros on camera. Used on the same phone as the front camera, so text sits at the top of the screen near the lens.
