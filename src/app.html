@@ -258,7 +258,7 @@ svg.i{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2;stroke
       <button role="tab" id="tabMap" aria-selected="false">Map</button>
     </div>
     <div id="stopsPane"><div class="line" id="line"></div><p class="endnote" id="endnote"></p></div>
-    <div id="mapPane" hidden><div id="map" role="region" aria-label="Map of the day's stops"></div><p class="maplist">Pins show roughly where each stop is. Open a stop and tap "Open in Google Maps" for exact directions.</p></div>
+    <div id="mapPane" hidden><div id="map" role="region" aria-label="Map of the day's stops"></div><p class="maplist">Pins show roughly where each stop is. Open a stop and tap "Open in Google Maps" for exact directions. Maps you've viewed are saved on your phone and work offline: open each day's map once on wifi.</p></div>
   </main>
 
   <main id="view-phrases" hidden>
@@ -420,7 +420,7 @@ function drawMap(){
   map.eachLayer(l => map.removeLayer(l));
   // OpenStreetMap's standard tiles: free, no API key; attribution required.
   L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
-    maxZoom: 19, className: dark ? "tiles-dark" : "",
+    maxZoom: 19, crossOrigin: true, className: dark ? "tiles-dark" : "",
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
   }).addTo(map);
   const { now, next } = nowNext(d);
