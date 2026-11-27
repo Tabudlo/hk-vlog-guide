@@ -158,6 +158,10 @@ svg.i{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2;stroke
 .facts li{position:relative;padding:10px 0 10px 34px;border-bottom:1px solid var(--rule);font-size:1rem;line-height:1.45}
 .facts li:last-child{border-bottom:0}
 .facts li::before{counter-increment:f;content:counter(f);position:absolute;left:0;top:10px;width:24px;height:24px;border-radius:50%;background:var(--line);color:#fff;font-weight:800;font-size:.78rem;display:grid;place-items:center}
+.eat{list-style:none}
+.eat li{position:relative;padding:10px 0 10px 24px;border-bottom:1px solid var(--rule);font-size:1rem;line-height:1.5}
+.eat li:last-child{border-bottom:0}
+.eat li::before{content:"";position:absolute;left:4px;top:18px;width:9px;height:9px;border-radius:50%;background:var(--line)}
 .order{display:grid;gap:0}
 .order div{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:10px 0;border-bottom:1px solid var(--rule);font-size:1rem}
 .order div:last-child{border-bottom:0}
@@ -459,6 +463,7 @@ function openStop(id, replace){
       ${sec("Say on camera", `<div class="say">“${esc(s.say)}”<br><button id="dPrompt"><svg class="i"><use href="#cam"/></svg>Open in prompter</button></div>`)}
       ${sec("About this place", s.about ? `<p class="about">${esc(s.about)}</p>` : "")}
       ${sec("What to order", s.order && s.order.length ? `<div class="order">${s.order.map(o => `<div><span>${esc(o[0])}</span><span>${esc(o[1])}</span></div>`).join("")}</div>` : "")}
+      ${sec("While you eat", s.eat && s.eat.length ? `<ul class="eat">${s.eat.map(e => `<li>${esc(e)}</li>`).join("")}</ul>` : "")}
       ${sec("Fun facts", s.facts && s.facts.length ? `<ol class="facts">${s.facts.map(f => `<li>${esc(f)}</li>`).join("")}</ol>` : "")}
       ${sec("Good to know", s.tip ? `<p class="tip">${esc(s.tip)}</p>` : "")}
       ${sec("Getting there", `<p class="go">${esc(s.go)}</p><a class="mapbtn" href="${maps}" target="_blank" rel="noopener"><svg class="i"><use href="#pin"/></svg>Open in Google Maps</a>`)}
