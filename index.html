@@ -679,14 +679,14 @@ svg.leaflet-image-layer.leaflet-interactive path {
   --plate:#ffffff; --plate-ink:#121417; --on-line:#ffffff;
   --line:#e2231a; --tint:color-mix(in srgb,var(--line) 9%,var(--bg));
   --done:#121417; --focus:#0a66d6;
-  --brand:#0d6b41; --brand-ink:#ffffff; --brand-fg:#0d6b41;
+  --brand:#0d6b41; --brand-ink:#ffffff; --brand-fg:#0d6b41; --mine:#0a66d6;
   --shadow:0 8px 20px -12px rgba(18,20,23,.45);
   color-scheme:light;
 }
 @media (prefers-color-scheme:dark){
   :root:not([data-theme="light"]){
     --bg:#121417; --bg2:#1c1f24; --bg3:#272b31; --ink:#f1f3f5; --mut:#a9b0b8; --rule:#2e333a;
-    --plate:#f6f6f4; --plate-ink:#121417; --done:#f1f3f5; --focus:#6aa8ff;
+    --plate:#f6f6f4; --plate-ink:#121417; --done:#f1f3f5; --focus:#6aa8ff; --mine:#5b9dff;
     --brand:#0b5434; --brand-fg:#6fd6a0;
     --tint:color-mix(in srgb,var(--line) 18%,var(--bg));
     --shadow:0 8px 20px -12px rgba(0,0,0,.8);
@@ -695,7 +695,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 }
 :root[data-theme="dark"]{
   --bg:#121417; --bg2:#1c1f24; --bg3:#272b31; --ink:#f1f3f5; --mut:#a9b0b8; --rule:#2e333a;
-  --plate:#f6f6f4; --plate-ink:#121417; --done:#f1f3f5; --focus:#6aa8ff;
+  --plate:#f6f6f4; --plate-ink:#121417; --done:#f1f3f5; --focus:#6aa8ff; --mine:#5b9dff;
   --brand:#0b5434; --brand-fg:#6fd6a0;
   --tint:color-mix(in srgb,var(--line) 18%,var(--bg));
   --shadow:0 8px 20px -12px rgba(0,0,0,.8);
@@ -838,6 +838,24 @@ svg.i{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2;stroke
 .beat li .zh{font-family:"Noto Sans TC",sans-serif;color:var(--mut);margin-left:6px}
 .beat li .what{display:block;color:var(--mut);font-size:.92rem;margin-top:2px}
 .beat .pbtn{margin-top:10px;min-height:44px;padding:0 14px;border-radius:22px;background:var(--bg2);display:inline-flex;align-items:center;gap:6px;font-weight:700;font-size:.9rem}
+.beat .hd{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.pen{display:inline-flex;align-items:center;gap:5px;min-height:40px;padding:0 13px;border-radius:20px;border:1.5px solid var(--rule);font-weight:700;font-size:.86rem;color:var(--ink);background:var(--bg);flex:none}
+.pen svg.i{width:16px;height:16px}
+.mineb{display:inline-block;font-size:.66rem;font-weight:800;letter-spacing:.05em;padding:2px 7px;border-radius:4px;background:var(--mine);color:#fff;vertical-align:3px;margin-left:6px}
+.beat .txt.mine{border-left:4px solid var(--mine)}
+.beat .txt.q.mine{padding-left:10px}
+.peek{margin-top:8px;font-weight:700;font-size:.9rem;color:var(--mine);min-height:40px;display:block}
+.orig{margin-top:2px;border:1.5px dashed var(--rule);border-radius:12px;padding:10px 12px;font-size:.95rem;color:var(--mut);line-height:1.45}
+.orig b{display:block;font-size:.74rem;letter-spacing:.05em;text-transform:uppercase;margin-bottom:4px}
+.orig button{margin-top:6px;min-height:40px;font-weight:700;color:var(--ink);text-decoration:underline;text-underline-offset:3px}
+.ed-form textarea{width:100%;min-height:180px;font:inherit;font-size:1.02rem;line-height:1.5;border:2px solid var(--mine);border-radius:12px;padding:12px 14px;resize:vertical;color:var(--ink);background:var(--bg)}
+.ed-form textarea.short{min-height:96px}
+.ed-form .acts{display:flex;gap:8px;margin-top:10px}
+.ed-form .acts button{min-height:46px;padding:0 18px;border-radius:23px;font-weight:800;font-size:.94rem;border:1.5px solid var(--rule);background:var(--bg)}
+.ed-form .acts button.p{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.edits{margin:4px 16px 20px;border-radius:14px;background:var(--bg2);padding:12px 14px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.edits p{flex:1;min-width:12ch;font-size:.92rem;font-weight:600}
+.edits button{min-height:44px;padding:0 16px;border-radius:22px;background:var(--ink);color:var(--bg);font-weight:800;font-size:.9rem}
 .eat{list-style:none}
 .eat li{position:relative;padding:10px 0 10px 24px;border-bottom:1px solid var(--rule);font-size:1rem;line-height:1.5}
 .eat li:last-child{border-bottom:0}
@@ -919,6 +937,7 @@ svg.i{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2;stroke
   <symbol id="sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
   <symbol id="spk" viewBox="0 0 24 24"><path d="M4 10v4h4l5 4V6L8 10z"/><path d="M16.5 9a4 4 0 0 1 0 6"/></symbol>
   <symbol id="refresh" viewBox="0 0 24 24"><path d="M20 11a8 8 0 1 0-2.3 5.7"/><path d="M20 4v7h-7"/></symbol>
+  <symbol id="pen" viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16z"/><path d="M13.5 6.5l4 4"/></symbol>
   <symbol id="home" viewBox="0 0 24 24"><path d="M4 11l8-7 8 7v9H4z"/><path d="M10 20v-5h4v5"/></symbol>
 </svg>
 
@@ -926,7 +945,7 @@ svg.i{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2;stroke
   <header class="top">
     <div class="bar">
       <div class="clock" id="clock" aria-live="off">HK --:--</div>
-      <div style="display:flex;gap:8px;align-items:center"><span class="ver" id="ver" title="Version of the guide on this phone">Version<b>27 Nov 23:41</b></span><button class="iconbtn" id="refresh" aria-label="Check for updates"><svg class="i"><use href="#refresh"/></svg></button>
+      <div style="display:flex;gap:8px;align-items:center"><span class="ver" id="ver" title="Version of the guide on this phone">Version<b>28 Nov 01:59</b></span><button class="iconbtn" id="refresh" aria-label="Check for updates"><svg class="i"><use href="#refresh"/></svg></button>
       <button class="iconbtn" id="theme" aria-label="Switch light or dark mode"><svg class="i"><use href="#moon"/></svg></button></div>
     </div>
     <nav class="days" id="days" aria-label="Choose a day"></nav>
@@ -941,7 +960,7 @@ svg.i{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2;stroke
       <button role="tab" id="tabStops" aria-selected="true">Stops</button>
       <button role="tab" id="tabMap" aria-selected="false">Map</button>
     </div>
-    <div id="stopsPane"><div class="line" id="line"></div><p class="endnote" id="endnote"></p></div>
+    <div id="stopsPane"><div class="line" id="line"></div><p class="endnote" id="endnote"></p><div class="edits" id="editsBox" hidden><p id="editsN"></p><button id="editsCopy">Copy my edits</button></div></div>
     <div id="mapPane" hidden><div id="map" role="region" aria-label="Map of the day's stops"></div><p class="maplist">Pins show roughly where each stop is. Open a stop and tap "Open in Google Maps" for exact directions. Maps you've viewed are saved on your phone and work offline: open each day's map once on wifi.</p></div>
   </main>
 
@@ -2370,6 +2389,8 @@ function render(){
   $("line").innerHTML = html;
   const total = d.stops.length, dn = d.stops.filter(s => visited.has(s.id)).length;
   $("endnote").textContent = `${dn} of ${total} stops visited · ${d.line} line`;
+  const en = editsText().length; $("editsBox").hidden = !en;
+  $("editsN").textContent = `You've edited ${en} script${en === 1 ? "" : "s"}, saved on this phone. Copy them to Notes as a backup.`;
   $("line").querySelectorAll("[data-open]").forEach(b => b.onclick = () => openStop(b.dataset.open));
   $("line").querySelectorAll("[data-ck]").forEach(b => b.onclick = () => toggleVisit(b.dataset.ck));
   if (mode === "map") drawMap();
@@ -2423,17 +2444,55 @@ function drawMap(){
 }
 
 // ---- script outline: the stop as beats to follow on camera
+// ---- your edits: kept on this phone, originals never change
+let edits = store.get("edits", {});
+const ekey = (s, f) => `${s.day.id}|${s.en}|${f}`;
+const mine = (s, f) => edits[ekey(s, f)];
+const txt = (s, f) => mine(s, f) ?? s[f];
+function editBlock(s, f, inner){
+  const m = mine(s, f), k = esc(ekey(s, f));
+  return `<div class="ed" data-ek="${k}"><div class="ed-view">${inner(m ?? s[f], m != null)}
+    ${m != null ? `<button class="peek" data-peek aria-expanded="false">▸ Show original</button><div class="orig" hidden><b>Original</b>${esc(s[f])}<br><button data-useorig>Use original instead</button></div>` : ""}</div>
+    <div class="ed-form" hidden><textarea class="${f === "say" ? "short" : ""}" aria-label="Your version">${esc(m ?? s[f])}</textarea>
+    <div class="acts"><button class="p" data-save>Save</button><button data-cancel>Cancel</button></div></div></div>`;
+}
+function wireEdits(root, s){
+  root.querySelectorAll(".ed").forEach(box => {
+    const k = box.dataset.ek, f = k.split("|").pop(), view = box.querySelector(".ed-view"), form = box.querySelector(".ed-form"), ta = form.querySelector("textarea");
+    const pen = root.querySelector(`[data-edit="${CSS.escape(k)}"]`);
+    const redraw = () => { const y = $("dBody").scrollTop; openStop(s.id, true); $("dBody").scrollTop = y; };
+    if (pen) pen.onclick = () => { view.hidden = true; form.hidden = false; pen.hidden = true; ta.focus(); };
+    form.querySelector("[data-cancel]").onclick = () => { ta.value = mine(s, f) ?? s[f]; view.hidden = false; form.hidden = true; if (pen) pen.hidden = false; };
+    form.querySelector("[data-save]").onclick = () => {
+      const v = ta.value.trim();
+      if (!v || v === s[f].trim()) delete edits[k]; else edits[k] = v;
+      store.set("edits", edits); redraw();
+    };
+    const pk = box.querySelector("[data-peek]"), og = box.querySelector(".orig");
+    if (pk) pk.onclick = () => { const open = og.hidden; og.hidden = !open; pk.setAttribute("aria-expanded", open); pk.textContent = (open ? "▾ Hide" : "▸ Show") + " original"; };
+    const uo = box.querySelector("[data-useorig]");
+    if (uo) uo.onclick = () => { if (confirm("Delete your version and go back to the original?")) { delete edits[k]; store.set("edits", edits); redraw(); } };
+  });
+}
+function editsText(){
+  const out = [];
+  T.days.forEach(d => d.stops.forEach(s => ["say", "vo"].forEach(f => { const m = mine(s, f); if (m != null) out.push(`${d.dow} ${d.dom} · ${s.en} · ${f === "vo" ? "Voiceover" : "To camera"}\n${m}`); })));
+  return out;
+}
+
 function scriptHTML(s, d){
   const i = d.stops.indexOf(s), next = d.stops.slice(i + 1).find(x => x.kind !== "backup"), food = !!(s.eat && s.eat.length);
   const ul = a => `<ul>${a.join("")}</ul>`, li = t => `<li>${esc(t)}</li>`;
-  const B = [], beat = (h, cue, body) => B.push({ h, cue, body });
+  const B = [], beat = (h, cue, body, tools) => B.push({ h, cue, body, tools });
+  const pen = f => `<button class="pen" data-edit="${esc(ekey(s, f))}" aria-label="Edit ${f === "vo" ? "voiceover" : "line to camera"}"><svg class="i"><use href="#pen"/></svg>Edit</button>`;
+  const badge = f => mine(s, f) != null ? `<span class="mineb">YOURS</span>` : "";
   const inside = !!(s.shotsIn && s.shotsIn.length), sh = s.shots && s.shots.length;
   if (sh) beat(inside ? "Set the scene: outside" : "Set the scene", inside ? "Film these as you arrive. They go under your voiceover." : "Film these first. They go under your voiceover.", ul(s.shots.map(li)));
-  beat("To camera", inside ? "Film it at the door, before you go in. Short and in the moment." : "Short and in the moment: where you are and why you're here.",
-    `<p class="txt q">“${esc(s.say)}”</p><button class="pbtn" data-prompt><svg class="i"><use href="#cam"/></svg>Open in prompter</button>`);
+  beat("To camera" + badge("say"), inside ? "Film it at the door, before you go in. Short and in the moment." : "Short and in the moment: where you are and why you're here.",
+    editBlock(s, "say", (t, m) => `<p class="txt q${m ? " mine" : ""}">“${esc(t)}”</p><button class="pbtn" data-prompt><svg class="i"><use href="#cam"/></svg>Open in prompter</button>`), pen("say"));
   if (inside) beat("Set the scene: inside", "Film these as you sit down, before the food lands.", ul(s.shotsIn.map(li)));
-  if (s.vo) beat("Voiceover", sh ? "In the edit, this plays over your scene shots. Read it on the spot, or record it later somewhere quiet. Change any words to make it yours." : "Read it on the spot, or record it later. Change any words to make it yours.",
-    `<p class="txt vo">${esc(s.vo)}</p><button class="pbtn" data-prompt="vo"><svg class="i"><use href="#cam"/></svg>Open in prompter</button>`);
+  if (s.vo) beat("Voiceover" + badge("vo"), sh ? "In the edit, this plays over your scene shots. Read it on the spot, or record it later somewhere quiet. Change any words to make it yours." : "Read it on the spot, or record it later. Change any words to make it yours.",
+    editBlock(s, "vo", (t, m) => `<p class="txt vo${m ? " mine" : ""}">${esc(t)}</p><button class="pbtn" data-prompt="vo"><svg class="i"><use href="#cam"/></svg>Open in prompter</button>`), pen("vo"));
   if (s.order && s.order.length) beat("So we ordered…", "Name each dish as it lands and say what it is.",
     ul(s.order.map(o => `<li>${esc(o[0])}<span class="zh">${esc(o[1])}</span>${o[2] ? `<span class="what">${esc(o[2])}</span>` : ""}</li>`)));
   if (food) beat("First bite", "Show it, taste it, describe it: texture, then flavour, then compare it to something people know.", ul(s.eat.map(li)));
@@ -2442,7 +2501,7 @@ function scriptHTML(s, d){
   else if (s.kind === "sight") beat("How it feels", "One honest line about being here.", ul(["What surprised you, compared with what you expected?", "What's the sound, smell or crowd like right now?"].map(li)));
   beat("Transition", next ? "One line to move the story on: where you're off to and why." : "Wrap the day.",
     next ? ul([`Next up: ${next.en}${next.zh ? " · " + next.zh : ""}`].map(li)) : ul(["Best bite or moment of the day, in one line.", "What's coming tomorrow (or where you're off to next)."].map(li)));
-  return `<ol class="beats">${B.map((b, k) => `<li class="beat"><b>${k + 1}</b><div><h3>${b.h}</h3><p class="cue">${b.cue}</p>${b.body}</div></li>`).join("")}</ol>`;
+  return `<ol class="beats">${B.map((b, k) => `<li class="beat"><b>${k + 1}</b><div><div class="hd"><h3>${b.h}</h3>${b.tools || ""}</div><p class="cue">${b.cue}</p>${b.body}</div></li>`).join("")}</ol>`;
 }
 
 // ---- detail
@@ -2466,7 +2525,7 @@ function openStop(id, replace){
     </div>
     <div id="dScript" ${dView === "script" ? "" : "hidden"}>${scriptHTML(s, d)}</div>
     <div class="inner" id="dInfo" ${dView === "info" ? "" : "hidden"}>
-      ${sec("Example line to camera", `<div class="say">“${esc(s.say)}”<br><button data-prompt><svg class="i"><use href="#cam"/></svg>Open in prompter</button></div>`)}
+      ${sec("Example line to camera", `<div class="say">“${esc(txt(s, "say"))}”<br><button data-prompt><svg class="i"><use href="#cam"/></svg>Open in prompter</button></div>`)}
       ${sec("About this place", s.about ? `<p class="about">${esc(s.about)}</p>` : "")}
       ${sec("What to order", s.order && s.order.length ? `<div class="order">${s.order.map(o => `<div><span>${esc(o[0])}</span><span>${esc(o[1])}</span></div>`).join("")}</div>` : "")}
       ${sec("While you eat", s.eat && s.eat.length ? `<ul class="eat">${s.eat.map(e => `<li>${esc(e)}</li>`).join("")}</ul>` : "")}
@@ -2476,6 +2535,7 @@ function openStop(id, replace){
       ${ph ? `<p class="credit">Photo: ${esc(ph.by)}${ph.lic ? ", " + esc(ph.lic) : ""}, via <a href="${ph.src}" target="_blank" rel="noopener">Wikimedia Commons</a> (from the Wikipedia article “${esc(ph.article)}”)</p>` : ""}
     </div>`;
   $("dBack").onclick = () => history.back();
+  wireEdits($("dScript"), s);
   $("dBody").querySelectorAll("[data-prompt]").forEach(b => b.onclick = () => openPrompter(d, prItems(d).findIndex(x => x.id === s.id && !!x.vo === (b.dataset.prompt === "vo" && !!s.vo))));
   $("dBody").querySelectorAll(".dseg button").forEach(b => b.onclick = () => {
     dView = b.dataset.v; store.set("dView", dView);
@@ -2497,7 +2557,7 @@ $("dNext").onclick = () => { const d = cur.day, i = d.stops.indexOf(cur); if (i 
 
 // ---- prompter
 let pr = { day: null, i: 0 }, prSize = store.get("prSize", 34);
-function prItems(d){ return [{ label: `${d.dow} ${d.dom} · Day intro`, text: d.intro, where: d.title }].concat(d.stops.flatMap(s => [{ label: `${s.en} · To camera`, text: s.say, where: `${s.en}  ${s.zh}`, id: s.id }].concat(s.vo ? [{ label: `${s.en} · Voiceover`, text: s.vo, where: `${s.en}  ${s.zh}`, id: s.id, vo: 1 }] : []))); }
+function prItems(d){ return [{ label: `${d.dow} ${d.dom} · Day intro`, text: d.intro, where: d.title }].concat(d.stops.flatMap(s => [{ label: `${s.en} · To camera`, text: txt(s, "say"), where: `${s.en}  ${s.zh}`, id: s.id }].concat(s.vo ? [{ label: `${s.en} · Voiceover`, text: txt(s, "vo"), where: `${s.en}  ${s.zh}`, id: s.id, vo: 1 }] : []))); }
 function openPrompter(d, i){
   pr.day = d; pr.i = i || 0; drawPrompter();
   if ($("prompter").hidden){ $("prompter").hidden = false; history.pushState({ v: "prompter" }, ""); document.body.style.overflow = "hidden"; }
@@ -2530,7 +2590,7 @@ document.addEventListener("keydown", e => {
 window.addEventListener("popstate", () => {
   if (!$("bigHome").hidden){ $("bigHome").hidden = true; return; }
   if (!$("prompter").hidden){ $("prompter").hidden = true; if ($("detail").hidden) document.body.style.overflow = ""; return; }
-  if (!$("detail").hidden){ $("detail").hidden = true; document.body.style.overflow = ""; const el = cur && document.getElementById("st-" + cur.id); if (el) el.scrollIntoView({ block: "center" }); }
+  if (!$("detail").hidden){ $("detail").hidden = true; document.body.style.overflow = ""; render(); const el = cur && document.getElementById("st-" + cur.id); if (el) el.scrollIntoView({ block: "center" }); }
 });
 
 // ---- views
@@ -2558,6 +2618,13 @@ $("phrases").querySelectorAll("[data-say]").forEach(b => b.onclick = () => {
   const u = new SpeechSynthesisUtterance(T.phrases[+b.dataset.say].zh); u.lang = "zh-HK"; if (voice) u.voice = voice; u.rate = .85;
   speechSynthesis.cancel(); speechSynthesis.speak(u);
 });
+
+$("editsCopy").onclick = async () => {
+  const t = editsText().join("\n\n---\n\n"), b = $("editsCopy");
+  try { await navigator.clipboard.writeText(t); b.textContent = "Copied ✓"; }
+  catch(e){ const ta = document.createElement("textarea"); ta.value = t; document.body.appendChild(ta); ta.select(); let ok = false; try { ok = document.execCommand("copy"); } catch(_){} ta.remove(); b.textContent = ok ? "Copied ✓" : "Couldn't copy"; }
+  setTimeout(() => b.textContent = "Copy my edits", 2000);
+};
 
 // ---- updates & offline photos
 $("refresh").onclick = async () => {
