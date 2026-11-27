@@ -170,6 +170,7 @@ svg.i{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2;stroke
 .beat .cue{color:var(--mut);font-size:.92rem;line-height:1.4;margin:2px 0 8px}
 .beat .txt{font-size:1.02rem;line-height:1.5}
 .beat .txt.q{font-weight:600;font-size:1.1rem}
+.beat .txt.vo{font-size:1.06rem;line-height:1.55;background:var(--bg2);border-radius:12px;padding:12px 14px}
 .beat ul{list-style:none}
 .beat li{position:relative;padding:6px 0 6px 16px;font-size:1rem;line-height:1.45}
 .beat li::before{content:"";position:absolute;left:2px;top:14px;width:7px;height:7px;border-radius:50%;background:var(--line)}
@@ -467,10 +468,10 @@ function scriptHTML(s, d){
   const i = d.stops.indexOf(s), next = d.stops.slice(i + 1).find(x => x.kind !== "backup"), food = !!(s.eat && s.eat.length);
   const ul = a => `<ul>${a.join("")}</ul>`, li = t => `<li>${esc(t)}</li>`;
   const B = [], beat = (h, cue, body) => B.push({ h, cue, body });
-  const pts = s.points && s.points.length ? s.points : null;
-  if (pts) beat(s.about ? "Intro" : "Talking points", s.about ? "Your own words, over shots of the place or to camera. Hit these points." : "Your own words.", ul(pts.map(li)));
-  beat("To camera", "Where you are and what you're here for, plus a joke or how you feel.",
-    `<p class="cue">If you blank:</p><p class="txt q">“${esc(s.say)}”</p><button class="pbtn" data-prompt><svg class="i"><use href="#cam"/></svg>Open in prompter</button>`);
+  if (s.vo) beat("Voiceover", "Read it over shots of the place, or to camera. Change any words to make it yours.",
+    `<p class="txt vo">${esc(s.vo)}</p><button class="pbtn" data-prompt="vo"><svg class="i"><use href="#cam"/></svg>Open in prompter</button>`);
+  beat("To camera", "Short and in the moment: where you are and what you're here for.",
+    `<p class="txt q">“${esc(s.say)}”</p><button class="pbtn" data-prompt><svg class="i"><use href="#cam"/></svg>Open in prompter</button>`);
   if (s.order && s.order.length) beat("So we ordered…", "Name each dish as it lands and say what it is.",
     ul(s.order.map(o => `<li>${esc(o[0])}<span class="zh">${esc(o[1])}</span>${o[2] ? `<span class="what">${esc(o[2])}</span>` : ""}</li>`)));
   if (food) beat("First bite", "Show it, taste it, describe it: texture, then flavour, then compare it to something people know.", ul(s.eat.map(li)));
@@ -513,7 +514,7 @@ function openStop(id, replace){
       ${ph ? `<p class="credit">Photo: ${esc(ph.by)}${ph.lic ? ", " + esc(ph.lic) : ""}, via <a href="${ph.src}" target="_blank" rel="noopener">Wikimedia Commons</a> (from the Wikipedia article “${esc(ph.article)}”)</p>` : ""}
     </div>`;
   $("dBack").onclick = () => history.back();
-  $("dBody").querySelectorAll("[data-prompt]").forEach(b => b.onclick = () => openPrompter(d, d.stops.indexOf(s) + 1));
+  $("dBody").querySelectorAll("[data-prompt]").forEach(b => b.onclick = () => openPrompter(d, prItems(d).findIndex(x => x.id === s.id && !!x.vo === (b.dataset.prompt === "vo" && !!s.vo))));
   $("dBody").querySelectorAll(".dseg button").forEach(b => b.onclick = () => {
     dView = b.dataset.v; store.set("dView", dView);
     $("dBody").querySelectorAll(".dseg button").forEach(x => x.setAttribute("aria-selected", x === b));
@@ -534,7 +535,7 @@ $("dNext").onclick = () => { const d = cur.day, i = d.stops.indexOf(cur); if (i 
 
 // ---- prompter
 let pr = { day: null, i: 0 }, prSize = store.get("prSize", 34);
-function prItems(d){ return [{ label: `${d.dow} ${d.dom} · Day intro`, text: d.intro, where: d.title }].concat(d.stops.map(s => ({ label: s.en, text: s.say, where: `${s.en}  ${s.zh}` }))); }
+function prItems(d){ return [{ label: `${d.dow} ${d.dom} · Day intro`, text: d.intro, where: d.title }].concat(d.stops.flatMap(s => (s.vo ? [{ label: `${s.en} · Voiceover`, text: s.vo, where: `${s.en}  ${s.zh}`, id: s.id, vo: 1 }] : []).concat([{ label: `${s.en} · To camera`, text: s.say, where: `${s.en}  ${s.zh}`, id: s.id }]))); }
 function openPrompter(d, i){
   pr.day = d; pr.i = i || 0; drawPrompter();
   if ($("prompter").hidden){ $("prompter").hidden = false; history.pushState({ v: "prompter" }, ""); document.body.style.overflow = "hidden"; }
@@ -556,7 +557,7 @@ $("prBig").onclick = () => { prSize = Math.min(64, prSize + 4); store.set("prSiz
 $("introBtn").onclick = () => openPrompter(T.days[dayIdx], 0);
 $("navPrompt").onclick = () => {
   const d = T.days[dayIdx], { now, next } = nowNext(d), s = now || next;
-  openPrompter(d, s ? d.stops.indexOf(s) + 1 : 0);
+  openPrompter(d, s ? prItems(d).findIndex(x => x.id === s.id) : 0);
 };
 document.addEventListener("keydown", e => {
   if (!$("prompter").hidden){ if (e.key === "ArrowRight") $("prNext").click(); if (e.key === "ArrowLeft") $("prPrev").click(); if (e.key === "Escape") history.back(); }

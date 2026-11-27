@@ -1,5 +1,5 @@
 // Trip data. Times are Hong Kong time (UTC+8). Pins are approximate; Maps links search by name and address.
-// Stop: { t, en, wiki[], zh, area, kind, say, about, facts[], order[[en, zh]], eat[], tip, go, q, ll }
+// Stop: { t, en, wiki[], zh, area, kind, say, vo, ask, about, facts[], order[[en, zh, what]], eat[], tip, go, q, ll }
 // eat = "While you eat" prompts: what to point the camera at and how to describe the taste and texture.
 // t is only the planned order; the app does not show it. fixed = a time that can't move (booking, flight, ferry, opening, sunset), shown as a tag. wiki = Wikipedia articles tried in order for the photo.
 // Leg:  { leg, t, mode, text }
@@ -18,13 +18,7 @@ window.TRIP = {
     items: [
       { t: "18:45", fixed: "Lands 18:45", en: "Hong Kong International Airport", wiki: ["Hong Kong International Airport", "Chek Lap Kok", "Airport Express (MTR)"], zh: "香港國際機場", area: "Chek Lap Kok", kind: "hub",
         say: "Touched down in Hong Kong. Cash, eSIM, and straight into town.",
-        points: [
-          "Hook: Hong Kong ran out of flat land, so it made some",
-          "The airport sits on Chek Lap Kok, a hilly island off Lantau, levelled and joined to Lam Chau with reclaimed land",
-          "Opened July 1998, replacing Kai Tak in Kowloon City",
-          "Kai Tak: planes came in low over the rooftops (you'll be near there on Thursday)",
-          "Jobs now: cash (charge in HKD), eSIM on, Airport Express"
-        ],
+        vo: "Hong Kong ran out of flat land a long time ago, so when it needed a new airport, it made some. This whole place sits on Chek Lap Kok, a hilly island off Lantau that was flattened and joined to its neighbour with reclaimed land. It opened in 1998. Before that, planes landed at Kai Tak, right in the middle of Kowloon City, coming in low over the rooftops. Tonight, though, it's simple: cash, eSIM, and straight into town.",
         about: "Hong Kong ran out of flat land a long time ago, so when it needed a new airport, it made some. Chek Lap Kok was a hilly island off Lantau. It was levelled and joined to Lam Chau with reclaimed land, and the airport opened here in 1998. Before that, planes landed at Kai Tak, right in the middle of Kowloon City, coming in low over the rooftops. You'll be near that old neighbourhood on Thursday.",
         facts: [
           "The airport opened in July 1998, replacing Kai Tak, whose runway was right next to Kowloon City.",
@@ -38,13 +32,7 @@ window.TRIP = {
       { leg: 1, t: "20:05", mode: "Taxi", text: "Kowloon Station → Airbnb on Nathan Road. Taxi rank at the station; show the driver the address on the Home card." },
       { t: "20:30", en: "Airbnb, Jordan", wiki: ["Nathan Road"], zh: "佐敦 · 彌敦道", area: "Jordan", kind: "rest",
         say: "Home base for the week, right on Nathan Road. Bags down, and straight back out.",
-        points: [
-          "Hook: home base, right on Kowloon's main road",
-          "Nathan Road runs harbour → Tsim Sha Tsui → Jordan → Yau Ma Tei → Mong Kok",
-          "Named after Sir Matthew Nathan, governor 1904–07",
-          "Jordan Road was called Sixth Street until 1909",
-          "Close enough to walk to the harbour, close enough to the night markets to be dangerous"
-        ],
+        vo: "Home for the week is Nathan Road, the spine of Kowloon. It runs from the harbour up through Tsim Sha Tsui, Jordan, Yau Ma Tei and Mong Kok, and it's named after Sir Matthew Nathan, governor back in the early 1900s. Jordan sits right in the middle: close enough to walk to the harbour, and close enough to the night markets to be dangerous.",
         about: "Nathan Road is Kowloon's spine. It runs north from the harbour through Tsim Sha Tsui, Jordan, Yau Ma Tei and Mong Kok, and almost everything this week starts from it. It's named after Sir Matthew Nathan, governor from 1904 to 1907. Jordan sits in the middle: close enough to walk to the harbour, close enough to the night markets to be dangerous.",
         facts: [
           "Nathan Road is named after Sir Matthew Nathan, Governor of Hong Kong from 1904 to 1907. It got the name in 1909.",
@@ -55,13 +43,7 @@ window.TRIP = {
       { leg: 1, t: "22:10", mode: "Walk", text: "To Temple Street, about 5 min." },
       { t: "22:15", en: "Temple Street Night Market", wiki: ["Temple Street, Hong Kong"], zh: "廟街夜市", area: "Jordan / Yau Ma Tei", kind: "food",
         say: "First night, first snack. Temple Street Night Market, and I'm going in hungry.",
-        points: [
-          "Hook: first night, first snack",
-          "Named after the Tin Hau Temple in the middle of the street",
-          "Tin Hau = sea goddess of the fishing families; the temple complex dates to the 1800s",
-          "At night: stalls of clothes and gadgets, restaurant tables out on the road for seafood and clay-pot rice",
-          "Temple end: fortune tellers, some nights Cantonese opera"
-        ],
+        vo: "Temple Street is named after the Tin Hau Temple that sits in the middle of it. Tin Hau is the goddess of the sea, worshipped by the fishing families who were here long before the towers. By day it's just a street. At night it fills with stalls, and the restaurants drag their tables out onto the road for seafood and clay-pot rice. Down by the temple there are fortune tellers, and some nights, Cantonese opera.",
         ask: "Ask a stall cook what they'd eat here tonight.",
         about: "Temple Street is named after the Tin Hau Temple in the middle of it. Tin Hau is the sea goddess, worshipped by the fishing families who were here long before the towers. At night the street fills with stalls selling clothes and souvenirs, and the restaurants put their tables out for seafood and clay-pot rice. Near the temple end there are fortune tellers, and some nights Cantonese opera singers.",
         facts: [
@@ -86,14 +68,8 @@ window.TRIP = {
     intro: "Morning from Jordan. No pretending today: this is an eating day. First Sham Shui Po, one of the oldest working-class corners of Kowloon, where the food is cheap and the bar is high. Then I eat my way south to the harbour. People keep telling me to pace myself. We'll see.",
     items: [
       { t: "07:30", en: "Australia Dairy Company", wiki: ["Australia Dairy Company"], zh: "澳洲牛奶公司", area: "Jordan", kind: "food",
-        say: "Australia Dairy Company. Sit where they point, order fast, don't take it personally. Let's go.",
-        points: [
-          "Hook: the most famous cha chaan teng in Hong Kong, and the least patient",
-          "Cha chaan teng = 'tea restaurant': Hong Kong's cheap, fast, Cantonese take on the Western café",
-          "Opened 1970; the owner had just spent two years in Australia, hence the name",
-          "Famous for: scrambled eggs, steamed milk pudding, and service that doesn't wait for you",
-          "Hot tip: shared tables, so know your order before you sit down"
-        ],
+        say: "Australia Dairy Company. Order's ready in my head. Let's go.",
+        vo: "Round the corner from where I'm staying is probably the most famous cha chaan teng in Hong Kong. Cha chaan teng means 'tea restaurant': Hong Kong's take on the Western café, made cheap, fast and Cantonese. This one opened in 1970, named by an owner who'd just spent two years in Australia. It's famous for two things: the scrambled eggs, and service so fast it borders on hostile. You sit where they point, you share a table, and you'd better know your order.",
         ask: "Ask whoever is sharing your table how often they come and what they always order.",
         about: "Cha chaan teng literally means 'tea restaurant'. Think of it as Hong Kong's answer to the Western café: macaroni soup, toast and milk tea, done the Cantonese way. This one opened in 1970, and the owner named it after the two years he'd just spent in Australia. The speed isn't rudeness, it's how the place works: tables turn over in minutes.",
         facts: [
@@ -114,13 +90,7 @@ window.TRIP = {
       { leg: 1, t: "08:15", mode: "MTR", text: "Jordan → Sham Shui Po, Tsuen Wan line towards Tsuen Wan, 4 stops, about 8 min." },
       { t: "08:30", en: "Hop Yik Tai & Kung Wo", wiki: ["Cheung fun"], zh: "合益泰小食 · 公和荳品廠", area: "Sham Shui Po", kind: "food",
         say: "Second breakfast already. Rice rolls here, then tofu pudding one street over.",
-        points: [
-          "Hook: second breakfast, in a neighbourhood where cheap and brilliant is normal",
-          "Sham Shui Po: one of Hong Kong's oldest working-class districts, fabric and electronics",
-          "Hop Yik Tai: a tiny takeaway counter in the Michelin Guide, for one thing: cheung fun",
-          "Cheung fun = 'intestine noodle', named for the rolled shape",
-          "Kung Wo: history going back to 1893, still grinds its own soy on site, starting at 2am"
-        ],
+        vo: "Sham Shui Po is one of the oldest working-class neighbourhoods in Hong Kong. Fabric wholesalers, electronics stalls, and food priced for people who work for a living. Hop Yik Tai is a tiny takeaway counter that made the Michelin Guide for one thing: cheung fun, steamed rice-noodle rolls. The name means 'intestine noodle', because of the rolled shape. And one street over, Kung Wo makes its own tofu, in a business that traces its history back to 1893. They still grind the soybeans on site, starting at 2am.",
         ask: "At Kung Wo, ask what people order more: tofu pudding hot or cold.",
         about: "Sham Shui Po is one of Hong Kong's oldest working-class districts: fabric wholesalers, electronics stalls, and food priced for people who work for a living. Hop Yik Tai is a tiny takeaway counter in the Michelin Guide for one thing, cheung fun: steamed rice-noodle rolls, named 'intestine noodle' for their rolled shape. A street over, Kung Wo still makes its own tofu, soy milk and tofu pudding on site, and the stone grinder starts at 2am. They were working while you were asleep.",
         facts: [
@@ -139,14 +109,8 @@ window.TRIP = {
         q: "Hop Yik Tai 121 Kweilin Street Sham Shui Po", ll: [22.3301, 114.1606] },
       { leg: 1, t: "09:50", mode: "Walk", text: "To Fuk Wing Street, about 5 min." },
       { t: "10:00", en: "Tim Ho Wan", wiki: ["Tim Ho Wan"], zh: "添好運點心專門店", area: "Sham Shui Po", kind: "food",
-        say: "Tim Ho Wan. Michelin-starred dim sum at street prices, and I'm here for one thing: the baked pork buns.",
-        points: [
-          "Hook: Michelin-starred dim sum at street prices",
-          "2009: Mak Kwai Pui, a former dim sum chef at Lung King Heen in the Four Seasons, opens a 20-seat shop in Mong Kok",
-          "2010: a Michelin star, and fame as one of the cheapest starred meals anywhere",
-          "Now there are branches around the world, with the same idea",
-          "Get: the baked BBQ pork bun, with a crunchy sugar top instead of a fluffy steamed bun"
-        ],
+        say: "Tim Ho Wan. I'm here for one thing, and it's the baked pork buns.",
+        vo: "In 2009, a dim sum chef left the kitchen of Lung King Heen, inside the Four Seasons, and opened a 20-seat shop in Mong Kok. A year later, it had a Michelin star, and it became famous as one of the cheapest starred meals in the world. There are branches all over the world now, but the idea hasn't changed: hotel-quality dim sum at street prices. And the thing everyone comes for is the baked pork bun.",
         ask: "Ask your server which dish people order most, and order it too.",
         about: "In 2009 Mak Kwai Pui, a former dim sum chef at Lung King Heen in the Four Seasons, opened a tiny shop in Mong Kok. In 2010 it got a Michelin star, and the queues never really stopped. Now there are branches around the world, but the idea is the same: hotel-level dim sum at street prices. The thing everyone orders is the baked BBQ pork bun, with a crunchy sugar top instead of a fluffy steamed bun.",
         facts: [
@@ -166,13 +130,7 @@ window.TRIP = {
       { leg: 1, t: "10:45", mode: "Walk", text: "Tim Ho Wan → Tai Nan Street, about 10 min. Leave by 10:45." },
       { t: "11:00", fixed: "Booked 11:00", en: "Haircut at The Old Soul Barbershop", wiki: [], zh: "太子大南街148號地下A2", area: "Prince Edward / Sham Shui Po", kind: "sight",
         say: "Haircut time, squeezed in between dim sum and noodles. Let's hope I come out looking like I meant it.",
-        points: [
-          "Hook: a haircut squeezed in between dim sum and noodles",
-          "Tai Nan Street = 'Leather Street', from the post-war factory boom: leather, fabric, accessories",
-          "Luen Cheong Leather, a few doors up, has been there since 1948",
-          "The Old Soul: rated 5.0 on Fresha from over 800 reviews",
-          "What you're asking for: slicked back, scissors only, no fade"
-        ],
+        vo: "Between dim sum and noodles, I've squeezed in a haircut. Tai Nan Street is nicknamed 'Leather Street'. After the war, during Hong Kong's factory boom, it was lined with workshops making leather, fabric and accessories, and a few of those shops are still here. The Old Soul is a small barbershop with a 5.0 rating from over 800 reviews. No pressure.",
         ask: "Ask the barber how long they've been cutting hair, and what most guys ask for.",
         about: "A small men's barbershop on Tai Nan Street, on the border of Sham Shui Po and Prince Edward. It's rated 5.0 on Fresha from over 800 reviews and about 4.9 elsewhere, with people calling it friendly. The street is worth a line on camera: in Hong Kong's post-war factory boom it was lined with leather, fabric and accessory workshops, and it's still nicknamed 'Leather Street'. Open 11:00–20:00, seven days a week.",
         facts: [
@@ -184,13 +142,8 @@ window.TRIP = {
         q: "The Old Soul Barbershop 148 Tai Nan Street Prince Edward", ll: [22.3262, 114.1660] },
       { leg: 1, t: "12:00", mode: "Walk", text: "Back towards Kweilin Street for cart noodles and Lau Sum Kee, about 10 min." },
       { t: "12:00", en: "Cart noodles", wiki: ["Cart noodle"], zh: "車仔麵", area: "Sham Shui Po", kind: "food",
-        say: "Cart noodles: I get to pick everything. Nobody should give me this much freedom.",
-        points: [
-          "Hook: build-your-own noodles, a dangerous idea for you",
-          "Started as cheap street food sold from push-carts (車仔) in poorer neighbourhoods",
-          "The carts moved indoors, but you still tick boxes: noodle, toppings, soup or dry, spice",
-          "Read your combination out to the camera"
-        ],
+        say: "Cart noodles. Let's see how badly I can overdo this.",
+        vo: "Cart noodles started as cheap street food, sold from push-carts in Hong Kong's poorer neighbourhoods. You pointed at the noodles and toppings you wanted, and that was dinner. The carts have moved indoors now, but the idea is the same: you build your own bowl by ticking boxes. Noodles, toppings, soup or dry, how spicy. For someone like me, that's a dangerous amount of freedom.",
         ask: "Ask the staff what the most popular combination is.",
         about: "Cart noodles started as cheap street food sold from push-carts in Hong Kong's poorer neighbourhoods. You pointed at the noodles and toppings you wanted and that was dinner. The carts have moved indoors now, but the idea hasn't changed: build your own bowl, cheap and fast, by ticking boxes on a menu.",
         facts: [
@@ -208,13 +161,7 @@ window.TRIP = {
         q: "cart noodles Sham Shui Po", ll: [22.3305, 114.1625] },
       { t: "12:00", en: "Lau Sum Kee", wiki: ["Lau Sum Kee", "Wonton noodles"], zh: "劉森記麵家", area: "Sham Shui Po", kind: "food",
         say: "Lau Sum Kee. Let's find out what all that bouncing does to a noodle.",
-        points: [
-          "Hook: Hong Kong tears down the old, so when something survives, stop for it",
-          "Run by the third generation of the same family",
-          "Bamboo-pole noodles (竹昇麵): a cook bounces on a big bamboo pole to press the dough",
-          "That's what gives the springy, snappy bite, and very few shops still do it",
-          "The wontons go under the noodles so the noodles don't go soggy"
-        ],
+        vo: "Hong Kong is always tearing down the old to put up something shinier, so when something survives, it's worth stopping for. Lau Sum Kee is run by the third generation of the same family, and they still make bamboo-pole noodles the old way. A cook sits on one end of a big bamboo pole and bounces on the dough, over and over. It's slow, it's brutal, and almost nobody bothers anymore. Wonton noodles, dry noodles with shrimp roe, and no shortcuts.",
         ask: "Ask if they still press the noodles on the bamboo pole here, and who does it.",
         about: "Explain the bounce: pressing the dough with body weight instead of a machine is what gives bamboo-pole noodles (竹昇麵) their springy, snappy bite. Then the bowl: the wontons go under the noodles, so the noodles sit above the soup and don't go soggy. Point that out when it arrives. If you go for the dry noodles with shrimp roe, the roe is the whole point.",
         facts: [
@@ -233,13 +180,7 @@ window.TRIP = {
         q: "Lau Sum Kee Noodle 48 Kweilin Street Sham Shui Po", ll: [22.3290, 114.1612] },
       { t: "12:45", en: "Apliu Street market", wiki: ["Apliu Street"], zh: "鴨寮街", area: "Sham Shui Po", kind: "sight",
         say: "Apliu Street. If you lost a cable in 2009, it's probably here.",
-        points: [
-          "Hook: a museum of everything you ever threw away",
-          "鴨寮 = 'duck huts', after a village where people raised ducks",
-          "Second-hand market from the 1930s, electronics parts hub from the 1960s",
-          "Phones, cables, batteries, old cameras, with shops behind the stalls",
-          "Tip: grab a spare camera battery or SD card"
-        ],
+        vo: "Apliu Street's name means 'duck huts', after a village where people once raised ducks. It became a second-hand market in the 1930s, and an electronics hub in the 1960s, when Hong Kong was making gadgets for the world. Today it's a street-long flea market of phones, cables, batteries and old cameras. It's basically a museum of everything you ever threw away.",
         ask: "Ask a stall holder what the oldest thing on their table is.",
         about: "The name 鴨寮 means 'duck huts', after a village where people once raised ducks. It became a second-hand market in the 1930s and an electronics parts hub in the 1960s, when Hong Kong was making radios and gadgets for the world. Today it's a street-long flea market of phones, cables, batteries, tools and camera gear, with proper shops behind the stalls. The stalls are set up by around midday.",
         facts: [
@@ -251,14 +192,8 @@ window.TRIP = {
         q: "Apliu Street Sham Shui Po", ll: [22.3299, 114.1638] },
       { leg: 1, t: "13:15", mode: "Walk", text: "South to Kam Wah Café on Bute Street, Prince Edward, about 15 min." },
       { t: "13:30", en: "Kam Wah Café", wiki: ["Kam Wah Cafe", "Pineapple bun"], zh: "金華冰廳", area: "Prince Edward", kind: "food",
-        say: "Kam Wah. A hot pineapple bun with a slab of cold butter. Don't judge me.",
-        points: [
-          "Hook: a hot bun, a cold slab of butter, and no shame",
-          "Bing sutt = 'ice room', the old-school café that came before the cha chaan teng",
-          "Kam Wah opened in 1973",
-          "Pineapple bun: no pineapple, named for the cracked sugar top that looks like pineapple skin",
-          "Bolo yau = 'pineapple oil': the bun split with butter, and Kam Wah's slab is famously thick"
-        ],
+        say: "Kam Wah. I've been thinking about this bun all morning. Don't judge me.",
+        vo: "Before the cha chaan teng, there was the bing sutt, the 'ice room': old-school cafés serving cold drinks, buns and milk tea. Kam Wah has been doing it since 1973, and it's famous for one thing: bolo yau. A pineapple bun, which has no pineapple in it, by the way. It's named after the cracked sugar top that looks like pineapple skin. They split it open while it's hot and jam in a thick slab of cold butter. It's not health food, and nobody here is pretending it is.",
         ask: "Ask what they sell more of: pineapple buns or egg tarts.",
         about: "A bing sutt, an 'ice room', is the old-school café that came before the cha chaan teng, and Kam Wah on Bute Street is one of the most famous. The pineapple bun is named after its sugar top, which cracks into a pattern like pineapple skin. Bolo yau, 'pineapple oil', is that bun split and stuffed with butter, and Kam Wah's slab is famously thick. This is not health food. Nobody here pretends it is.",
         facts: [
@@ -276,12 +211,7 @@ window.TRIP = {
         q: "Kam Wah Cafe 47 Bute Street Prince Edward", ll: [22.3240, 114.1712] },
       { t: "14:00", en: "Flower Market & Goldfish Street", wiki: ["Yuen Po Street Bird Garden", "Prince Edward, Hong Kong"], zh: "花墟 · 金魚街", area: "Prince Edward / Mong Kok", kind: "sight",
         say: "A whole street of flowers, and around the corner, a whole street of goldfish.",
-        points: [
-          "Hook: Hong Kong puts a whole trade on one street",
-          "Flower Market Road: florists end to end, with the bird garden at the east end",
-          "Goldfish Street: the north end of Tung Choi Street, fish in hanging plastic bags",
-          "Goldfish are linked with good fortune in Chinese tradition"
-        ],
+        vo: "Hong Kong likes to put a whole trade on one street. Flower Market Road is florists and plant shops from one end to the other. Walk south, and the top of Tung Choi Street turns into Goldfish Street: shopfronts covered in fish swimming in plastic bags. In Chinese tradition goldfish are linked with good fortune, which explains a lot of living-room fish tanks.",
         ask: "Ask a goldfish seller which fish are meant to be the luckiest.",
         about: "Hong Kong likes to keep its trades together. Flower Market Road is florists and plant shops end to end, with Yuen Po Street Bird Garden at the east end. Walk south and the top of Tung Choi Street turns into Goldfish Street: shopfronts covered in fish in hanging plastic bags, plus aquariums and pet supplies. Goldfish are linked with good fortune in Chinese tradition, which explains a lot of living-room tanks.",
         facts: [
@@ -292,14 +222,8 @@ window.TRIP = {
         go: "Flower Market Road, then walk south down Tung Choi Street.",
         q: "Flower Market Road Prince Edward", ll: [22.3253, 114.1722] },
       { t: "14:45", en: "Mong Kok: Ladies' Market & Sneaker Street", wiki: ["Ladies' Market", "Tung Choi Street"], zh: "女人街 · 波鞋街", area: "Mong Kok", kind: "food",
-        say: "Mong Kok. It's packed, it's loud, and I'm here for egg waffles and curry fish balls.",
-        points: [
-          "Hook: one of the most crowded places on Earth, and two classic snacks",
-          "Ladies' Market: Tung Choi Street, clothes and souvenirs",
-          "Sneaker Street: Fa Yuen Street, one street east",
-          "Egg waffles are made in a special iron that makes the bubbles",
-          "Curry fish balls: about as Hong Kong as street food gets"
-        ],
+        say: "Mong Kok on a Sunday. Wish me luck.",
+        vo: "Mong Kok is often called one of the most crowded places on Earth, and on a Sunday afternoon you'll believe it. The Ladies' Market fills Tung Choi Street, and one street over, Fa Yuen Street is wall-to-wall sneaker shops. But I'm here for two of the most classic snacks in Hong Kong: egg waffles, made in a special iron that puffs them into bubbles, and curry fish balls on a stick.",
         ask: "Ask the egg waffle cook how long they've been making them.",
         about: "Mong Kok is often called one of the most densely populated places on Earth, and on a Sunday afternoon you'll believe it. The Ladies' Market fills Tung Choi Street with clothes and souvenir stalls. One street east, Fa Yuen Street is nicknamed Sneaker Street for its run of sports shoe shops. But the snacks are the real reason I'm here: egg waffles, cooked in a special iron that makes the bubbles, and curry fish balls on a stick, about as Hong Kong as street food gets.",
         facts: [
@@ -317,24 +241,14 @@ window.TRIP = {
       { leg: 1, t: "15:45", mode: "MTR", text: "Mong Kok → Jordan, Tsuen Wan line towards Central, 2 stops." },
       { t: "16:00", en: "Rest at the Airbnb", wiki: ["Nathan Road"], zh: "休息", area: "Jordan", kind: "rest",
         say: "Quick break to charge the batteries, mine and the cameras'.",
-        points: [
-          "Charge batteries, phone and cards",
-          "Back up today's footage",
-          "Quick check of tonight's plan"
-        ],
+        vo: "Quick break. Batteries on charge, mine and the cameras', and today's footage backed up before round two.",
         facts: [],
         go: "Back to Nathan Road.",
         q: "328 Nathan Road Jordan Hong Kong", ll: [22.3058, 114.1714] },
       { leg: 1, t: "16:40", mode: "Walk", text: "West to the Art Park, about 20–25 min, or a short taxi." },
       { t: "17:00", fixed: "Sunset ~17:40", en: "West Kowloon Art Park", wiki: ["West Kowloon Cultural District", "M+"], zh: "西九藝術公園", area: "West Kowloon", kind: "sight",
         say: "Sunset at West Kowloon, with the whole of Hong Kong Island across the water.",
-        points: [
-          "Hook: you're standing on what used to be water",
-          "The whole cultural district is reclaimed land",
-          "The view: across Victoria Harbour to Central",
-          "Next door: M+ (opened November 2021) and the Hong Kong Palace Museum (2022)",
-          "Sunset around 17:40, then the towers light up"
-        ],
+        vo: "Everything around me, this lawn, the museums, the whole cultural district, is built on reclaimed land. Not that long ago, this was water. Next door is M+, a museum of visual culture that opened in 2021, and the Hong Kong Palace Museum, which opened a year later. But the real show is across the harbour: Hong Kong Island, turning gold, then lighting up.",
         about: "The whole West Kowloon Cultural District sits on reclaimed land, which is Hong Kong's answer to most problems. The Art Park's big lawn looks across Victoria Harbour to Central, and right next to it are M+, a museum of visual culture that opened in 2021, and the Hong Kong Palace Museum, which opened in 2022. Sunset is around 17:40. Watch the towers across the water turn gold, then light up.",
         facts: [
           "The whole cultural district is built on reclaimed land.",
@@ -346,12 +260,7 @@ window.TRIP = {
       { leg: 1, t: "17:50", mode: "Walk", text: "Down Canton Road to the Star Ferry pier, 30–35 min." },
       { t: "18:30", en: "Star Ferry", wiki: ["Star Ferry"], zh: "天星小輪", area: "Tsim Sha Tsui ⇄ Central", kind: "sight",
         say: "The Star Ferry. Upper deck, island side. Best seat in the city.",
-        points: [
-          "Hook: the best view in Hong Kong, for next to nothing",
-          "Founded 1888 by Dorabjee Naorojee, a Parsee merchant; renamed Star Ferry in 1898",
-          "Every boat's name ends in 'Star', ever since Morning Star and Evening Star",
-          "About 10 minutes across: sit upstairs and face the island"
-        ],
+        vo: "The Star Ferry has been crossing this harbour since 1888, when a Parsee merchant named Dorabjee Naorojee started it. Every boat's name ends in 'Star', ever since the first two, Morning Star and Evening Star. The crossing takes about ten minutes, it costs next to nothing, and it gives you one of the best views in the world.",
         ask: "Ask a crew member how many crossings they do in a day.",
         about: "In 1888 a Parsee merchant called Dorabjee Naorojee started a ferry across the harbour, and ten years later it was renamed the Star Ferry. Every boat's name has ended in 'Star' ever since the first two, Morning Star and Evening Star. The crossing takes about 10 minutes. Sit on the upper deck, face the island, and let the skyline do the talking.",
         facts: [
@@ -364,13 +273,7 @@ window.TRIP = {
       { leg: 1, t: "19:40", mode: "Walk", text: "Back at the Tsim Sha Tsui pier: the light show is right next door at the Cultural Centre." },
       { t: "20:00", en: "WinterFest light show & Avenue of Stars", wiki: ["Hong Kong Cultural Centre", "Avenue of Stars, Hong Kong"], zh: "香港繽紛冬日節 · 星光大道", area: "Tsim Sha Tsui", kind: "sight",
         say: "The harbour at night, and a brand-new light show.",
-        points: [
-          "Hook: a new light show, a week after the old one ended",
-          "A Symphony of Lights ran from 2004; its last show was on 18 November 2026",
-          "Guinness listed it as the world's largest permanent light and sound show",
-          "WinterFest (18 Nov – 5 Jan): projections on the Clock Tower, Cultural Centre, Museum of Art and Space Museum",
-          "Then: Avenue of Stars, the Bruce Lee statue, the skyline across the water"
-        ],
+        vo: "For more than twenty years, the harbour had a nightly light show called A Symphony of Lights. Guinness once listed it as the biggest permanent light and sound show in the world. Its last show was just last week. So this winter, the buildings along the Tsim Sha Tsui waterfront have become giant screens for a new projection show. After that, it's a walk along the Avenue of Stars, past Bruce Lee, with the whole skyline across the water.",
         about: "For WinterFest (18 Nov 2026 – 5 Jan 2027), the Clock Tower, Cultural Centre, Museum of Art and Space Museum on the Tsim Sha Tsui waterfront become screens for free nightly projection shows. Afterwards, walk east along the Avenue of Stars, the promenade that celebrates Hong Kong film, with Bruce Lee in bronze and the whole skyline across the water.",
         facts: [
           "A Symphony of Lights, the nightly harbour light show that ran since 2004, had its final show on 18 November 2026.",
@@ -382,14 +285,8 @@ window.TRIP = {
         q: "Hong Kong Cultural Centre Tsim Sha Tsui", ll: [22.2937, 114.1702] },
       { leg: 1, t: "20:25", mode: "MTR", text: "Tsim Sha Tsui → Jordan, 1 stop, or walk 15 min up Nathan Road." },
       { t: "20:45", fixed: "Opens 18:00", en: "Four Seasons Pot Rice, Yee Shun & Temple Street", wiki: ["Claypot rice", "Double skin milk"], zh: "四季煲仔飯 · 義順牛奶公司", area: "Yau Ma Tei / Jordan", kind: "food",
-        say: "Dinner is clay-pot rice, and yes, I'm queuing for the crispy bit at the bottom.",
-        points: [
-          "Hook: people queue for the burnt bit at the bottom",
-          "Bo zai fan: rice cooked to order in the clay pot it's served in",
-          "The pot sits right on the flame, so the bottom turns into a crisp crust, fan jiu (飯焦)",
-          "It's a winter dish, so the queues are longest now",
-          "After: Yee Shun for double-skin milk, a pudding from Shunde in Guangdong"
-        ],
+        say: "Four Seasons. Clay-pot rice for dinner, and yes, I'm in the queue.",
+        vo: "Clay-pot rice, bo zai fan, is rice cooked to order in the same pot it's served in, with toppings like Chinese sausage or chicken steaming on top. Because the pot sits right on the flame, the rice at the bottom turns into a crispy, slightly scorched crust. That crust is the whole reason people queue. It's a winter dish, and it's winter, so the queue is long. After this, dessert: double-skin milk, a steamed milk pudding from Shunde, named after the two skins that form on top.",
         ask: "Ask the people in the queue how long they usually wait.",
         about: "Bo zai fan is rice cooked to order in the clay pot it's served in, with toppings like Chinese sausage or chicken steaming on top. Because the pot sits right on the flame, the bottom layer turns into a crisp crust called fan jiu (飯焦). It's a winter dish, so this time of year the queues are at their longest. Afterwards, walk to Yee Shun for double-skin milk, a steamed milk pudding from Shunde in Guangdong named for the two skins that form on top, then wander back through Temple Street.",
         facts: [
@@ -418,13 +315,7 @@ window.TRIP = {
     items: [
       { t: "07:15", en: "Congee with youtiao", wiki: ["Congee", "Youtiao"], zh: "粥 · 油炸鬼", area: "Jordan", kind: "food",
         say: "Proper Hong Kong breakfast: hot congee and a fried dough stick to dunk.",
-        points: [
-          "Hook: the Cantonese answer to breakfast, colds and cold days",
-          "Congee: rice simmered for hours until the grains break down",
-          "Youtiao here is yau ja gwai = 'oil-fried devil'",
-          "Wrapped in a rice roll, it's called ja leung",
-          "Classic order: century egg and lean pork"
-        ],
+        vo: "Congee is rice simmered for hours, until the grains give up and turn into a thick, smooth porridge. For Cantonese families it's breakfast, it's what you eat when you're sick, and it's what you eat when it's cold. And on the side, youtiao, a fried dough stick. In Cantonese it's called yau ja gwai, the 'oil-fried devil'. You rip it up and dunk it.",
         ask: "Ask what the people around you add to their congee.",
         about: "Congee is rice simmered in a lot of water for a long time, until the grains break down into a smooth, thick porridge. It's what Cantonese families eat for breakfast, when they're sick, and when it's cold. The fried dough stick, youtiao, is called yau ja gwai here: 'oil-fried devil'. Rip it up and dunk it, or have it wrapped in a rice roll, which is called ja leung.",
         facts: [
@@ -443,13 +334,7 @@ window.TRIP = {
       { leg: 1, t: "08:20", mode: "Bus", text: "Bus 9 from Shau Kei Wan bus terminus to To Tei Wan, about 20 min. The driver will stop if you press the bell." },
       { t: "08:45", en: "Dragon's Back hike", wiki: ["Dragon's Back"], zh: "龍脊", area: "Shek O", kind: "sight",
         say: "Dragon's Back. A ridge walk that ends at a beach. Not a bad Monday.",
-        points: [
-          "Hook: Hong Kong is a lot greener than people think",
-          "The ridge goes up and down like a dragon's spine",
-          "Part of stage 8 of the Hong Kong Trail",
-          "Ends at Big Wave Bay: a surf beach, and a prehistoric rock carving found in 1970",
-          "Little shade: water and sunscreen"
-        ],
+        vo: "Most people picture Hong Kong as nothing but towers, but a huge amount of it is mountains and country park. This is Dragon's Back, a ridge that goes up and down like the spine of a dragon, with the South China Sea below. It's part of the Hong Kong Trail, and it ends somewhere you wouldn't expect: a surf beach, called Big Wave Bay.",
         about: "Most people picture Hong Kong as all towers, but a huge share of it is hills and country park. Dragon's Back is part of stage 8 of the Hong Kong Trail: a ridge walk along the Shek O peninsula with sea views, then down through the woods to Big Wave Bay. Allow 2–3 hours. There's not much shade on the ridge, so bring water and sunscreen.",
         facts: [
           "The trail is part of stage 8 of the Hong Kong Trail.",
@@ -463,13 +348,7 @@ window.TRIP = {
       { leg: 1, t: "12:00", mode: "Tram", text: "Ding Ding tram west from Shau Kei Wan to Quarry Bay, about 20 min. Board at the back, tap out at the front." },
       { t: "12:20", en: "Monster Building", wiki: ["Monster Building"], zh: "怪獸大廈", area: "Quarry Bay", kind: "sight",
         say: "The Monster Building. Photos don't prepare you for it. Voices down, people live here.",
-        points: [
-          "Hook: what Hong Kong does with too little land",
-          "Five connected blocks: Montane, Oceanic, Fok Cheong, Yick Cheong, Yick Fat",
-          "Built in the 1960s, more than 2,000 flats",
-          "In Transformers: Age of Extinction (2014)",
-          "People's homes: voices down, follow the signs"
-        ],
+        vo: "This is what Hong Kong does when it runs out of land: it builds up, then it builds in. The Monster Building is actually five connected blocks from the 1960s, with more than two thousand flats wrapped around one courtyard. It's been in movies, including Transformers. But before it's a film set, it's people's homes, so we're keeping it quiet.",
         about: "It's actually five connected blocks from the 1960s, Montane, Oceanic, Fok Cheong, Yick Cheong and Yick Fat, wrapped around a courtyard. It shows what this city does with too little land: it builds up, and then it builds in. It's been in films, including Transformers: Age of Extinction. But it's still people's homes, so keep it quiet and follow the signs about filming.",
         facts: [
           "It's actually five buildings: Montane, Oceanic, Fok Cheong, Yick Cheong and Yick Fat.",
@@ -482,12 +361,7 @@ window.TRIP = {
       { leg: 1, t: "12:45", mode: "Tram", text: "Tram west to North Point, about 10 min. The tram turns into Chun Yeung Street." },
       { t: "12:45", en: "Chun Yeung Street market", wiki: ["Chun Yeung Street", "North Point"], zh: "春秧街", area: "North Point", kind: "sight",
         say: "Chun Yeung Street. A wet market, and here comes a tram straight through it.",
-        points: [
-          "Hook: a wet market with a tram running through it",
-          "One of the few places the tram leaves the main road",
-          "Named after Kwok Chun Yeung, a businessman from Fujian, 1920s",
-          "1940s: Shanghainese families arrive, North Point becomes 'Little Shanghai', later 'Little Fujian'"
-        ],
+        vo: "Chun Yeung Street is a wet market: fruit, vegetables, meat and fish on both sides. And right down the middle runs the tram. It's one of the few places the tram leaves the main road. When it rings its bell, everyone steps aside, and then goes straight back to buying fish. In the 1940s so many Shanghainese families settled here that North Point got the nickname 'Little Shanghai'.",
         ask: "Ask a stall holder what it's like with the tram coming through all day.",
         about: "Fruit, vegetable, meat and seafood stalls line both sides, and the tram rings its way through: one of the few places the trams leave the main road. The street is named after Kwok Chun Yeung, a businessman from Fujian who developed the area in the 1920s. So many Shanghainese families arrived in the 1940s that North Point was nicknamed 'Little Shanghai'. Later it became 'Little Fujian'.",
         facts: [
@@ -500,13 +374,7 @@ window.TRIP = {
       { leg: 1, t: "13:15", mode: "MTR", text: "North Point → Central, Island line, about 12 min." },
       { t: "13:40", en: "Kau Kee", wiki: ["Kau Kee Restaurant"], zh: "九記牛腩", area: "Central", kind: "food",
         say: "Kau Kee. There's a queue, and there's a reason for the queue.",
-        points: [
-          "Hook: there's always a queue, and there's a reason",
-          "Trading since the 1930s; Michelin Bib Gourmand",
-          "Gough Street: once printing presses and brisket shops; Kau Kee is the famous survivor",
-          "Two styles: clear broth, or curry",
-          "Small room, fast turnover: order fast"
-        ],
+        vo: "Gough Street used to be full of printing presses and old beef brisket shops. Kau Kee is the one that survived and got famous. It's been going since the 1930s, it has a Michelin Bib Gourmand, and it does basically two things: brisket in clear broth, and curry brisket. The room is small, the queue is long, and nobody is going to wait while you decide.",
         ask: "Ask which one regulars order more: clear broth or curry.",
         about: "Gough Street used to be full of printing presses and old brisket shops. Kau Kee is the one that survived and got famous. It does two things: brisket in clear broth, and curry brisket. The room is small, turnover is fast, and nobody is going to wait while you decide. Queue, sit, order, eat.",
         facts: [
@@ -525,13 +393,7 @@ window.TRIP = {
         q: "Kau Kee Restaurant 21 Gough Street Central", ll: [22.2841, 114.1523] },
       { t: "14:10", en: "Yat Lok", wiki: ["Yat Lok", "Siu mei"], zh: "一樂燒鵝", area: "Central", kind: "food",
         say: "Yat Lok. Everyone in here came for the same thing, and so did I. Look at that skin.",
-        points: [
-          "Hook: everyone in here came for the same bird",
-          "Trading since 1957; one Michelin star",
-          "The trick: the goose skin is dried before roasting, so it shatters instead of going chewy",
-          "Get the leg if they have it, over rice noodles",
-          "Expect to share a table"
-        ],
+        vo: "Yat Lok has been roasting geese since 1957, and it has a Michelin star to show for it. The secret is patience. Before the goose goes anywhere near the fire, the skin is dried, so that when it roasts, it shatters instead of going chewy. The thing to order is the goose leg, the juiciest part, served over rice noodles that soak up all the drippings.",
         ask: "Ask how many geese they roast in a day.",
         about: "Roast goose is Cantonese roast meat taken seriously. Drying the skin first is the whole trick: no moisture means it shatters instead of going chewy. Order the leg if they have it. It's the juiciest part, and it comes over rice noodles that soak up the drippings. Expect to share a table.",
         facts: [
@@ -548,13 +410,7 @@ window.TRIP = {
         q: "Yat Lok Restaurant 34 Stanley Street Central", ll: [22.2817, 114.1558] },
       { t: "14:30", en: "Ser Wong Fun", wiki: ["Ser Wong Fun", "Snake soup"], zh: "蛇王芬", area: "Central", kind: "food",
         say: "Okay, I'm doing it. Snake soup. It's winter, so no excuses.",
-        points: [
-          "Hook: snake soup, and it's winter, so no excuses",
-          "The business started in Guangdong in 1895, came to Hong Kong in 1940, and to Cochrane Street in 1989",
-          "Snake soup: a thick soup of shredded snake, mushrooms and herbs",
-          "A winter dish, believed to warm the body",
-          "Topped with crispy crackers and shredded lemon leaf"
-        ],
+        vo: "Ser Wong Fun goes back to 1895, in Guangdong. It came to Hong Kong in 1940, and it's been on Cochrane Street since 1989. Snake soup is a thick soup of shredded snake, mushrooms and herbs, and in Cantonese tradition it's a winter dish, eaten to warm the body. It comes with crispy crackers and fine shreds of lemon leaf to sprinkle on top. It sounds scarier than it is. I think.",
         ask: "Ask whether people come for snake soup more in winter.",
         about: "The business started in Guangdong in 1895, moved to Hong Kong in 1940, and has been on Cochrane Street since 1989. Snake soup is a thick soup of shredded snake meat, mushrooms and herbs, eaten in the colder months because it's thought to warm the body. It comes with crispy crackers and fine shreds of lemon leaf to scatter on top. It sounds scarier than it is.",
         facts: [
@@ -572,13 +428,7 @@ window.TRIP = {
         q: "Ser Wong Fun 30 Cochrane Street Central", ll: [22.2826, 114.1546] },
       { t: "14:50", en: "Lan Fong Yuen", wiki: ["Lan Fong Yuen", "Hong Kong–style milk tea"], zh: "蘭芳園", area: "Central", kind: "food",
         say: "Lan Fong Yuen, for a milk tea and a pork chop bun.",
-        points: [
-          "Hook: the stall that says it invented silk-stocking milk tea",
-          "Started as a dai pai dong, a licensed open-air stall, on Gage Street in the early 1950s",
-          "Claims it invented silk-stocking milk tea in 1952",
-          "The 'stocking' is a long cotton filter bag that stains brown",
-          "Creamy body from evaporated milk; pork chop buns are the other draw"
-        ],
+        vo: "Lan Fong Yuen started in the early 1950s as a dai pai dong, a licensed open-air food stall, on Gage Street. It says it invented silk-stocking milk tea. The 'stocking' is actually a long cotton filter bag that the tea gets strained through, and over time it stains brown and starts to look like a stocking. The tea is strong, the milk is evaporated milk, and the other reason people queue is the pork chop bun.",
         ask: "Ask how many cups of milk tea they make in a day.",
         about: "Lan Fong Yuen started as a dai pai dong, a licensed open-air food stall, on Gage Street in the early 1950s. Its claim to fame is 'silk-stocking' milk tea: strong black tea strained through a long cotton bag that turns brown with use and looks like a stocking. The creamy body comes from evaporated milk. The pork chop bun is the other reason people queue.",
         facts: [
@@ -594,13 +444,7 @@ window.TRIP = {
         q: "Lan Fong Yuen 2 Gage Street Central", ll: [22.2830, 114.1543] },
       { t: "15:05", en: "Tai Cheong Bakery", wiki: ["Tai Cheong Bakery", "Egg tart"], zh: "泰昌餅家", area: "Central", kind: "food",
         say: "Tai Cheong. Last stop on the crawl, and it's an egg tart.",
-        points: [
-          "Hook: an egg tart with a governor's nickname",
-          "Opened in 1954",
-          "Chris Patten, the last governor, was such a fan they're called 'Fat Patten egg tarts' (肥彭蛋撻)",
-          "Hong Kong style: smooth, shiny custard in short, crumbly pastry",
-          "Set-up for Wednesday: this versus Macau's burnt-top tart"
-        ],
+        vo: "Tai Cheong has been baking since 1954, and its egg tarts have a famous fan. Chris Patten, Hong Kong's last British governor, loved them so much that locals started calling them 'Fat Patten egg tarts'. This is the Hong Kong style: short, crumbly pastry and a smooth, shiny custard. Remember it, because on Wednesday in Macau I'm trying the Portuguese style, and one of them has to win.",
         ask: "Ask if a fresh batch is coming out of the oven, and wait for a warm one.",
         about: "Tai Cheong opened in 1954, and its egg tarts are the ones people bring up when you ask about Hong Kong egg tarts. Chris Patten, the last governor, was such a regular fan that they got the nickname 肥彭蛋撻, 'Fat Patten egg tarts'. The Hong Kong style has a smooth, shiny custard: a completely different animal from the burnt-top Portuguese tart you'll eat in Macau on Wednesday.",
         facts: [
@@ -618,13 +462,7 @@ window.TRIP = {
         q: "Tai Cheong Bakery 35 Lyndhurst Terrace Central", ll: [22.2823, 114.1535] },
       { t: "15:15", en: "Mid-Levels Escalator & Man Mo Temple", wiki: ["Man Mo Temple (Hong Kong)", "Central–Mid-Levels escalator"], zh: "中環至半山自動扶梯 · 文武廟", area: "Central / Sheung Wan", kind: "sight",
         say: "Taking the escalator up the hill, then a temple full of incense.",
-        points: [
-          "Hook: commuting by escalator",
-          "About 800 m, often called the world's longest outdoor covered escalator",
-          "Runs downhill until about 10am, uphill after",
-          "Man Mo Temple, built 1847: Man, god of literature, and Mo, god of war",
-          "Look up: giant incense coils hanging from the ceiling"
-        ],
+        vo: "In most cities, you walk up a hill. In Hong Kong, you take the escalator. The Mid-Levels escalator is about 800 metres of covered escalators climbing straight through the old town, running downhill in the morning rush and uphill the rest of the day. Just off it is Man Mo Temple, built in 1847, for the god of literature and the god of war. Step inside and look up: giant coils of incense hang from the ceiling, burning slowly over your head.",
         about: "The Central–Mid-Levels escalator is about 800 m of covered escalators and walkways, built for commuters on one of the steepest hillsides in the city. It runs downhill in the morning rush, until about 10am, and uphill the rest of the day. On Hollywood Road, Man Mo Temple, built in 1847, honours two gods: Man, the god of literature, and Mo, the god of war. Look up when you walk in: the incense coils hang from the ceiling, and the smoke catches the light.",
         facts: [
           "The escalator system is about 800 m long, and is often called the world's longest outdoor covered escalator.",
@@ -636,13 +474,7 @@ window.TRIP = {
       { leg: 1, t: "16:00", mode: "Walk", text: "To the Peak Tram lower terminus on Garden Road, about 15 min, or a short taxi." },
       { t: "16:15", fixed: "Booked 16:15", en: "Peak Tram", wiki: ["Peak Tram"], zh: "山頂纜車", area: "Central → The Peak", kind: "sight",
         say: "The Peak Tram. Watch the buildings outside. Something weird is about to happen.",
-        points: [
-          "Hook: the buildings outside look like they're falling over",
-          "Opened May 1888, Asia's first funicular",
-          "Funicular = a cable pulls the car up the slope",
-          "The leaning buildings are an illusion: an HKU study linked it to the slope and riders leaning back",
-          "Sit on the right going up"
-        ],
+        vo: "The Peak Tram has been climbing this hill since 1888. It was the first funicular in Asia, which means a cable pulls the car up the slope. It's so steep that the skyscrapers outside start to look like they're leaning over. They're not. A University of Hong Kong study put it down to the angle of the slope and the way you lean back in your seat. Your brain is lying to you.",
         about: "It opened in May 1888 to carry people up to Victoria Peak. On the way up, the slope makes the towers outside look like they're tilting. A University of Hong Kong study linked the illusion to the angle of the slope and the way riders lean back in their seats. Sit on the right going up for the best view.",
         facts: [
           "It opened in May 1888 and was Asia's first funicular railway.",
@@ -653,12 +485,7 @@ window.TRIP = {
         q: "Peak Tram Garden Road Terminus", ll: [22.2780, 114.1594] },
       { t: "16:45", fixed: "Sunset ~17:40", en: "Lugard Road lookout", wiki: ["Lugard Road", "Victoria Peak"], zh: "盧吉道", area: "The Peak", kind: "sight",
         say: "This is it, the view. Give it till sunset and the city switches on.",
-        points: [
-          "Hook: the view of Hong Kong",
-          "A flat path around Victoria Peak",
-          "Named after Sir Frederick Lugard, governor 1907–12, who drove the founding of HKU in 1911",
-          "Sunset around 17:40, then the city switches on"
-        ],
+        vo: "Lugard Road is a flat little path that wraps around Victoria Peak, named after Sir Frederick Lugard, governor back in the 1900s. Walk a few minutes along it, and the whole of Hong Kong opens up below you: the towers, the harbour, Kowloon on the other side. Sunset's around 5:40. Give it a little longer, and the city switches itself on.",
         about: "A flat, mostly shaded path that circles Victoria Peak, with one of the best views of the skyline and the harbour. It's named after Sir Frederick Lugard, governor from 1907 to 1912. Sunset is around 17:40. Film the light going, then stay for the moment the towers light up.",
         facts: [
           "It's named after Sir Frederick Lugard, Governor of Hong Kong from 1907 to 1912.",
@@ -669,13 +496,7 @@ window.TRIP = {
       { leg: 1, t: "18:30", mode: "Bus", text: "Bus 15 from The Peak towards Wan Chai, skipping the tram queue. Upper deck front for the view." },
       { t: "19:30", en: "Under Bridge Spicy Crab", wiki: ["Under Bridge Spicy Crab", "Causeway Bay Typhoon Shelter"], zh: "橋底辣蟹", area: "Wan Chai / Causeway Bay", kind: "food",
         say: "Typhoon shelter crab. This is going to get messy.",
-        points: [
-          "Hook: a crab buried under a mountain of garlic",
-          "Typhoon shelter style: from the boat people who lived in Causeway Bay's typhoon shelter",
-          "Fried with crispy garlic, chilli and black beans",
-          "Started as a stall under the Canal Road flyover, hence 'Under Bridge'",
-          "You choose the spice level"
-        ],
+        vo: "For generations, families lived on boats in Causeway Bay's typhoon shelter, and they cooked on them too. Their way of frying crab, buried under a mountain of crispy garlic, chilli and black beans, became famous across Hong Kong. This restaurant started out as a stall under the Canal Road flyover, which is why it's called Under Bridge. You choose your spice level. Choose carefully.",
         ask: "Ask which spice level most people go for.",
         about: "Families once lived on boats in Causeway Bay's typhoon shelter, and they cooked on them too. Their style of fried crab, smothered in crispy garlic, chilli and black beans, is what this restaurant made famous. It started as a stall under the Canal Road flyover, hence 'Under Bridge'. You choose your spice level. Choose carefully.",
         facts: [
@@ -702,11 +523,7 @@ window.TRIP = {
     items: [
       { t: "08:00", en: "Slow breakfast in Jordan", wiki: ["Hong Kong-style French toast", "Cha chaan teng"], zh: "佐敦早餐", area: "Jordan", kind: "food",
         say: "Slow start today. One more cha chaan teng breakfast before Lantau.",
-        points: [
-          "Hook: one more cha chaan teng before a long day on Lantau",
-          "Hong Kong French toast: usually a peanut butter sandwich, fried, with butter and syrup",
-          "Satay beef noodles: a cha chaan teng classic, often on instant noodles"
-        ],
+        vo: "Slow start today, so one more cha chaan teng breakfast before Lantau. There are two classics I haven't tried yet. Hong Kong French toast, which is usually a peanut butter sandwich, fried and served with butter and syrup. And satay beef noodles, which make no sense on paper and complete sense in the bowl.",
         ask: "Ask the staff what they'd order for breakfast.",
         about: "Any cha chaan teng near the station will do. Two things you haven't had yet: Hong Kong French toast, thick bread usually sandwiched with peanut butter, fried and served with butter and syrup; and satay beef noodles, a cha chaan teng classic that makes no sense on paper and total sense in the bowl.",
         facts: [],
@@ -723,12 +540,7 @@ window.TRIP = {
       { leg: 1, t: "09:15", mode: "MTR", text: "Kowloon → Tung Chung, Tung Chung line, about 25 min. Exit B to the cable car." },
       { t: "10:00", fixed: "Opens 10:00", en: "Ngong Ping 360", wiki: ["Ngong Ping 360"], zh: "昂坪360", area: "Tung Chung → Ngong Ping", kind: "sight",
         say: "Cable car up over the mountains. The Big Buddha should appear any minute.",
-        points: [
-          "Hook: the commute to the Big Buddha",
-          "About 5.7 km and about 25 minutes",
-          "Over the bay and the mountains, with the airport behind you",
-          "Crystal cabins have glass floors"
-        ],
+        vo: "This cable car is nearly six kilometres long, and it takes about 25 minutes. It crosses the bay and climbs straight over the mountains of Lantau, with the airport laid out behind you on its man-made island. I went for the crystal cabin, which has a glass floor. That's either a great idea or a terrible one, depending on how you feel about heights.",
         about: "The ride is about 5.7 km and takes around 25 minutes. It crosses the bay and climbs over the hills, with the airport laid out behind you on its man-made island. The crystal cabins have glass floors, which is either the best or the worst idea, depending on how you feel about heights. Opens 10:00 on weekdays.",
         facts: [
           "The ride is about 5.7 km long and takes around 25 minutes.",
@@ -738,14 +550,8 @@ window.TRIP = {
         go: "Tung Chung cable car terminal, next to Tung Chung station exit B.",
         q: "Ngong Ping 360 Tung Chung Cable Car Terminal", ll: [22.2894, 113.9425] },
       { t: "10:30", en: "Big Buddha, Po Lin & Wisdom Path", wiki: ["Tian Tan Buddha", "The Big Buddha (Hong Kong)"], zh: "天壇大佛 · 寶蓮禪寺 · 心經簡林", area: "Ngong Ping", kind: "sight",
-        say: "The Big Buddha. 268 steps, so if I'm out of breath, that's why.",
-        points: [
-          "Hook: 34 metres of bronze on a mountaintop",
-          "Completed December 1993, facing Po Lin Monastery",
-          "268 steps to the top",
-          "The monastery is older: founded 1906",
-          "Wisdom Path: 38 wooden pillars carved with the Heart Sutra, calligraphy by Jao Tsung-I"
-        ],
+        say: "The Big Buddha. If I'm out of breath, blame the steps.",
+        vo: "The Tian Tan Buddha is 34 metres of bronze, sitting on top of a mountain on Lantau. It was finished in 1993, and it faces Po Lin Monastery below, which has been here since 1906. To reach it, there are 268 steps. And just along the path is the Wisdom Path: 38 tall wooden pillars carved with the Heart Sutra.",
         about: "The Tian Tan Buddha was completed in December 1993 and faces Po Lin Monastery below. The statue is modern, but the monastery has been here since 1906. A short walk away, the Wisdom Path is a row of 38 tall wooden pillars carved with the Heart Sutra, in the calligraphy of the scholar Jao Tsung-I.",
         facts: [
           "The Big Buddha was completed in December 1993 and is 34 m tall.",
@@ -757,12 +563,7 @@ window.TRIP = {
         q: "Tian Tan Buddha Ngong Ping", ll: [22.2540, 113.9050] },
       { t: "12:15", en: "Vegetarian lunch at Po Lin", wiki: ["Po Lin Monastery"], zh: "寶蓮禪寺齋堂", area: "Ngong Ping", kind: "food",
         say: "Lunch at the monastery, all vegetarian. My body is quietly saying thank you.",
-        points: [
-          "Hook: after days of goose and crab, a vegetarian lunch",
-          "Po Lin was founded in 1906 by three monks, first called 'The Big Hut', and named Po Lin in 1924",
-          "Buddhist cooking is fully vegetarian: tofu, gluten and mushrooms in place of meat",
-          "No meat to hide behind, so it's all technique"
-        ],
+        vo: "Po Lin Monastery was founded in 1906 by three monks, and it was first known as 'The Big Hut'. Lunch here is fully vegetarian. Buddhist cooking uses tofu, wheat gluten and mushrooms to do the jobs meat usually does. With no meat to hide behind, it's all technique, and after days of goose, crab and brisket, my body is very grateful.",
         ask: "Ask which dish people like most.",
         about: "Po Lin was founded in 1906 by three monks and was first known as 'The Big Hut'; it took the name Po Lin in 1924. The dining hall serves vegetarian set meals, cooked the Buddhist way, with tofu, wheat gluten and mushrooms doing the jobs meat usually does. With no meat to lean on, it's all technique.",
         facts: [
@@ -779,13 +580,8 @@ window.TRIP = {
         q: "Po Lin Monastery vegetarian restaurant", ll: [22.2557, 113.9077] },
       { leg: 1, t: "13:15", mode: "Bus", text: "Bus 21 Ngong Ping → Tai O, about 20 min. Runs infrequently: check the timetable at the stop." },
       { t: "13:45", en: "Tai O fishing village", wiki: ["Tai O"], zh: "大澳", area: "Lantau", kind: "food",
-        say: "Tai O. Houses on stilts, and the whole village smells of dried seafood.",
-        points: [
-          "Hook: the Hong Kong from before the skyscrapers",
-          "Stilt houses (棚屋) of the Tanka, Hong Kong's boat-dwelling fishing people",
-          "Famous for shrimp paste and salted fish, dried in the sun",
-          "Boat trips go looking for Chinese white dolphins (often pink), but sightings are getting rarer"
-        ],
+        say: "Tai O. Houses on stilts, boats everywhere, and that smell.",
+        vo: "Tai O is the Hong Kong from before the skyscrapers. The houses stand on stilts over the water. They belong to the Tanka, Hong Kong's traditional boat-dwelling fishing people. The village is famous for shrimp paste and salted fish, dried in the sun, and you can smell it before you see it. Boats leave from here to look for Chinese white dolphins, which are often pink, although these days they're getting harder to find.",
         ask: "Ask a shop owner how long their family has been making shrimp paste.",
         about: "The stilt houses belong to the Tanka, Hong Kong's traditional boat-dwelling fishing people, who built their homes over the tidal creek. Tai O is famous for its shrimp paste and salted fish, both made by salting the catch and drying it in the sun. Short boat trips leave from here to look for Chinese white dolphins, which are often pink, though sightings are getting rarer.",
         facts: [
@@ -806,14 +602,8 @@ window.TRIP = {
       { leg: 1, t: "17:05", mode: "MTR", text: "Tung Chung → Kowloon, Tung Chung line. Back to the Airbnb to rest." },
       { leg: 1, t: "18:30", mode: "MTR", text: "Jordan → Yau Ma Tei, change to Kwun Tong line → Yau Tong. Walk about 15 min to the village." },
       { t: "19:00", en: "Lei Yue Mun seafood village", wiki: ["Lei Yue Mun"], zh: "鯉魚門", area: "Yau Tong", kind: "food",
-        say: "Lei Yue Mun. Pick it from the tank, agree the price, then they cook it. First, we negotiate.",
-        points: [
-          "Hook: dinner and a negotiation",
-          "Lei Yue Mun is usually translated as 'carp gate': the channel at the east end of the harbour",
-          "The system: pick live seafood at a fishmonger, agree a price per catty (about 600 g), then a restaurant cooks it for a fee",
-          "A small lighthouse on the rocks has guided ships through the channel for over 50 years",
-          "Agree every price before anything is weighed or cooked"
-        ],
+        say: "Lei Yue Mun. Look at these tanks. Time to go shopping for dinner.",
+        vo: "Lei Yue Mun sits at the eastern mouth of Victoria Harbour, and the name is usually translated as 'carp gate'. It's lined with seafood tanks, and dinner here works differently. You pick your seafood live from a fishmonger, agree a price per catty, which is about 600 grams, and then hand it to a restaurant to cook for a fee. So before anything is weighed or cooked, we negotiate.",
         ask: "Ask the fishmonger what's best today.",
         about: "Lei Yue Mun is usually translated as 'carp gate', after the narrow channel at the east end of Victoria Harbour. The village on its edge is lined with seafood tanks and restaurants. The system: pick live seafood at a fishmonger, agree the price per catty, then hand it to a restaurant, which charges a fee to cook it. At the edge of the village, a small lighthouse on a rock has guided ships through the channel for over 50 years.",
         facts: [
@@ -832,11 +622,7 @@ window.TRIP = {
         q: "Lei Yue Mun Seafood Village", ll: [22.2849, 114.2391] },
       { t: "19:00", en: "Plan B: Mak Man Kee & Kai Kai", wiki: ["Wonton noodles", "Tong sui"], zh: "麥文記 · 佳佳甜品", area: "Jordan", kind: "backup",
         say: "Too tired for the seafood village, so it's wonton noodles and dessert close to home.",
-        points: [
-          "Hook: too tired for the seafood village, still eating well",
-          "Mak Man Kee: classic wonton noodles, small bowl, wontons under the noodles",
-          "Kai Kai: tong sui = 'sugar water', Cantonese sweet soups, hot or cold"
-        ],
+        vo: "Too tired for the seafood village tonight, so dinner stays close to home. Mak Man Kee does classic wonton noodles, the old-school way: a small bowl, with the wontons hidden under the noodles so the noodles don't go soggy. Then Kai Kai, for tong sui, which means 'sugar water': Cantonese sweet soups, eaten hot or cold.",
         ask: "At Kai Kai, ask which dessert is best on a cold night.",
         about: "If the day runs long: Mak Man Kee on Parkes Street is a classic wonton noodle shop, serving the old-school small bowl with the wontons hidden under the noodles. Kai Kai on Ning Po Street does tong sui, 'sugar water': Cantonese sweet soups, eaten hot or cold. Hot pot near Jordan is the other option.",
         facts: [
@@ -861,14 +647,8 @@ window.TRIP = {
     items: [
       { leg: 1, t: "06:25", mode: "MTR", text: "Jordan → Admiralty (Tsuen Wan line), change to Island line → Kennedy Town, about 25 min." },
       { t: "07:00", en: "Sun Hing", wiki: ["Custard bun", "Dim sum"], zh: "新興食家", area: "Kennedy Town", kind: "food",
-        say: "It's 7am, and this place has been open since 3. I'm here for the custard buns that ooze.",
-        points: [
-          "Hook: this dim sum place has been open since 3am",
-          "Kennedy Town; opens 3am, closes in the afternoon: night owls and early workers",
-          "The star: lau sa bao = 'flowing sand bun'",
-          "Inside: molten salted-egg-yolk custard",
-          "Bring cash, and your passport for Macau"
-        ],
+        say: "Sun Hing, at 7am. I'm here for the custard buns that ooze.",
+        vo: "Sun Hing opens at 3 in the morning and closes in the afternoon, so the people finishing their night and the people starting their day end up eating in the same place. The thing to get is lau sa bao, the 'flowing sand bun': a steamed bun filled with molten salted-egg-yolk custard. Bring cash, and be careful, because it's very hot.",
         ask: "Ask the staff what time the first customers turn up.",
         about: "Sun Hing in Kennedy Town opens at 3am and closes in the afternoon, which makes it a favourite for people finishing a night and people starting a day. The star is lau sa bao, 'flowing sand bun', with molten salted-egg-yolk custard inside. Bring cash.",
         facts: [
@@ -888,13 +668,7 @@ window.TRIP = {
       { leg: 1, t: "08:30", fixed: "Ferry 08:30 · be there 08:00", mode: "Ferry", text: "Hong Kong–Macau Ferry Terminal → Macau Outer Harbour, about 1 hour. Passport through immigration on both sides." },
       { t: "10:00", en: "Ruins of St. Paul's & Senado Square", wiki: ["Ruins of Saint Paul's", "Senado Square"], zh: "大三巴牌坊 · 議事亭前地", area: "Macau", kind: "sight",
         say: "Welcome to Macau. This is the Ruins of St. Paul's.",
-        points: [
-          "Hook: Macau's most famous sight is one wall",
-          "The church was built 1602–1640; a fire during a typhoon in 1835 left only the facade and stairs",
-          "Portugal ran Macau until December 1999",
-          "Senado Square: wavy Portuguese calçada paving, pastel colonial buildings",
-          "The historic centre has been UNESCO World Heritage since 2005"
-        ],
+        vo: "This was once a church. It was built between 1602 and 1640, and in 1835 a fire during a typhoon burned it down. All that was left was the stone front and the stairs, and somehow, that wall became the most famous sight in Macau. Portugal ran Macau until 1999, and you can see it everywhere: the wavy black-and-white paving in Senado Square, the pastel colonial buildings. The whole old centre is a UNESCO World Heritage Site.",
         ask: "Ask a shop on the way up which snack they sell most.",
         about: "The church was built between 1602 and 1640. A fire during a typhoon in 1835 destroyed it, leaving only the stone front and the stairs. Macau was run by Portugal until December 1999, and you can see it in Senado Square downhill: wavy black-and-white Portuguese calçada paving and pastel colonial buildings. The whole historic centre has been a UNESCO World Heritage Site since 2005. The street up to the Ruins is lined with shops selling pork jerky and almond cookies.",
         facts: [
@@ -913,13 +687,7 @@ window.TRIP = {
       { leg: 1, t: "12:30", mode: "Bus", text: "Bus or taxi to Taipa Village, about 20–30 min." },
       { t: "13:00", en: "Taipa Village", wiki: ["Taipa Village", "Galinha à africana"], zh: "氹仔舊城區", area: "Taipa, Macau", kind: "food",
         say: "Macanese lunch in Taipa: minchi and African chicken. Then a pork chop bun, because obviously.",
-        points: [
-          "Hook: food from centuries of sailors, traders and families",
-          "Macanese food: Portuguese and Chinese, with African, Indian and Southeast Asian influences",
-          "Minchi: minced meat, diced potato, fried egg",
-          "African chicken: a Macau dish; origin debated, one story credits a hotel chef in the 1940s",
-          "Pork chop bun: Tai Lei Loi Kei is famous for it"
-        ],
+        vo: "Macanese food is what happened when Portuguese cooking spent centuries in southern China, and picked up flavours from Africa, India and Southeast Asia along the way. Minchi is the home-cooking classic: minced meat, diced potato, and a fried egg on top. African chicken is a Macau dish, despite the name, and nobody quite agrees where it came from. And then there's the pork chop bun, because Macau.",
         ask: "Ask whether the minchi is a family recipe.",
         about: "Macanese food is what happened when Portuguese cooking spent centuries in southern China, picking up flavours from Portugal's old trade routes through Africa, India and Southeast Asia on the way. Minchi is the home-cooking classic: minced meat with diced potato and a fried egg on top. African chicken is a Macau dish despite the name. Its origin is debated, and one popular story credits a hotel chef in the 1940s. Taipa Village is a few lanes of colonial houses and food shops, and Rua do Cunha is the main food street.",
         facts: [
@@ -938,14 +706,8 @@ window.TRIP = {
         q: "Rua do Cunha Taipa Macau", ll: [22.1535, 113.5566] },
       { leg: 1, t: "15:00", mode: "Bus", text: "Bus to Coloane Village, about 20 min." },
       { t: "15:20", en: "Lord Stow's Bakery", wiki: ["Lord Stow's Bakery", "Pastel de nata"], zh: "安德魯餅店", area: "Coloane, Macau", kind: "food",
-        say: "The original Lord Stow's. Burnt top, flaky pastry. Let's go.",
-        points: [
-          "Hook: the tart that defined Macau, made by an Englishman",
-          "Andrew Stow, an English pharmacist, opened it in 1989",
-          "'Lord' was a nickname from his Portuguese friends",
-          "Based on Portugal's pastel de nata, but with cream in the custard",
-          "Coloane: Macau's quiet southern end"
-        ],
+        say: "The original Lord Stow's. Egg tart rematch: Hong Kong versus Macau.",
+        vo: "The Macau egg tart was made famous by an Englishman. Andrew Stow, a pharmacist, opened this bakery in Coloane in 1989. His Portuguese friends nicknamed him 'Lord'. He based his tart on Portugal's pastel de nata, but used cream in the custard. Burnt top, flaky pastry. And now it's time to settle the Hong Kong versus Macau egg tart debate.",
         ask: "Ask how many tarts they bake in a day.",
         about: "Andrew Stow, an English pharmacist, opened the bakery in 1989. The 'Lord' was a nickname from his Portuguese friends. He based his tart on Portugal's pastel de nata, but used cream in the custard. Coloane is the quiet southern end of Macau, a small waterfront village with a chapel square: a good place to sit down and eat one while it's still warm.",
         facts: [
@@ -964,12 +726,7 @@ window.TRIP = {
       { leg: 1, t: "16:30", mode: "Bus", text: "Bus or taxi to the Cotai Strip, about 15 min." },
       { t: "17:00", en: "Cotai Strip", wiki: ["Cotai Strip", "The Venetian Macao"], zh: "路氹金光大道", area: "Cotai, Macau", kind: "sight",
         say: "Cotai at night. More lights than anywhere I've been all week.",
-        points: [
-          "Hook: the same city as this morning's Ruins, a different planet",
-          "Cotai = COloane + TAIpa, joined by reclaimed land",
-          "Lined with giant casino resorts",
-          "The Venetian (2007): indoor canals and gondolas"
-        ],
+        vo: "Cotai's name comes from the two islands it joined: COloane and TAIpa. The land in between was reclaimed from the sea, and now it's lined with giant casino resorts. The Venetian, which opened in 2007, even has indoor canals with gondolas. This morning I was standing in front of a church ruin from the 1600s. Same city.",
         about: "Cotai is short for COloane + TAIpa: the strip of reclaimed land that joined the two islands, now lined with giant casino resorts. The Venetian Macao opened in 2007 with indoor canals and gondola rides. It's the same city as the Ruins of St. Paul's this morning, and that might be the strangest thing about Macau.",
         facts: [
           "Cotai is named from COloane + TAIpa, the two islands it joined.",
@@ -988,12 +745,7 @@ window.TRIP = {
     items: [
       { t: "06:45", fixed: "Check-in 06:00–15:00", en: "In-town check-in, Kowloon Station", wiki: ["Kowloon station (MTR)", "Airport Express (MTR)"], zh: "九龍站市區預辦登機", area: "West Kowloon", kind: "hub",
         say: "Checking my bags in at Kowloon Station, so I've got a hands-free last morning.",
-        points: [
-          "Hook: your bags go to the airport without you",
-          "In-town check-in at Airport Express stations",
-          "Cathay's counter: 06:00–15:00",
-          "A whole last morning with nothing to carry"
-        ],
+        vo: "Last morning, and my bags are going to the airport without me. Airport Express stations have in-town check-in, so you drop your bags in the city and ride out later. That means a whole last morning in Hong Kong, hands-free.",
         about: "Airport Express stations offer in-town check-in, so you can drop bags in the city and ride to the airport later. Cathay's counter here is open 06:00–15:00.",
         facts: [
           "In-town check-in means your bags travel to the airport without you."
@@ -1004,14 +756,7 @@ window.TRIP = {
       { leg: 1, t: "07:15", mode: "MTR", text: "Walk to Austin station, Tuen Ma line → Sung Wong Toi, about 12 min." },
       { t: "07:30", en: "Kowloon Walled City Park", wiki: ["Kowloon Walled City Park", "Kowloon Walled City"], zh: "九龍寨城公園", area: "Kowloon City", kind: "sight",
         say: "Listen to how quiet it is here. It wasn't always like this.",
-        points: [
-          "Hook: the quietest spot in Kowloon was once one of the most crowded places on Earth",
-          "Around 33,000 people lived here in 1987, on one small patch of land",
-          "Little daylight reached the alleys; the colonial government largely left it alone",
-          "Demolished 1993–94; the park was opened in December 1995 by Chris Patten (the egg-tart governor)",
-          "Still standing: parts of the South Gate and the old yamen (government office)",
-          "Kai Tak planes flew low over Kowloon City until 1998"
-        ],
+        vo: "This quiet garden was once one of the most crowded places on Earth. For decades, the Kowloon Walled City was a patch of land the colonial government largely left alone, and it grew into a dense, lawless maze of buildings, so tight that daylight barely reached the alleys. In 1987, around 33,000 people lived here. It was demolished in the early 1990s, and this park opened in 1995. Parts of the old South Gate are still here. And all the while, planes into Kai Tak were flying low over these rooftops.",
         ask: "Ask an older visitor if they remember the Walled City.",
         about: "For most of the 20th century this was a strange hole in the map, a patch of land that the colonial government largely left alone. It grew into a dense, lawless block of buildings packed so tightly that little daylight reached the alleys. It was demolished in 1993–94, and the garden was opened in December 1995 by Chris Patten, the egg-tart governor from Monday. Parts of the old South Gate and the yamen, the old government office, still stand. Then breakfast in Kowloon City, which is known for its Thai food.",
         facts: [
@@ -1025,12 +770,7 @@ window.TRIP = {
       { leg: 1, t: "08:50", mode: "Taxi", text: "Kowloon City → Wong Tai Sin Temple, about 10 min." },
       { t: "09:00", en: "Wong Tai Sin Temple", wiki: ["Wong Tai Sin Temple (Hong Kong)"], zh: "黃大仙祠", area: "Wong Tai Sin", kind: "sight",
         say: "Wong Tai Sin Temple. Let's see what the sticks say about my future.",
-        points: [
-          "Hook: a temple that promises you'll get what you ask for",
-          "Dedicated to the Taoist deity Wong Tai Sin",
-          "The promise: 'what you ask for, you get' (有求必應)",
-          "Kau chim (求籤): shake the bamboo sticks until one falls out, then get it read"
-        ],
+        vo: "Wong Tai Sin is one of the busiest temples in Hong Kong, and its promise is a big one: 'what you ask for, you get'. People come to ask about their future with something called kau chim. You kneel, shake a cylinder of numbered bamboo sticks until one falls out, and then have your number read.",
         ask: "Ask a fortune teller what your stick means.",
         about: "One of Hong Kong's busiest temples, dedicated to the Taoist deity Wong Tai Sin. The ritual is called kau chim (求籤): you shake a cylinder of numbered bamboo sticks until one falls out, then take the number to be interpreted. Film the shaking. The sound of the sticks is the sound of this place.",
         facts: [
@@ -1042,12 +782,7 @@ window.TRIP = {
       { leg: 1, t: "09:50", mode: "MTR", text: "Wong Tai Sin → Diamond Hill, Kwun Tong line, 1 stop." },
       { t: "10:00", en: "Chi Lin Nunnery & Nan Lian Garden", wiki: ["Chi Lin Nunnery", "Nan Lian Garden"], zh: "志蓮淨苑 · 南蓮園池", area: "Diamond Hill", kind: "sight",
         say: "Chi Lin Nunnery, and the calmest garden in Hong Kong.",
-        points: [
-          "Hook: a temple held together without a single nail",
-          "Founded 1934, rebuilt 1998 in Tang dynasty style",
-          "Interlocking timber joints, no nails",
-          "Nan Lian Garden: a Tang-style garden with a golden pavilion and ponds"
-        ],
+        vo: "Chi Lin Nunnery was rebuilt in 1998 in the style of the Tang dynasty, entirely out of timber, held together with interlocking joints and not a single nail. Next door is Nan Lian Garden, laid out like a classical Tang garden, with ponds and a golden pavilion. After a week of noise, it's the calmest place in Hong Kong.",
         about: "A Buddhist nunnery founded in 1934 and rebuilt in 1998 in Tang dynasty style, with interlocking timber joints and no nails. Next door, Nan Lian Garden is laid out like a Tang dynasty garden, with ponds and a golden pavilion. After a week of noise, this is the place to let the camera sit still for a minute.",
         facts: [
           "The nunnery was founded in 1934 and rebuilt in Tang dynasty style in 1998, with interlocking timber joints and no nails.",
@@ -1057,11 +792,7 @@ window.TRIP = {
         q: "Chi Lin Nunnery Diamond Hill", ll: [22.3403, 114.2048] },
       { t: "11:15", en: "Last dim sum, Diamond Hill", wiki: ["Dim sum"], zh: "鑽石山點心", area: "Diamond Hill", kind: "food",
         say: "Last meal in Hong Kong, so it has to be dim sum.",
-        points: [
-          "Hook: last meal in Hong Kong, so it has to be dim sum",
-          "Going for dim sum = yum cha, 'drink tea'",
-          "The week's final exam: compare with Tim Ho Wan and Sun Hing"
-        ],
+        vo: "In Cantonese, going for dim sum is called yum cha, which means 'drink tea', because the tea is half the point. This is my last meal in Hong Kong, so it's the classics, one last time: shrimp dumplings, siu mai, char siu buns and rice rolls. And this is the final exam, against Tim Ho Wan and Sun Hing.",
         ask: "Ask what the kitchen is proudest of.",
         about: "Going for dim sum in Cantonese is yum cha, 'drink tea', because the tea is half the point. Any busy dim sum restaurant near Diamond Hill station will do. Use it as the week's final exam.",
         facts: [],
@@ -1077,11 +808,7 @@ window.TRIP = {
       { leg: 1, t: "12:50", fixed: "Train ~12:50", mode: "Airport Express", text: "Kowloon → Airport with the same card, at the airport about 13:20." },
       { t: "16:05", fixed: "Departs 16:05", en: "CX903 to Manila", wiki: ["Cathay Pacific", "Hong Kong International Airport"], zh: "國泰航空 CX903", area: "Hong Kong International Airport", kind: "hub",
         say: "That's Hong Kong done. Six days, too many egg tarts. Next stop, Manila.",
-        points: [
-          "Best bite of the week",
-          "Best moment of the week",
-          "The one thing you'd come back for"
-        ],
+        vo: "Six days in Hong Kong and Macau. Too many egg tarts, not enough stomach. Next stop, Manila.",
         facts: [],
         go: "Bags already checked; go straight to security.",
         q: "Hong Kong International Airport Terminal 1", ll: [22.3135, 113.9145] }
