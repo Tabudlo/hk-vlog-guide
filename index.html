@@ -819,6 +819,21 @@ svg.i{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2;stroke
 .facts li{position:relative;padding:10px 0 10px 34px;border-bottom:1px solid var(--rule);font-size:1rem;line-height:1.45}
 .facts li:last-child{border-bottom:0}
 .facts li::before{counter-increment:f;content:counter(f);position:absolute;left:0;top:10px;width:24px;height:24px;border-radius:50%;background:var(--line);color:#fff;font-weight:800;font-size:.78rem;display:grid;place-items:center}
+.dseg{margin:14px max(16px,calc(50% - 264px)) 0}
+.dseg button[aria-selected="true"]{background:var(--bg);color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.12)}
+.beats{list-style:none;padding:6px 16px 24px;max-width:560px;margin:0 auto}
+.beat{display:grid;grid-template-columns:34px 1fr;gap:0 10px;padding:16px 0;border-bottom:1px solid var(--rule)}
+.beat:last-child{border-bottom:0}
+.beat>b{width:30px;height:30px;border-radius:50%;background:var(--line);color:#fff;display:grid;place-items:center;font-weight:800;font-size:.9rem}
+.beat h3{font-size:1.05rem;font-weight:800;line-height:30px}
+.beat .cue{color:var(--mut);font-size:.92rem;line-height:1.4;margin:2px 0 8px}
+.beat .txt{font-size:1.02rem;line-height:1.5}
+.beat .txt.q{font-weight:600;font-size:1.1rem}
+.beat ul{list-style:none}
+.beat li{position:relative;padding:6px 0 6px 16px;font-size:1rem;line-height:1.45}
+.beat li::before{content:"";position:absolute;left:2px;top:14px;width:7px;height:7px;border-radius:50%;background:var(--line)}
+.beat li .zh{font-family:"Noto Sans TC",sans-serif;color:var(--mut);margin-left:6px}
+.beat .pbtn{margin-top:10px;min-height:44px;padding:0 14px;border-radius:22px;background:var(--bg2);display:inline-flex;align-items:center;gap:6px;font-weight:700;font-size:.9rem}
 .eat{list-style:none}
 .eat li{position:relative;padding:10px 0 10px 24px;border-bottom:1px solid var(--rule);font-size:1rem;line-height:1.5}
 .eat li:last-child{border-bottom:0}
@@ -2247,8 +2262,28 @@ function drawMap(){
   setTimeout(() => { map.invalidateSize(); map.fitBounds(pts, { padding: [36, 36], maxZoom: 15 }); }, 30);
 }
 
+// ---- script outline: the stop as beats to follow on camera
+function scriptHTML(s, d){
+  const i = d.stops.indexOf(s), next = d.stops.slice(i + 1).find(x => x.kind !== "backup"), food = !!(s.eat && s.eat.length);
+  const ul = a => `<ul>${a.join("")}</ul>`, li = t => `<li>${esc(t)}</li>`;
+  const B = [];
+  const beat = (h, cue, body) => B.push({ h, cue, body });
+  beat("Open", "Hook them in the first few seconds. Read it, or say it your own way.",
+    `<p class="txt q">“${esc(s.say)}”</p><button class="pbtn" data-prompt><svg class="i"><use href="#cam"/></svg>Open in prompter</button>`);
+  if (s.about) beat("Set the scene", "Where you are, who's behind it, why it matters. Talk over shots of the place.", `<p class="txt">${esc(s.about)}</p>`);
+  if (s.order && s.order.length) beat("What's on the table", "Name each dish as it lands, in English and the local name, and say why you ordered it.",
+    ul(s.order.map(o => `<li>${esc(o[0])}<span class="zh">${esc(o[1])}</span></li>`)));
+  if (food) beat("First bite", "Show it, taste it, describe it: texture, then flavour, then compare it to something people know.", ul(s.eat.map(li)));
+  if (s.facts && s.facts.length) beat(food ? "Drop a fact" : "Look around", food ? "Slip one in between bites." : "Point the camera at it and drop a fact or two.", ul(s.facts.map(li)));
+  if (food) beat("Verdict", "Be honest and specific.", ul(["Best thing on the table, and why, in one line.", "Would you queue for it again? Is it worth the hype?", "One thing you'd tell a friend to order."].map(li)));
+  else if (s.kind === "sight") beat("How it feels", "One honest line about being here.", ul(["What surprised you, compared with what you expected?", "What's the sound, smell or crowd like right now?"].map(li)));
+  beat("Hand-off", next ? "Wrap this stop and tease the next one." : "Wrap the day.",
+    next ? ul([`Next up: ${next.en}${next.zh ? " · " + next.zh : ""}`].map(li)) : ul(["Best bite or moment of the day, in one line.", "What's coming tomorrow (or where you're off to next)."].map(li)));
+  return `<ol class="beats">${B.map((b, k) => `<li class="beat"><b>${k + 1}</b><div><h3>${b.h}</h3><p class="cue">${b.cue}</p>${b.body}</div></li>`).join("")}</ol>`;
+}
+
 // ---- detail
-let cur = null;
+let cur = null, dView = store.get("dView", "script");
 function openStop(id, replace){
   cur = find(id); if (!cur) return;
   const s = cur, d = s.day;
@@ -2262,8 +2297,13 @@ function openStop(id, replace){
     </div>
     <div class="plate"><div class="z">${esc(s.zh)}</div><div class="en" id="dName">${esc(s.en)}</div>
       <div class="meta">${s.fixed ? `<span class="badge appt">${esc(s.fixed)}</span>` : ""}<span>${esc(kindLabel(s))}</span><span>${d.dow} ${d.dom}</span></div></div>
-    <div class="inner">
-      ${sec("Say on camera", `<div class="say">“${esc(s.say)}”<br><button id="dPrompt"><svg class="i"><use href="#cam"/></svg>Open in prompter</button></div>`)}
+    <div class="seg dseg" role="tablist" aria-label="Stop view">
+      <button role="tab" data-v="script" aria-selected="${dView === "script"}">Script</button>
+      <button role="tab" data-v="info" aria-selected="${dView === "info"}">Info</button>
+    </div>
+    <div id="dScript" ${dView === "script" ? "" : "hidden"}>${scriptHTML(s, d)}</div>
+    <div class="inner" id="dInfo" ${dView === "info" ? "" : "hidden"}>
+      ${sec("Say on camera", `<div class="say">“${esc(s.say)}”<br><button data-prompt><svg class="i"><use href="#cam"/></svg>Open in prompter</button></div>`)}
       ${sec("About this place", s.about ? `<p class="about">${esc(s.about)}</p>` : "")}
       ${sec("What to order", s.order && s.order.length ? `<div class="order">${s.order.map(o => `<div><span>${esc(o[0])}</span><span>${esc(o[1])}</span></div>`).join("")}</div>` : "")}
       ${sec("While you eat", s.eat && s.eat.length ? `<ul class="eat">${s.eat.map(e => `<li>${esc(e)}</li>`).join("")}</ul>` : "")}
@@ -2273,7 +2313,12 @@ function openStop(id, replace){
       ${ph ? `<p class="credit">Photo: ${esc(ph.by)}${ph.lic ? ", " + esc(ph.lic) : ""}, via <a href="${ph.src}" target="_blank" rel="noopener">Wikimedia Commons</a> (from the Wikipedia article “${esc(ph.article)}”)</p>` : ""}
     </div>`;
   $("dBack").onclick = () => history.back();
-  $("dPrompt").onclick = () => openPrompter(d, d.stops.indexOf(s) + 1);
+  $("dBody").querySelectorAll("[data-prompt]").forEach(b => b.onclick = () => openPrompter(d, d.stops.indexOf(s) + 1));
+  $("dBody").querySelectorAll(".dseg button").forEach(b => b.onclick = () => {
+    dView = b.dataset.v; store.set("dView", dView);
+    $("dBody").querySelectorAll(".dseg button").forEach(x => x.setAttribute("aria-selected", x === b));
+    $("dScript").hidden = dView !== "script"; $("dInfo").hidden = dView !== "info";
+  });
   const i = d.stops.indexOf(s);
   $("dPrev").disabled = i === 0; $("dNext").disabled = i === d.stops.length - 1;
   fillVisit();
