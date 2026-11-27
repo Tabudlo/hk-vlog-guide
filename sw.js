@@ -3,7 +3,7 @@
 // Map tiles you've viewed are kept too (see below).
 // The page itself is always fetched fresh when there's signal, so updates
 // show up straight away.
-const APP = "hkvg-app-ec24a5036e";
+const APP = "hkvg-app-0e06887390";
 const IMG = "hkvg-img-v1";
 const TILES = "hkvg-tiles-v1";
 const MAX_TILES = 1500; // about 30-40 MB

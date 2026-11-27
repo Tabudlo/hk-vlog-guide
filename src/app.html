@@ -468,10 +468,13 @@ function scriptHTML(s, d){
   const i = d.stops.indexOf(s), next = d.stops.slice(i + 1).find(x => x.kind !== "backup"), food = !!(s.eat && s.eat.length);
   const ul = a => `<ul>${a.join("")}</ul>`, li = t => `<li>${esc(t)}</li>`;
   const B = [], beat = (h, cue, body) => B.push({ h, cue, body });
-  if (s.vo) beat("Voiceover", "Read it over shots of the place, or to camera. Change any words to make it yours.",
-    `<p class="txt vo">${esc(s.vo)}</p><button class="pbtn" data-prompt="vo"><svg class="i"><use href="#cam"/></svg>Open in prompter</button>`);
-  beat("To camera", "Short and in the moment: where you are and what you're here for.",
+  const inside = !!(s.shotsIn && s.shotsIn.length), sh = s.shots && s.shots.length;
+  if (sh) beat(inside ? "Set the scene: outside" : "Set the scene", inside ? "Film these as you arrive. They go under your voiceover." : "Film these first. They go under your voiceover.", ul(s.shots.map(li)));
+  beat("To camera", inside ? "Film it at the door, before you go in. Short and in the moment." : "Short and in the moment: where you are and why you're here.",
     `<p class="txt q">“${esc(s.say)}”</p><button class="pbtn" data-prompt><svg class="i"><use href="#cam"/></svg>Open in prompter</button>`);
+  if (inside) beat("Set the scene: inside", "Film these as you sit down, before the food lands.", ul(s.shotsIn.map(li)));
+  if (s.vo) beat("Voiceover", sh ? "In the edit, this plays over your scene shots. Read it on the spot, or record it later somewhere quiet. Change any words to make it yours." : "Read it on the spot, or record it later. Change any words to make it yours.",
+    `<p class="txt vo">${esc(s.vo)}</p><button class="pbtn" data-prompt="vo"><svg class="i"><use href="#cam"/></svg>Open in prompter</button>`);
   if (s.order && s.order.length) beat("So we ordered…", "Name each dish as it lands and say what it is.",
     ul(s.order.map(o => `<li>${esc(o[0])}<span class="zh">${esc(o[1])}</span>${o[2] ? `<span class="what">${esc(o[2])}</span>` : ""}</li>`)));
   if (food) beat("First bite", "Show it, taste it, describe it: texture, then flavour, then compare it to something people know.", ul(s.eat.map(li)));
@@ -535,7 +538,7 @@ $("dNext").onclick = () => { const d = cur.day, i = d.stops.indexOf(cur); if (i 
 
 // ---- prompter
 let pr = { day: null, i: 0 }, prSize = store.get("prSize", 34);
-function prItems(d){ return [{ label: `${d.dow} ${d.dom} · Day intro`, text: d.intro, where: d.title }].concat(d.stops.flatMap(s => (s.vo ? [{ label: `${s.en} · Voiceover`, text: s.vo, where: `${s.en}  ${s.zh}`, id: s.id, vo: 1 }] : []).concat([{ label: `${s.en} · To camera`, text: s.say, where: `${s.en}  ${s.zh}`, id: s.id }]))); }
+function prItems(d){ return [{ label: `${d.dow} ${d.dom} · Day intro`, text: d.intro, where: d.title }].concat(d.stops.flatMap(s => [{ label: `${s.en} · To camera`, text: s.say, where: `${s.en}  ${s.zh}`, id: s.id }].concat(s.vo ? [{ label: `${s.en} · Voiceover`, text: s.vo, where: `${s.en}  ${s.zh}`, id: s.id, vo: 1 }] : []))); }
 function openPrompter(d, i){
   pr.day = d; pr.i = i || 0; drawPrompter();
   if ($("prompter").hidden){ $("prompter").hidden = false; history.pushState({ v: "prompter" }, ""); document.body.style.overflow = "hidden"; }
