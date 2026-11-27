@@ -38,7 +38,7 @@ self.addEventListener("fetch", e => {
     return;
   }
   if (req.mode === "navigate") {
-    e.respondWith(fetch(req).then(r => { const copy = r.clone(); caches.open(APP).then(c => c.put("./index.html", copy)); return r; })
+    e.respondWith(fetch(req.url, { cache: "no-cache", credentials: "same-origin" }).then(r => { const copy = r.clone(); caches.open(APP).then(c => c.put("./index.html", copy)); return r; })
       .catch(async () => (await caches.match("./index.html")) || Response.error()));
     return;
   }

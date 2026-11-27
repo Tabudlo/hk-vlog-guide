@@ -3,7 +3,7 @@
 // Map tiles you've viewed are kept too (see below).
 // The page itself is always fetched fresh when there's signal, so updates
 // show up straight away.
-const APP = "hkvg-app-2e2f9c9110";
+const APP = "hkvg-app-df86c58c24";
 const IMG = "hkvg-img-v1";
 const TILES = "hkvg-tiles-v1";
 const MAX_TILES = 1500; // about 30-40 MB
@@ -135,7 +135,7 @@ self.addEventListener("fetch", e => {
     return;
   }
   if (req.mode === "navigate") {
-    e.respondWith(fetch(req).then(r => { const copy = r.clone(); caches.open(APP).then(c => c.put("./index.html", copy)); return r; })
+    e.respondWith(fetch(req.url, { cache: "no-cache", credentials: "same-origin" }).then(r => { const copy = r.clone(); caches.open(APP).then(c => c.put("./index.html", copy)); return r; })
       .catch(async () => (await caches.match("./index.html")) || Response.error()));
     return;
   }

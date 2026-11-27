@@ -831,7 +831,6 @@ svg.i{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2;stroke
 .beat .cue{color:var(--mut);font-size:.92rem;line-height:1.4;margin:2px 0 8px}
 .beat .txt{font-size:1.02rem;line-height:1.5}
 .beat .txt.q{font-weight:600;font-size:1.1rem}
-.beat .txt,.say,.orig,.pr-text{white-space:pre-line}
 .beat .txt.vo{font-size:1.06rem;line-height:1.55;background:var(--bg2);border-radius:12px;padding:12px 14px}
 .beat ul{list-style:none}
 .beat li{position:relative;padding:6px 0 6px 16px;font-size:1rem;line-height:1.45}
@@ -946,7 +945,7 @@ svg.i{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2;stroke
   <header class="top">
     <div class="bar">
       <div class="clock" id="clock" aria-live="off">HK --:--</div>
-      <div style="display:flex;gap:8px;align-items:center"><span class="ver" id="ver" title="Version of the guide on this phone">Version<b>28 Nov 02:07</b></span><button class="iconbtn" id="refresh" aria-label="Check for updates"><svg class="i"><use href="#refresh"/></svg></button>
+      <div style="display:flex;gap:8px;align-items:center"><span class="ver" id="ver" title="Version of the guide on this phone">Version<b>28 Nov 02:17</b></span><button class="iconbtn" id="refresh" aria-label="Check for updates"><svg class="i"><use href="#refresh"/></svg></button>
       <button class="iconbtn" id="theme" aria-label="Switch light or dark mode"><svg class="i"><use href="#moon"/></svg></button></div>
     </div>
     <nav class="days" id="days" aria-label="Choose a day"></nav>
@@ -2450,10 +2449,11 @@ let edits = store.get("edits", {});
 const ekey = (s, f) => `${s.day.id}|${s.en}|${f}`;
 const mine = (s, f) => edits[ekey(s, f)];
 const txt = (s, f) => mine(s, f) ?? s[f];
+const escBr = t => esc(t).replace(/\r\n?|\u2028|\u2029/g, "\n").replace(/\n/g, "<br>");
 function editBlock(s, f, inner){
   const m = mine(s, f), k = esc(ekey(s, f));
   return `<div class="ed" data-ek="${k}"><div class="ed-view">${inner(m ?? s[f], m != null)}
-    ${m != null ? `<button class="peek" data-peek aria-expanded="false">▸ Show original</button><div class="orig" hidden><b>Original</b>${esc(s[f])}<br><button data-useorig>Use original instead</button></div>` : ""}</div>
+    ${m != null ? `<button class="peek" data-peek aria-expanded="false">▸ Show original</button><div class="orig" hidden><b>Original</b>${escBr(s[f])}<br><button data-useorig>Use original instead</button></div>` : ""}</div>
     <div class="ed-form" hidden><textarea class="${f === "say" ? "short" : ""}" aria-label="Your version">${esc(m ?? s[f])}</textarea>
     <div class="acts"><button class="p" data-save>Save</button><button data-cancel>Cancel</button></div></div></div>`;
 }
@@ -2490,10 +2490,10 @@ function scriptHTML(s, d){
   const inside = !!(s.shotsIn && s.shotsIn.length), sh = s.shots && s.shots.length;
   if (sh) beat(inside ? "Set the scene: outside" : "Set the scene", inside ? "Film these as you arrive. They go under your voiceover." : "Film these first. They go under your voiceover.", ul(s.shots.map(li)));
   beat("To camera" + badge("say"), inside ? "Film it at the door, before you go in. Short and in the moment." : "Short and in the moment: where you are and why you're here.",
-    editBlock(s, "say", (t, m) => `<p class="txt q${m ? " mine" : ""}">“${esc(t)}”</p><button class="pbtn" data-prompt><svg class="i"><use href="#cam"/></svg>Open in prompter</button>`), pen("say"));
+    editBlock(s, "say", (t, m) => `<p class="txt q${m ? " mine" : ""}">“${escBr(t)}”</p><button class="pbtn" data-prompt><svg class="i"><use href="#cam"/></svg>Open in prompter</button>`), pen("say"));
   if (inside) beat("Set the scene: inside", "Film these as you sit down, before the food lands.", ul(s.shotsIn.map(li)));
   if (s.vo) beat("Voiceover" + badge("vo"), sh ? "In the edit, this plays over your scene shots. Read it on the spot, or record it later somewhere quiet. Change any words to make it yours." : "Read it on the spot, or record it later. Change any words to make it yours.",
-    editBlock(s, "vo", (t, m) => `<p class="txt vo${m ? " mine" : ""}">${esc(t)}</p><button class="pbtn" data-prompt="vo"><svg class="i"><use href="#cam"/></svg>Open in prompter</button>`), pen("vo"));
+    editBlock(s, "vo", (t, m) => `<p class="txt vo${m ? " mine" : ""}">${escBr(t)}</p><button class="pbtn" data-prompt="vo"><svg class="i"><use href="#cam"/></svg>Open in prompter</button>`), pen("vo"));
   if (s.order && s.order.length) beat("So we ordered…", "Name each dish as it lands and say what it is.",
     ul(s.order.map(o => `<li>${esc(o[0])}<span class="zh">${esc(o[1])}</span>${o[2] ? `<span class="what">${esc(o[2])}</span>` : ""}</li>`)));
   if (food) beat("First bite", "Show it, taste it, describe it: texture, then flavour, then compare it to something people know.", ul(s.eat.map(li)));
@@ -2526,7 +2526,7 @@ function openStop(id, replace){
     </div>
     <div id="dScript" ${dView === "script" ? "" : "hidden"}>${scriptHTML(s, d)}</div>
     <div class="inner" id="dInfo" ${dView === "info" ? "" : "hidden"}>
-      ${sec("Example line to camera", `<div class="say">“${esc(txt(s, "say"))}”<br><button data-prompt><svg class="i"><use href="#cam"/></svg>Open in prompter</button></div>`)}
+      ${sec("Example line to camera", `<div class="say">“${escBr(txt(s, "say"))}”<br><button data-prompt><svg class="i"><use href="#cam"/></svg>Open in prompter</button></div>`)}
       ${sec("About this place", s.about ? `<p class="about">${esc(s.about)}</p>` : "")}
       ${sec("What to order", s.order && s.order.length ? `<div class="order">${s.order.map(o => `<div><span>${esc(o[0])}</span><span>${esc(o[1])}</span></div>`).join("")}</div>` : "")}
       ${sec("While you eat", s.eat && s.eat.length ? `<ul class="eat">${s.eat.map(e => `<li>${esc(e)}</li>`).join("")}</ul>` : "")}
@@ -2566,7 +2566,7 @@ function openPrompter(d, i){
 function drawPrompter(){
   const items = prItems(pr.day), it = items[pr.i];
   $("prText").style.fontSize = prSize + "px";
-  $("prText").innerHTML = `<span class="lbl">${esc(it.label)}</span>${esc(it.text)}`;
+  $("prText").innerHTML = `<span class="lbl">${esc(it.label)}</span>${escBr(it.text)}`;
   $("prText").scrollTop = 0;
   $("prWhere").textContent = `${pr.i + 1}/${items.length} · ${it.where}`;
   $("prProg").innerHTML = items.map((_, k) => `<i class="${k <= pr.i ? "on" : ""}"></i>`).join("");
