@@ -1,6 +1,6 @@
 // Trip data. Times are Hong Kong time (UTC+8). Pins are approximate; Maps links search by name and address.
 // Stop: { t, en, wiki[], zh, area, kind, say, about, facts[], order[[en, zh]], tip, go, q, ll }
-// t is only the planned order; the app does not show times. wiki = Wikipedia articles tried in order for the photo.
+// t is only the planned order; the app does not show it. fixed = a time that can't move (booking, flight, ferry, opening, sunset), shown as a tag. wiki = Wikipedia articles tried in order for the photo.
 // Leg:  { leg, t, mode, text }
 window.TRIP = {
   home: {
@@ -15,7 +15,7 @@ window.TRIP = {
     route: "Airport → Kowloon → Jordan",
     intro: "Kia ora from Hong Kong! I've just landed, it's Saturday night, and the plan is simple: get into Jordan, get a haircut, and find my first snack on Temple Street.",
     items: [
-      { t: "18:45", en: "Hong Kong International Airport", wiki: ["Hong Kong International Airport", "Chek Lap Kok", "Airport Express (MTR)"], zh: "香港國際機場", area: "Chek Lap Kok", kind: "hub",
+      { t: "18:45", fixed: "Lands 18:45", en: "Hong Kong International Airport", wiki: ["Hong Kong International Airport", "Chek Lap Kok", "Airport Express (MTR)"], zh: "香港國際機場", area: "Chek Lap Kok", kind: "hub",
         say: "Touched down in Hong Kong! First jobs: cash from the ATM, eSIM on, and then straight into town.",
         about: "Hong Kong's airport sits on Chek Lap Kok, an island off Lantau that was flattened and greatly enlarged with reclaimed land to build it. It opened in 1998 and replaced the old Kai Tak airport in Kowloon City.",
         facts: [
@@ -95,7 +95,7 @@ window.TRIP = {
         go: "9–11 Fuk Wing Street, Sham Shui Po.",
         q: "Tim Ho Wan 9 Fuk Wing Street Sham Shui Po", ll: [22.3309, 114.1640] },
       { leg: 1, t: "10:45", mode: "Walk", text: "Tim Ho Wan → Tai Nan Street, about 10 min. Leave by 10:45." },
-      { t: "11:00", appt: "11:00", en: "Haircut at The Old Soul Barbershop", wiki: [], zh: "太子大南街148號地下A2", area: "Prince Edward / Sham Shui Po", kind: "sight",
+      { t: "11:00", fixed: "Booked 11:00", en: "Haircut at The Old Soul Barbershop", wiki: [], zh: "太子大南街148號地下A2", area: "Prince Edward / Sham Shui Po", kind: "sight",
         say: "Haircut time, squeezed between dim sum and noodles. The Old Soul Barbershop on Tai Nan Street, and I'm asking for a medium-long scissor cut.",
         about: "A small men's barbershop on Tai Nan Street, on the edge of Sham Shui Po and Prince Edward. It's rated 5.0 on Fresha from over 800 reviews and about 4.9 on other review sites, where people describe it as friendly. Open 11:00–20:00, seven days a week.",
         facts: [
@@ -178,7 +178,7 @@ window.TRIP = {
         go: "Back to Nathan Road.",
         q: "328 Nathan Road Jordan Hong Kong", ll: [22.3058, 114.1714] },
       { leg: 1, t: "16:40", mode: "Walk", text: "West to the Art Park, about 20–25 min, or a short taxi." },
-      { t: "17:00", en: "West Kowloon Art Park", wiki: ["West Kowloon Cultural District", "M+"], zh: "西九藝術公園", area: "West Kowloon", kind: "sight",
+      { t: "17:00", fixed: "Sunset ~17:40", en: "West Kowloon Art Park", wiki: ["West Kowloon Cultural District", "M+"], zh: "西九藝術公園", area: "West Kowloon", kind: "sight",
         say: "Sunset at West Kowloon, looking straight across the harbour at Hong Kong Island.",
         about: "A big waterfront lawn in the West Kowloon Cultural District, looking across Victoria Harbour to Central. The M+ museum and the Hong Kong Palace Museum are right next to it. Sunset is around 17:40.",
         facts: [
@@ -212,7 +212,7 @@ window.TRIP = {
         go: "Tsim Sha Tsui waterfront, by the Clock Tower and Cultural Centre.",
         q: "Hong Kong Cultural Centre Tsim Sha Tsui", ll: [22.2937, 114.1702] },
       { leg: 1, t: "20:25", mode: "MTR", text: "Tsim Sha Tsui → Jordan, 1 stop, or walk 15 min up Nathan Road." },
-      { t: "20:45", en: "Four Seasons Pot Rice, Yee Shun & Temple Street", wiki: ["Claypot rice", "Double skin milk"], zh: "四季煲仔飯 · 義順牛奶公司", area: "Yau Ma Tei / Jordan", kind: "food",
+      { t: "20:45", fixed: "Opens 18:00", en: "Four Seasons Pot Rice, Yee Shun & Temple Street", wiki: ["Claypot rice", "Double skin milk"], zh: "四季煲仔飯 · 義順牛奶公司", area: "Yau Ma Tei / Jordan", kind: "food",
         say: "Dinner is clay-pot rice. There's always a queue, but the crispy rice at the bottom is the whole point.",
         about: "Four Seasons on Arthur Street is one of the best-known spots for bo zai fan, rice cooked to order in a clay pot with toppings like Chinese sausage or chicken. After, walk to Yee Shun for steamed milk pudding, then back through Temple Street.",
         facts: [
@@ -344,7 +344,7 @@ window.TRIP = {
         go: "Escalator starts at Queen's Road Central. Man Mo Temple: 124–126 Hollywood Road.",
         q: "Man Mo Temple 124 Hollywood Road", ll: [22.2840, 114.1502] },
       { leg: 1, t: "16:00", mode: "Walk", text: "To the Peak Tram lower terminus on Garden Road, about 15 min, or a short taxi." },
-      { t: "16:15", en: "Peak Tram", wiki: ["Peak Tram"], zh: "山頂纜車", area: "Central → The Peak", kind: "sight",
+      { t: "16:15", fixed: "Booked 16:15", en: "Peak Tram", wiki: ["Peak Tram"], zh: "山頂纜車", area: "Central → The Peak", kind: "sight",
         say: "The Peak Tram, going up one of the steepest tracks I've ever seen. Watch the buildings look like they're leaning.",
         about: "A funicular railway running from Garden Road up to Victoria Peak. On the way up, the steep angle makes the towers outside look like they're tilting.",
         facts: [
@@ -354,7 +354,7 @@ window.TRIP = {
         tip: "Pre-booked. Sit on the right side going up for the best view.",
         go: "Peak Tram Garden Road Terminus.",
         q: "Peak Tram Garden Road Terminus", ll: [22.2780, 114.1594] },
-      { t: "16:45", en: "Lugard Road lookout", wiki: ["Lugard Road", "Victoria Peak"], zh: "盧吉道", area: "The Peak", kind: "sight",
+      { t: "16:45", fixed: "Sunset ~17:40", en: "Lugard Road lookout", wiki: ["Lugard Road", "Victoria Peak"], zh: "盧吉道", area: "The Peak", kind: "sight",
         say: "This is it: the view from Lugard Road. Sunset over the harbour, and then the city lights come on.",
         about: "A flat, mostly shaded path that circles Victoria Peak, with one of the best views of the skyline and harbour. Sunset is around 17:40, and the city lights come on soon after.",
         facts: [
@@ -392,7 +392,7 @@ window.TRIP = {
         q: "cha chaan teng Jordan Hong Kong", ll: [22.3049, 114.1712] },
       { leg: 1, t: "09:00", mode: "Walk", text: "To Kowloon Station, about 15 min." },
       { leg: 1, t: "09:15", mode: "MTR", text: "Kowloon → Tung Chung, Tung Chung line, about 25 min. Exit B to the cable car." },
-      { t: "10:00", en: "Ngong Ping 360", wiki: ["Ngong Ping 360"], zh: "昂坪360", area: "Tung Chung → Ngong Ping", kind: "sight",
+      { t: "10:00", fixed: "Booked 10:00", en: "Ngong Ping 360", wiki: ["Ngong Ping 360"], zh: "昂坪360", area: "Tung Chung → Ngong Ping", kind: "sight",
         say: "First cable car of the day, up over the mountains of Lantau. And the Big Buddha should appear any minute.",
         about: "A cable car from Tung Chung up to Ngong Ping, crossing the bay and the mountains with views back over the airport. Opens at 10:00 on weekdays.",
         facts: [
@@ -480,7 +480,7 @@ window.TRIP = {
         go: "8 Smithfield Road, Kennedy Town. Short walk from Kennedy Town station.",
         q: "Sun Hing Restaurant 8 Smithfield Road Kennedy Town", ll: [22.2843, 114.1290] },
       { leg: 1, t: "07:40", mode: "MTR", text: "Kennedy Town → Sheung Wan, Island line. Hong Kong–Macau Ferry Terminal (Shun Tak Centre) by 08:00." },
-      { leg: 1, t: "08:30", mode: "Ferry", text: "Hong Kong–Macau Ferry Terminal → Macau Outer Harbour, about 1 hour. Passport through immigration on both sides." },
+      { leg: 1, t: "08:30", fixed: "Ferry 08:30 · be there 08:00", mode: "Ferry", text: "Hong Kong–Macau Ferry Terminal → Macau Outer Harbour, about 1 hour. Passport through immigration on both sides." },
       { t: "10:00", en: "Ruins of St. Paul's & Senado Square", wiki: ["Ruins of Saint Paul's", "Senado Square"], zh: "大三巴牌坊 · 議事亭前地", area: "Macau", kind: "sight",
         say: "Welcome to Macau! This is the Ruins of St. Paul's: just a front wall left standing, and it's one of the most famous sights in Asia.",
         about: "The Ruins of St. Paul's are the stone facade of a 17th-century church, all that survived a fire. Downhill, Senado Square is paved in wavy black-and-white Portuguese tiles and lined with pastel colonial buildings.",
@@ -528,7 +528,7 @@ window.TRIP = {
         ],
         go: "Bus or taxi from Coloane.",
         q: "Cotai Strip Macau", ll: [22.1475, 113.5600] },
-      { leg: 1, t: "20:00", mode: "Ferry", text: "Taipa Ferry Terminal → Hong Kong (book ahead), then MTR home. Backup: the bridge bus runs around the clock." }
+      { leg: 1, t: "20:00", fixed: "Ferry 20:00", mode: "Ferry", text: "Taipa Ferry Terminal → Hong Kong (book ahead), then MTR home. Backup: the bridge bus runs around the clock." }
     ]
   },
   {
@@ -537,7 +537,7 @@ window.TRIP = {
     route: "Kowloon Station → Kowloon City → Wong Tai Sin → Diamond Hill → airport",
     intro: "Last morning in Hong Kong! Bags are checked in already, so it's a hands-free morning: Kowloon Walled City, two temples, one last dim sum, and then Manila.",
     items: [
-      { t: "06:45", en: "In-town check-in, Kowloon Station", wiki: ["Kowloon station (MTR)", "Airport Express (MTR)"], zh: "九龍站市區預辦登機", area: "West Kowloon", kind: "hub",
+      { t: "06:45", fixed: "Check-in 06:00–15:00", en: "In-town check-in, Kowloon Station", wiki: ["Kowloon station (MTR)", "Airport Express (MTR)"], zh: "九龍站市區預辦登機", area: "West Kowloon", kind: "hub",
         say: "Checking my bags in at Kowloon Station, hours before the flight, so I can spend the morning exploring with nothing to carry.",
         about: "Airport Express stations offer in-town check-in, so you can drop bags in the city and ride to the airport later. Cathay's counter here is open 06:00–15:00.",
         facts: [
@@ -585,8 +585,8 @@ window.TRIP = {
         go: "Near Diamond Hill station.",
         q: "dim sum Diamond Hill", ll: [22.3400, 114.2015] },
       { leg: 1, t: "12:15", mode: "MTR", text: "Diamond Hill → Austin, Tuen Ma line, then walk to Kowloon Station." },
-      { leg: 1, t: "12:50", mode: "Airport Express", text: "Kowloon → Airport with the same card, at the airport about 13:20." },
-      { t: "16:05", en: "CX903 to Manila", wiki: ["Cathay Pacific", "Hong Kong International Airport"], zh: "國泰航空 CX903", area: "Hong Kong International Airport", kind: "hub",
+      { leg: 1, t: "12:50", fixed: "Train ~12:50", mode: "Airport Express", text: "Kowloon → Airport with the same card, at the airport about 13:20." },
+      { t: "16:05", fixed: "Departs 16:05", en: "CX903 to Manila", wiki: ["Cathay Pacific", "Hong Kong International Airport"], zh: "國泰航空 CX903", area: "Hong Kong International Airport", kind: "hub",
         say: "That's Hong Kong done. Next stop, Manila.",
         facts: [],
         go: "Bags already checked; go straight to security.",
