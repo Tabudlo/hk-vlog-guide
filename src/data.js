@@ -392,14 +392,14 @@ window.TRIP = {
         q: "cha chaan teng Jordan Hong Kong", ll: [22.3049, 114.1712] },
       { leg: 1, t: "09:00", mode: "Walk", text: "To Kowloon Station, about 15 min." },
       { leg: 1, t: "09:15", mode: "MTR", text: "Kowloon → Tung Chung, Tung Chung line, about 25 min. Exit B to the cable car." },
-      { t: "10:00", fixed: "Booked 10:00", en: "Ngong Ping 360", wiki: ["Ngong Ping 360"], zh: "昂坪360", area: "Tung Chung → Ngong Ping", kind: "sight",
+      { t: "10:00", fixed: "Opens 10:00", en: "Ngong Ping 360", wiki: ["Ngong Ping 360"], zh: "昂坪360", area: "Tung Chung → Ngong Ping", kind: "sight",
         say: "First cable car of the day, up over the mountains of Lantau. And the Big Buddha should appear any minute.",
         about: "A cable car from Tung Chung up to Ngong Ping, crossing the bay and the mountains with views back over the airport. Opens at 10:00 on weekdays.",
         facts: [
           "The ride is about 5.7 km long and takes around 25 minutes.",
           "Crystal cabins have glass floors."
         ],
-        tip: "Pre-booked. Get in the queue before 10:00.",
+        tip: "Buy a ONE-WAY ticket (Tung Chung → Ngong Ping) online a day or two ahead, on the official webstore (webstore.np360.com.hk) or Klook. You come back down by bus via Tai O, so don't buy a return. Crystal cabin (glass floor) is worth it for footage. Check np360.com.hk the night before: it stops in strong wind. Backup if it's closed: bus 23 from Tung Chung to Ngong Ping.",
         go: "Tung Chung cable car terminal, next to Tung Chung station exit B.",
         q: "Ngong Ping 360 Tung Chung Cable Car Terminal", ll: [22.2894, 113.9425] },
       { t: "10:30", en: "Big Buddha, Po Lin & Wisdom Path", wiki: ["Tian Tan Buddha", "The Big Buddha (Hong Kong)"], zh: "天壇大佛 · 寶蓮禪寺 · 心經簡林", area: "Ngong Ping", kind: "sight",
