@@ -21,8 +21,8 @@ A pocket run-sheet for the vlog: what's next, how to get there, what to order, a
 ## Operating Context
 
 - Day picker (Sat 28 – Thu 3) → stops for that day as tappable cards → next/previous between stops.
-- Per stop: time, English + Chinese name, a 2–3 sentence casual first-person vlog intro, an "About this place" background block (a few sentences to talk over on camera), 2–4 accurate fun facts, what to order and "While you eat" prompts (food stops: what to point the camera at, and how to describe taste and texture), how to get there, Google Maps link.
-- Each stop opens on a Script view (switchable to Info, choice remembered): the stop as numbered beats to follow on camera. Open → Set the scene → What's on the table → First bite → Drop a fact → Verdict → Hand-off to the next stop. Sights get Look around and How it feels instead of the food beats.
+- Per stop: time, English + Chinese name, talking points for the intro (said in the vlogger's own words), a short example line to camera, an "About this place" background block (a few sentences to talk over on camera), 2–4 accurate fun facts, what to order and "While you eat" prompts (food stops: what to point the camera at, and how to describe taste and texture), how to get there, Google Maps link.
+- Each stop opens on a Script view (switchable to Info, choice remembered): guidelines, not lines to read. Intro talking points → To camera (example line if you blank) → So we ordered (dish + what it is) → First bite → Ask someone → Verdict → Transition. Sights get How it feels instead of the food steps. Each fact is told once.
 - Travel legs (MTR, bus, minibus, tram, ferry, cable car) are smaller, simpler cards between stops.
 - A spoken day intro at the start of each day.
 - Full-screen prompter with big text for reading intros on camera. Used on the same phone as the front camera, so text sits at the top of the screen near the lens.

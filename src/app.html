@@ -174,6 +174,7 @@ svg.i{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2;stroke
 .beat li{position:relative;padding:6px 0 6px 16px;font-size:1rem;line-height:1.45}
 .beat li::before{content:"";position:absolute;left:2px;top:14px;width:7px;height:7px;border-radius:50%;background:var(--line)}
 .beat li .zh{font-family:"Noto Sans TC",sans-serif;color:var(--mut);margin-left:6px}
+.beat li .what{display:block;color:var(--mut);font-size:.92rem;margin-top:2px}
 .beat .pbtn{margin-top:10px;min-height:44px;padding:0 14px;border-radius:22px;background:var(--bg2);display:inline-flex;align-items:center;gap:6px;font-weight:700;font-size:.9rem}
 .eat{list-style:none}
 .eat li{position:relative;padding:10px 0 10px 24px;border-bottom:1px solid var(--rule);font-size:1rem;line-height:1.5}
@@ -465,18 +466,18 @@ function drawMap(){
 function scriptHTML(s, d){
   const i = d.stops.indexOf(s), next = d.stops.slice(i + 1).find(x => x.kind !== "backup"), food = !!(s.eat && s.eat.length);
   const ul = a => `<ul>${a.join("")}</ul>`, li = t => `<li>${esc(t)}</li>`;
-  const B = [];
-  const beat = (h, cue, body) => B.push({ h, cue, body });
-  beat("Open", "Hook them in the first few seconds. Read it, or say it your own way.",
-    `<p class="txt q">“${esc(s.say)}”</p><button class="pbtn" data-prompt><svg class="i"><use href="#cam"/></svg>Open in prompter</button>`);
-  if (s.about) beat("Set the scene", "Where you are, who's behind it, why it matters. Talk over shots of the place.", `<p class="txt">${esc(s.about)}</p>`);
-  if (s.order && s.order.length) beat("What's on the table", "Name each dish as it lands, in English and the local name, and say why you ordered it.",
-    ul(s.order.map(o => `<li>${esc(o[0])}<span class="zh">${esc(o[1])}</span></li>`)));
+  const B = [], beat = (h, cue, body) => B.push({ h, cue, body });
+  const pts = s.points && s.points.length ? s.points : null;
+  if (pts) beat(s.about ? "Intro" : "Talking points", s.about ? "Your own words, over shots of the place or to camera. Hit these points." : "Your own words.", ul(pts.map(li)));
+  beat("To camera", "Where you are and what you're here for, plus a joke or how you feel.",
+    `<p class="cue">If you blank:</p><p class="txt q">“${esc(s.say)}”</p><button class="pbtn" data-prompt><svg class="i"><use href="#cam"/></svg>Open in prompter</button>`);
+  if (s.order && s.order.length) beat("So we ordered…", "Name each dish as it lands and say what it is.",
+    ul(s.order.map(o => `<li>${esc(o[0])}<span class="zh">${esc(o[1])}</span>${o[2] ? `<span class="what">${esc(o[2])}</span>` : ""}</li>`)));
   if (food) beat("First bite", "Show it, taste it, describe it: texture, then flavour, then compare it to something people know.", ul(s.eat.map(li)));
-  if (s.facts && s.facts.length) beat(food ? "Drop a fact" : "Look around", food ? "Slip one in between bites." : "Point the camera at it and drop a fact or two.", ul(s.facts.map(li)));
-  if (food) beat("Verdict", "Be honest and specific.", ul(["Best thing on the table, and why, in one line.", "Would you queue for it again? Is it worth the hype?", "One thing you'd tell a friend to order."].map(li)));
+  if (s.ask) beat("Ask someone", "Let the people here tell the story.", ul([li(s.ask)]));
+  if (food) beat("Verdict", "Be honest and specific.", ul(["Best thing on the table, and why, in one line.", "Would you queue for it again? Worth the hype?", "Hot tip for anyone coming here."].map(li)));
   else if (s.kind === "sight") beat("How it feels", "One honest line about being here.", ul(["What surprised you, compared with what you expected?", "What's the sound, smell or crowd like right now?"].map(li)));
-  beat("Hand-off", next ? "Wrap this stop and tease the next one." : "Wrap the day.",
+  beat("Transition", next ? "One line to move the story on: where you're off to and why." : "Wrap the day.",
     next ? ul([`Next up: ${next.en}${next.zh ? " · " + next.zh : ""}`].map(li)) : ul(["Best bite or moment of the day, in one line.", "What's coming tomorrow (or where you're off to next)."].map(li)));
   return `<ol class="beats">${B.map((b, k) => `<li class="beat"><b>${k + 1}</b><div><h3>${b.h}</h3><p class="cue">${b.cue}</p>${b.body}</div></li>`).join("")}</ol>`;
 }
@@ -502,7 +503,7 @@ function openStop(id, replace){
     </div>
     <div id="dScript" ${dView === "script" ? "" : "hidden"}>${scriptHTML(s, d)}</div>
     <div class="inner" id="dInfo" ${dView === "info" ? "" : "hidden"}>
-      ${sec("Say on camera", `<div class="say">“${esc(s.say)}”<br><button data-prompt><svg class="i"><use href="#cam"/></svg>Open in prompter</button></div>`)}
+      ${sec("Example line to camera", `<div class="say">“${esc(s.say)}”<br><button data-prompt><svg class="i"><use href="#cam"/></svg>Open in prompter</button></div>`)}
       ${sec("About this place", s.about ? `<p class="about">${esc(s.about)}</p>` : "")}
       ${sec("What to order", s.order && s.order.length ? `<div class="order">${s.order.map(o => `<div><span>${esc(o[0])}</span><span>${esc(o[1])}</span></div>`).join("")}</div>` : "")}
       ${sec("While you eat", s.eat && s.eat.length ? `<ul class="eat">${s.eat.map(e => `<li>${esc(e)}</li>`).join("")}</ul>` : "")}
