@@ -58,6 +58,8 @@ svg.i{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2;stroke
 .bar{display:flex;align-items:center;justify-content:space-between;gap:8px;min-height:40px}
 .clock{font-weight:700;font-variant-numeric:tabular-nums;font-size:.95rem}
 .clock small{font-weight:600;color:rgba(255,255,255,.78);margin-left:6px}
+.ver{display:flex;flex-direction:column;align-items:flex-end;justify-content:center;font-size:.7rem;line-height:1.2;color:rgba(255,255,255,.78);font-weight:600;font-variant-numeric:tabular-nums;white-space:nowrap}
+.ver b{color:#fff;font-weight:700;font-size:.78rem}
 .top .iconbtn{color:#fff;background:rgba(255,255,255,.12)}
 .top .iconbtn:active{background:rgba(255,255,255,.22)}
 .iconbtn{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;color:var(--mut)}
@@ -261,7 +263,7 @@ svg.i{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2;stroke
   <header class="top">
     <div class="bar">
       <div class="clock" id="clock" aria-live="off">HK --:--</div>
-      <div style="display:flex;gap:8px"><button class="iconbtn" id="refresh" aria-label="Check for updates"><svg class="i"><use href="#refresh"/></svg></button>
+      <div style="display:flex;gap:8px;align-items:center"><span class="ver" id="ver" title="Version of the guide on this phone">Version<b>__BUILD__</b></span><button class="iconbtn" id="refresh" aria-label="Check for updates"><svg class="i"><use href="#refresh"/></svg></button>
       <button class="iconbtn" id="theme" aria-label="Switch light or dark mode"><svg class="i"><use href="#moon"/></svg></button></div>
     </div>
     <nav class="days" id="days" aria-label="Choose a day"></nav>
