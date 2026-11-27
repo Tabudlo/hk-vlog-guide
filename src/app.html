@@ -487,6 +487,16 @@ function drawMap(){
 // ---- script outline: the stop as beats to follow on camera
 // ---- your edits: kept on this phone, originals never change
 let edits = store.get("edits", {});
+// If a stop moved to another day, carry its edits with it.
+(() => { let ch = false;
+  for (const k of Object.keys(edits)) {
+    const [di, en, f] = k.split("|"), d = T.days.find(x => x.id === di);
+    if (d && d.stops.some(x => x.en === en)) continue;
+    const nd = T.days.find(x => x.stops.some(y => y.en === en)); if (!nd) continue;
+    const nk = `${nd.id}|${en}|${f}`; if (!(nk in edits)) edits[nk] = edits[k]; delete edits[k]; ch = true;
+  }
+  if (ch) store.set("edits", edits);
+})();
 const ekey = (s, f) => `${s.day.id}|${s.en}|${f}`;
 const mine = (s, f) => edits[ekey(s, f)];
 const txt = (s, f) => mine(s, f) ?? s[f];

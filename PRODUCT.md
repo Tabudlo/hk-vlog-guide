@@ -12,7 +12,7 @@ Single self-contained static HTML file (no framework, no build step), hosted on 
 
 ## Users
 
-One person: a 29-year-old solo food vlogger from New Zealand, on a six-day trip to Hong Kong and Macau (Sat 28 Nov – Thu 3 Dec 2026). Wakes early, eats a lot, based at an Airbnb in Jordan, Kowloon (Kim Tak Building, 328–342A Nathan Road). Uses the app one-handed on a phone, outdoors, on the move, often while filming.
+One person: a 29-year-old solo food vlogger from New Zealand, on a trip to Hong Kong and Macau (Sat 28 Nov – Thu 3 Dec 2026). After a cancelled connection, they fly direct on CX270 (Amsterdam Sat 28 Nov 12:20 → Hong Kong T1 Sun 29 Nov 07:15), so Saturday is a travel day and Sunday starts at the airport. Wakes early, eats a lot, based at an Airbnb in Jordan, Kowloon (Kim Tak Building, 328–342A Nathan Road). Uses the app one-handed on a phone, outdoors, on the move, often while filming.
 
 ## Product Purpose
 
@@ -20,7 +20,7 @@ A pocket run-sheet for the vlog: what's next, how to get there, what to order, a
 
 ## Operating Context
 
-- Day picker (Sat 28 – Thu 3) → stops for that day as tappable cards → next/previous between stops.
+- Day picker (Sat 28 – Thu 3; Saturday is the flight) → stops for that day as tappable cards → next/previous between stops.
 - Per stop: time, English + Chinese name, a voiceover script (the story, 4–6 sentences), a short line to camera, an "About this place" background block (a few sentences to talk over on camera), 2–4 accurate fun facts, what to order and "While you eat" prompts (food stops: what to point the camera at, and how to describe taste and texture), how to get there, Google Maps link.
 - Each stop opens on a Script view (switchable to Info, choice remembered): a readable script to adapt, in filming order. Set the scene: outside shots → To camera at the door (one short line) → Set the scene: inside shots → Voiceover (4–6 sentences, the story; plays over the scene shots in the edit) → So we ordered (dish + what it is) → First bite → Ask someone → Verdict → Transition. Sights get How it feels instead of the food steps. Each fact is told once.
 - Edit button on the voiceover and line to camera: your version is saved on the phone (never on the site), marked YOURS, with Show original / Use original instead underneath. The prompter reads your version. A Copy my edits button under the day's stops copies all edits as a backup.
